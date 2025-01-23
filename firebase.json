@@ -8,7 +8,7 @@
     ],
     "headers": [
       {
-        "source": "/remoteEntry.js",
+        "source": "**",
         "headers": [
           { "key": "Access-Control-Allow-Origin", "value": "https://www.athreyamr.dev" }
         ]
