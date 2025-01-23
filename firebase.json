@@ -6,6 +6,14 @@
       "**/.*",
       "**/node_modules/**"
     ],
+    "headers": [
+      {
+        "source": "/remoteEntry.js",
+        "headers": [
+          { "key": "Access-Control-Allow-Origin", "value": "https://www.athreyamr.dev" }
+        ]
+      }
+    ],
     "rewrites": [
       {
         "source": "**",
