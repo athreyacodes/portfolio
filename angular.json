@@ -19,6 +19,8 @@
 					"options": {
 						"outputPath": "dist/portfolio",
 						"index": "src/index.html",
+						"baseHref": "/portfolio/",
+						"deployUrl": "/portfolio/",
 						"polyfills": [
 							"zone.js"
 						],
@@ -30,7 +32,7 @@
 								"input": "public",
 								"output": "."
 							},
-  							"src/assets"
+							"src/assets"
 						],
 						"styles": [
 							"src/styles.scss"
@@ -78,8 +80,8 @@
 					},
 					"defaultConfiguration": "development",
 					"options": {
-						"port": 4200,
-						"publicHost": "http://localhost:4200",
+						"port": 4202,
+						"publicHost": "http://localhost:4202",
 						"extraWebpackConfig": "webpack.config.js"
 					}
 				},
@@ -99,7 +101,8 @@
 							{
 								"glob": "**/*",
 								"input": "public"
-							}
+							},
+							"src/assets"
 						],
 						"styles": [
 							"src/styles.scss"

@@ -16,8 +16,8 @@
     ],
     "rewrites": [
       {
-        "source": "**",
-        "destination": "/index.html"
+        "source": "/portfolio/**",
+        "destination": "/portfolio/index.html"
       }
     ]
   }
