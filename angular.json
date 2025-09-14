@@ -26,11 +26,16 @@
               {
                 "glob": "**/*",
                 "input": "public"
+              },
+              {
+                "glob": "**/*",
+                "input": "node_modules/layers-ui/fonts",
+                "output": "/assets/layers-ui/fonts"
               }
             ],
             "styles": [
-              "src/styles.scss",
-              "node_modules/layers-ui/dist/layers.min.css"
+              "node_modules/layers-ui/layers.min.css",
+              "src/styles.scss"
             ]
           },
           "configurations": {
