@@ -10,6 +10,15 @@
 </head>
 
 <body>
+  <script>
+    (function() {
+      try {
+        if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+          document.body.classList.add('color-scheme-dark');
+        }
+      } catch (e) {}
+    })();
+  </script>
   <div class="wave3-container">
     <div class="blur slow">
       <span></span>
