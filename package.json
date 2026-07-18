@@ -21,6 +21,7 @@
     "@angular/router": "^22.0.0",
     "@angular/ssr": "^22.0.7",
     "express": "^5.1.0",
+    "layers-ui": "^0.12.0",
     "rxjs": "~7.8.0",
     "tslib": "^2.3.0"
   },

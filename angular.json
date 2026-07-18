@@ -27,9 +27,15 @@
               {
                 "glob": "**/*",
                 "input": "public"
+              },
+              {
+                "glob": "**/*",
+                "input": "node_modules/layers-ui/fonts",
+                "output": "/assets/layers-ui/fonts"
               }
             ],
             "styles": [
+              "node_modules/layers-ui/layers.min.css",
               "src/styles.scss"
             ],
             "server": "src/main.server.ts",
