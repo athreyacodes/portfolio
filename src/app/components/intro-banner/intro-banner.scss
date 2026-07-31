@@ -1,0 +1,50 @@
+@use '../../../styles/breakpoints' as *;
+
+.intro-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 80vh;
+  width: 100%;
+  padding: 2rem;
+  box-sizing: border-box;
+
+  @include mobile {
+    min-height: 70vh;
+    padding: 1rem;
+  }
+}
+
+.dp-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.profile-dp {
+  width: clamp(140px, 20vw, 240px);
+  height: auto;
+  aspect-ratio: 1 / 1;
+  border-radius: 24px;
+  box-shadow: 0 19px 38px rgba(0, 0, 0, 0.30), 0 15px 12px rgba(0, 0, 0, 0.22);
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  
+  /* Micro-animation on load */
+  animation: fadeInScale 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+
+  &:hover {
+    transform: scale(1.05) translateY(-5px);
+    box-shadow: 0 28px 56px rgba(0, 0, 0, 0.40), 0 20px 20px rgba(0, 0, 0, 0.30);
+  }
+}
+
+@keyframes fadeInScale {
+  from {
+    opacity: 0;
+    transform: scale(0.9) translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}

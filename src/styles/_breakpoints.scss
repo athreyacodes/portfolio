@@ -1,0 +1,32 @@
+// Breakpoints based on the old portfolio setup
+$breakpoint-mobile-max: 550px;
+$breakpoint-tablet-min: 551px;
+$breakpoint-tablet-max: 820px;
+$breakpoint-laptop-min: 821px;
+$breakpoint-laptop-max: 1099px;
+$breakpoint-desktop-min: 1100px;
+
+// Mixins for responsive styling
+@mixin mobile {
+  @media only screen and (max-width: #{$breakpoint-mobile-max}) {
+    @content;
+  }
+}
+
+@mixin tablet {
+  @media only screen and (min-width: #{$breakpoint-tablet-min}) and (max-width: #{$breakpoint-tablet-max}) {
+    @content;
+  }
+}
+
+@mixin laptop {
+  @media only screen and (min-width: #{$breakpoint-laptop-min}) and (max-width: #{$breakpoint-laptop-max}) {
+    @content;
+  }
+}
+
+@mixin desktop {
+  @media only screen and (min-width: #{$breakpoint-desktop-min}) {
+    @content;
+  }
+}
