@@ -10,6 +10,8 @@
   color-scheme: light;
 }
 
+// Paint overscroll / chrome color on html only.
+// An opaque body background hides the wave (z-index: -1000) — especially in Safari.
 html {
   background-color: var(--bg-color, #eeeeee);
 }
@@ -25,12 +27,12 @@ body {
   font-family: var(--font-montserrat), sans-serif;
   scroll-behavior: smooth;
   overflow-x: hidden;
-  background-color: var(--bg-color, #eeeeee);
 }
 
 body {
+  background-color: transparent;
   // Keep content clear of the notch / home indicator while the page color
-  // still paints edge-to-edge behind Safari chrome via theme-color + bg.
+  // still paints edge-to-edge behind Safari chrome via theme-color + html bg.
   padding-top: env(safe-area-inset-top, 0px);
   padding-right: env(safe-area-inset-right, 0px);
   padding-bottom: env(safe-area-inset-bottom, 0px);
@@ -49,17 +51,37 @@ body {
   color-scheme: dark;
 }
 
-// Wave: cover the dynamic Safari viewport and clip WebKit blur fringe.
-.wave3-container {
-  inset: 0;
-  width: auto;
-  height: auto;
+app-root {
+  position: relative;
+  z-index: 1;
+  display: block;
   min-height: 100%;
-  min-height: 100dvh;
-  background-color: var(--bg-color);
+}
+
+// Undo broken wave packing from layers-ui 0.24.0 (scale/inset/isolation).
+// Safe once a fixed layers-ui publish lands; harmless as reinforcement.
+.wave3-container {
+  top: 0;
+  left: 0;
+  right: auto;
+  bottom: auto;
+  inset: auto;
+  width: 100%;
+  height: 100%;
+  height: 100dvh;
+  min-height: 100%;
+  isolation: auto;
+  background-color: transparent;
+  pointer-events: none;
+}
+
+.wave3-container div {
+  left: -15%;
+  width: 130%;
+  height: 130%;
 }
 
 .wave3-container div.blur {
-  transform: scale(1.08);
-  backface-visibility: hidden;
+  transform: none;
+  backface-visibility: visible;
 }
