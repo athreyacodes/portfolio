@@ -44,6 +44,18 @@ html {
   }
 }
 
+.tooltip-on-card {
+  .mdc-tooltip__surface {
+    background-color: transparent !important;
+    color: var(--secondary-color) !important;
+    box-shadow: none;
+    padding: 10px 20px !important;
+    border-radius: 10px !important;
+    font-family: var(--font-montserrat), sans-serif;
+    font-size: 12px;
+  }
+}
+
 .tooltip {
   .mdc-tooltip__surface {
     padding: 10px 20px !important;

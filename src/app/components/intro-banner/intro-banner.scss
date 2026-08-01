@@ -87,10 +87,23 @@
     background-color: transparent;
     color: var(--secondary-color);
     box-shadow: none;
+    transform: none;
 
-    &:hover {
-      background-color: var(--secondary-color);
-      color: var(--primary-color);
+    @media (hover: hover) and (pointer: fine) {
+      &:hover {
+        background-color: var(--secondary-color);
+        color: var(--primary-color);
+        transform: scale(1.1);
+      }
+    }
+
+    @media (hover: none) {
+      &:hover {
+        background-color: transparent;
+        color: var(--secondary-color);
+        transform: none;
+        box-shadow: none;
+      }
     }
   }
 }
@@ -174,16 +187,7 @@
   .hero-title,
   .hero-subtitle,
   .hero-experience {
-    color: var(--primary-color);
-  }
-}
-
-.color-scheme-dark .hero-panel--right {
-  .hero-pre-title,
-  .hero-title,
-  .hero-subtitle,
-  .hero-experience {
-    color: var(--secondary-color);
+    color: var(--hero-right-text-color);
   }
 }
 
@@ -230,6 +234,45 @@
   gap: var(--space-3);
   max-width: 50vw;
   height: 60px;
+}
+
+.hero-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2);
+  height: 60px;
+  min-width: 60px;
+  padding: 0 30px;
+  border: none;
+  border-radius: 10px;
+  background-color: var(--hero-btn-bg);
+  color: var(--secondary-color);
+  font-family: var(--font-montserrat), sans-serif;
+  font-size: 18px;
+  font-weight: 600;
+  cursor: pointer;
+  text-decoration: none;
+  box-shadow: var(--hero-card-shadow);
+  transition: transform 0.3s ease, box-shadow 0.3s ease, background-color var(--hero-transition);
+
+  mat-icon {
+    width: 24px;
+    height: 24px;
+    font-size: 24px;
+  }
+
+  @media (hover: hover) and (pointer: fine) {
+    &:hover {
+      transform: scale(1.05);
+      box-shadow: var(--hero-card-shadow);
+    }
+  }
+
+  &:focus-visible {
+    outline: 2px solid var(--hero-btn-bg);
+    outline-offset: 2px;
+  }
 }
 
 .hero-social {
@@ -302,6 +345,13 @@
     bottom: 5em;
     height: 50px;
   }
+
+  .hero-btn {
+    height: 50px;
+    min-width: 50px;
+    padding: 0 25px;
+    font-size: 16px;
+  }
 }
 
 @include tablet {
@@ -359,13 +409,70 @@
 }
 
 @include desktop {
+  .hero-identity,
+  .hero-role {
+    margin-top: 10px;
+  }
+
+  .hero-identity {
+    margin-right: 20px;
+  }
+
+  .hero-role {
+    margin-left: 20px;
+  }
+
+  // Fixed-height rows keep left/right lines aligned on desktop.
+  .hero-pre-title {
+    height: calc(var(--hero-pre-title-size) * 1.4);
+    margin-bottom: 10px;
+  }
+
+  .hero-name,
+  .hero-title {
+    height: calc(4rem * 1.1);
+  }
+
+  .hero-contact-row,
+  .hero-location,
+  .hero-subtitle {
+    display: flex;
+    align-items: center;
+    height: calc(var(--hero-subtitle-size) * 1.5);
+    margin-top: var(--hero-row-gap);
+    margin-bottom: 0;
+    box-sizing: content-box;
+  }
+
+  .hero-role > .hero-subtitle:first-of-type {
+    margin-top: calc(var(--hero-row-gap) + 4px);
+  }
+
+  .hero-experience {
+    margin-top: calc(var(--hero-row-gap) - 4px);
+  }
+
+  .hero-contact-row {
+    align-items: center;
+  }
+
+  .hero-copy-btn {
+    align-self: center;
+    flex-shrink: 0;
+  }
+
   .hero-photo {
     margin-right: calc(var(--hero-photo-size) / -3);
   }
 
-  .hero-identity,
-  .hero-role {
-    margin-top: 10px;
+  .hero-social .btn-icon--on-card {
+    width: 60px;
+    height: 60px;
+
+    svg {
+      width: 24px;
+      height: 24px;
+    }
   }
 }
 
@@ -383,7 +490,7 @@
   }
 
   .hero-download-cv,
-  .hero-actions .btn-accent {
+  .hero-actions .hero-btn:first-child {
     display: none;
   }
 
@@ -401,10 +508,14 @@
     justify-content: space-between;
   }
 
+  .hero-panel--left {
+    justify-content: flex-start;
+  }
+
   .hero-identity {
     margin-top: var(--hero-identity-offset);
     margin-right: 0;
-    margin-bottom: 30px;
+    margin-bottom: 20px;
     @include hero-identity-centered;
   }
 
@@ -423,7 +534,7 @@
     position: relative;
     bottom: 0;
     height: 45px;
-    margin: 10px 0 40px;
+    margin: 0 0 24px;
     justify-content: center;
     width: 100%;
   }

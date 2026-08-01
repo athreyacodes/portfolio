@@ -44,7 +44,7 @@
         class="btn-icon btn-icon--on-card"
         (click)="copyEmail()"
         [matTooltip]="me.socialLabels.mail"
-        matTooltipClass="tooltip-transparent"
+        matTooltipClass="text-12 tooltip-on-card"
         matTooltipPosition="below"
         [attr.aria-label]="me.socialLabels.mail"
       >
@@ -58,7 +58,7 @@
         target="_blank"
         rel="noopener noreferrer"
         [matTooltip]="me.socialLabels.linkedin"
-        matTooltipClass="tooltip-transparent"
+        matTooltipClass="text-12 tooltip-on-card"
         matTooltipPosition="below"
         [attr.aria-label]="me.socialLabels.linkedin"
       >
@@ -72,7 +72,7 @@
         target="_blank"
         rel="noopener noreferrer"
         [matTooltip]="me.socialLabels.github"
-        matTooltipClass="tooltip-transparent"
+        matTooltipClass="text-12 tooltip-on-card"
         matTooltipPosition="below"
         [attr.aria-label]="me.socialLabels.github"
       >
@@ -89,20 +89,22 @@
       <p class="hero-title">{{ me.title }}</p>
       <p class="hero-subtitle" [innerHTML]="me.subtitle"></p>
       <p class="hero-subtitle hero-experience">
-        <strong>{{ experienceYears }}</strong> years of experience
+        <span><strong>{{ experienceYears }}</strong> years of experience</span>
       </p>
     </div>
 
     <div class="hero-actions hero-animate">
-      <button type="button" class="btn-accent" (click)="scrollToSkills()">
-        {{ me.cta.skills }}
+      <button type="button" class="hero-btn" (click)="scrollToSkills()">
+        <mat-icon aria-hidden="true">verified</mat-icon>
+        <span>{{ me.cta.skills }}</span>
       </button>
       <a
-        class="btn-primary hero-download-cv"
+        class="hero-btn hero-download-cv"
         [href]="me.cvPath"
         [download]="me.cvDownloadName"
       >
-        {{ me.cta.downloadCv }}
+        <mat-icon aria-hidden="true">download</mat-icon>
+        <span>{{ me.cta.downloadCv }}</span>
       </a>
     </div>
   </div>
