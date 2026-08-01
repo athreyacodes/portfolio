@@ -1,8 +1,8 @@
+@use '../../../styles/breakpoints' as *;
+
 :host {
   display: block;
 }
-
-@use '../../../styles/breakpoints' as *;
 
 @mixin hero-identity-aligned-end {
   align-items: flex-end;
