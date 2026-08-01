@@ -2,6 +2,8 @@ import { Injectable, inject, PLATFORM_ID } from '@angular/core';
 import { isPlatformBrowser, DOCUMENT } from '@angular/common';
 
 const THEME_OVERRIDE_KEY = 'portfolio-theme-override';
+const LIGHT_THEME_COLOR = '#eeeeee';
+const DARK_THEME_COLOR = '#050505';
 
 @Injectable({
   providedIn: 'root'
@@ -17,12 +19,12 @@ export class ThemeService {
 
     const override = sessionStorage.getItem(THEME_OVERRIDE_KEY);
     if (override === 'dark') {
-      this.document.body.classList.add('color-scheme-dark');
+      this.applyTheme(true);
       return;
     }
 
     if (override === 'light') {
-      this.document.body.classList.remove('color-scheme-dark');
+      this.applyTheme(false);
       return;
     }
 
@@ -34,16 +36,9 @@ export class ThemeService {
       return;
     }
 
-    const body = this.document.body;
-    const willBeDark = !body.classList.contains('color-scheme-dark');
-
-    if (willBeDark) {
-      body.classList.add('color-scheme-dark');
-      sessionStorage.setItem(THEME_OVERRIDE_KEY, 'dark');
-    } else {
-      body.classList.remove('color-scheme-dark');
-      sessionStorage.setItem(THEME_OVERRIDE_KEY, 'light');
-    }
+    const willBeDark = !this.document.body.classList.contains('color-scheme-dark');
+    sessionStorage.setItem(THEME_OVERRIDE_KEY, willBeDark ? 'dark' : 'light');
+    this.applyTheme(willBeDark);
   }
 
   private syncWithSystemPreference(): void {
@@ -54,14 +49,33 @@ export class ThemeService {
         return;
       }
 
-      if (query.matches) {
-        this.document.body.classList.add('color-scheme-dark');
-      } else {
-        this.document.body.classList.remove('color-scheme-dark');
-      }
+      this.applyTheme(query.matches);
     };
 
     updateTheme(mediaQuery);
     mediaQuery.addEventListener('change', updateTheme);
+  }
+
+  private applyTheme(dark: boolean): void {
+    const body = this.document.body;
+    const root = this.document.documentElement;
+
+    body.classList.toggle('color-scheme-dark', dark);
+    root.style.colorScheme = dark ? 'dark' : 'light';
+    this.setThemeColor(dark ? DARK_THEME_COLOR : LIGHT_THEME_COLOR);
+  }
+
+  private setThemeColor(color: string): void {
+    const metas = this.document.head.querySelectorAll('meta[name="theme-color"]');
+
+    if (metas.length === 0) {
+      const meta = this.document.createElement('meta');
+      meta.setAttribute('name', 'theme-color');
+      meta.setAttribute('content', color);
+      this.document.head.appendChild(meta);
+      return;
+    }
+
+    metas.forEach((meta) => meta.setAttribute('content', color));
   }
 }

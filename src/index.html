@@ -5,10 +5,14 @@
   <meta charset="utf-8">
   <title>Athreya M R | Frontend Architect</title>
   <base href="/">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <meta name="description" content="Frontend Architect designing and building large-scale enterprise web applications with Angular, TypeScript, and modern full-stack practices.">
   <meta name="robots" content="index, follow">
   <meta name="author" content="Athreya M R">
+  <meta name="theme-color" content="#eeeeee" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#050505" media="(prefers-color-scheme: dark)">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <link rel="canonical" href="https://athreya.codes/">
   <meta property="og:title" content="Athreya M R | Frontend Architect">
   <meta property="og:description" content="Frontend Architect specializing in Angular, design systems, microfrontends, and AI-enabled full-stack development.">
@@ -27,20 +31,31 @@
 
 <body>
 
-  <!-- auto theme selection -->
+  <!-- auto theme selection + Safari chrome color -->
   <script>
     (function () {
       try {
+        var dark = false;
         var override = sessionStorage.getItem('portfolio-theme-override');
         if (override === 'dark') {
-          document.body.classList.add('color-scheme-dark');
-          return;
+          dark = true;
+        } else if (override === 'light') {
+          dark = false;
+        } else {
+          dark = window.matchMedia('(prefers-color-scheme: dark)').matches;
         }
-        if (override === 'light') {
-          return;
-        }
-        if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+
+        if (dark) {
           document.body.classList.add('color-scheme-dark');
+          document.documentElement.style.colorScheme = 'dark';
+        } else {
+          document.documentElement.style.colorScheme = 'light';
+        }
+
+        var color = dark ? '#050505' : '#eeeeee';
+        var metas = document.querySelectorAll('meta[name="theme-color"]');
+        for (var i = 0; i < metas.length; i++) {
+          metas[i].setAttribute('content', color);
         }
       } catch (e) { }
     })();

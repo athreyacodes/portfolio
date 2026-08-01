@@ -6,22 +6,60 @@
 
 :root {
   --secondary-color: #eeeeee;
+  --theme-color: #eeeeee;
+  color-scheme: light;
 }
 
-html, body {
-  height: 100%;
+html {
+  background-color: var(--bg-color, #eeeeee);
+}
+
+html,
+body {
+  min-height: 100%;
+  min-height: 100dvh;
+  min-height: -webkit-fill-available;
   margin: 0;
   padding: 0;
   box-sizing: border-box;
   font-family: var(--font-montserrat), sans-serif;
   scroll-behavior: smooth;
   overflow-x: hidden;
+  background-color: var(--bg-color, #eeeeee);
 }
 
-*, *:before, *:after {
+body {
+  // Keep content clear of the notch / home indicator while the page color
+  // still paints edge-to-edge behind Safari chrome via theme-color + bg.
+  padding-top: env(safe-area-inset-top, 0px);
+  padding-right: env(safe-area-inset-right, 0px);
+  padding-bottom: env(safe-area-inset-bottom, 0px);
+  padding-left: env(safe-area-inset-left, 0px);
+}
+
+*,
+*:before,
+*:after {
   box-sizing: inherit;
 }
 
 .color-scheme-dark {
   --secondary-color: #eeeeee;
+  --theme-color: #050505;
+  color-scheme: dark;
+}
+
+// Wave: cover the dynamic Safari viewport and clip WebKit blur fringe.
+.wave3-container {
+  inset: 0;
+  width: auto;
+  height: auto;
+  min-height: 100%;
+  min-height: 100dvh;
+  background-color: var(--bg-color);
+}
+
+.wave3-container div.blur {
+  transform: scale(1.08);
+  backface-visibility: hidden;
 }
