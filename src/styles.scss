@@ -1,4 +1,6 @@
 @use './styles/breakpoints' as *;
+@use './styles/tokens';
+@use './styles/typography';
 
 html, body {
   height: 100%;

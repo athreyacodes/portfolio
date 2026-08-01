@@ -1,0 +1,12 @@
+// Portfolio-specific design tokens (reference layers-ui CSS variables)
+
+:root {
+  --hero-card-radius: var(--radius-lg);
+  --hero-section-padding: var(--space-4);
+  --hero-panel-min-height: 90vh;
+  --hero-name-size: clamp(1.75rem, 4vw, 3rem);
+  --hero-title-size: clamp(2rem, 5vw, 4rem);
+  --hero-pre-title-size: clamp(1rem, 2vw, 1.25rem);
+  --hero-subtitle-size: clamp(0.95rem, 1.5vw, 1.25rem);
+  --hero-transition: 0.3s ease;
+}

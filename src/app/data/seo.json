@@ -1,14 +1,16 @@
 {
   "home": {
     "title": "Athreya M R | Portfolio",
-    "description": "Athreya M R - Portfolio showcasing experience, projects, and skills.",
+    "description": "Front-end web developer. Highly skilled in Angular. Proficient in JavaScript.",
     "ogTitle": "Athreya M R | Portfolio",
-    "ogDescription": "Athreya M R - Portfolio showcasing experience, projects, and skills.",
+    "ogDescription": "Front-end web developer. Highly skilled in Angular. Proficient in JavaScript.",
     "ogImage": "/images/dp.jpg",
     "ogType": "website",
+    "ogUrl": "https://portfolio-f2684.web.app/",
+    "canonicalUrl": "https://portfolio-f2684.web.app/",
     "twitterCard": "summary_large_image",
     "twitterTitle": "Athreya M R | Portfolio",
-    "twitterDescription": "Athreya M R - Portfolio showcasing experience, projects, and skills.",
+    "twitterDescription": "Front-end web developer. Highly skilled in Angular. Proficient in JavaScript.",
     "twitterImage": "/images/dp.jpg"
   }
 }

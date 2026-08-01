@@ -1,4 +1,25 @@
 {
   "name": "Athreya M R",
-  "photoPath": "images/dp.jpg"
+  "fullName": "ATHREYA M R",
+  "photoPath": "images/dp.jpg",
+  "experienceStartYear": 2015,
+  "preName": "Hello, I'm",
+  "preRole": "I'm a",
+  "title": "WEB DEVELOPER",
+  "subtitle": "Highly skilled in <strong>Angular</strong>, HTML, CSS and Javascript",
+  "email": "athreyamr10@gmail.com",
+  "location": "Bangalore, IN",
+  "linkedin": "https://www.linkedin.com/in/athreyamr/",
+  "github": "https://github.com/athreyacodes",
+  "cvPath": "files/CV.pdf",
+  "cvDownloadName": "Athreya_CV.pdf",
+  "cta": {
+    "skills": "See my Skills and Work",
+    "downloadCv": "Download CV"
+  },
+  "socialLabels": {
+    "mail": "Contact Me",
+    "linkedin": "My LinkedIn",
+    "github": "My Github"
+  }
 }

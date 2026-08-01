@@ -1,0 +1,40 @@
+.hero-pre-title {
+  font-family: var(--font-montserrat), sans-serif;
+  font-size: var(--hero-pre-title-size);
+  font-weight: 500;
+  margin-bottom: var(--space-2);
+  line-height: 1.4;
+}
+
+.hero-name {
+  font-family: var(--font-quicksand), sans-serif;
+  font-size: var(--hero-name-size);
+  font-weight: 700;
+  line-height: 1.1;
+  margin: 0;
+  text-wrap: balance;
+}
+
+.hero-title {
+  font-family: var(--font-quicksand), sans-serif;
+  font-size: var(--hero-title-size);
+  font-weight: 700;
+  line-height: 1.05;
+  margin: 0;
+  text-wrap: nowrap;
+}
+
+.hero-subtitle {
+  font-family: var(--font-montserrat), sans-serif;
+  font-size: var(--hero-subtitle-size);
+  font-weight: 400;
+  line-height: 1.5;
+  margin-top: var(--space-3);
+  max-width: 50ch;
+}
+
+.hero-meta {
+  font-family: var(--font-montserrat), sans-serif;
+  font-size: var(--hero-subtitle-size);
+  line-height: 1.5;
+}
