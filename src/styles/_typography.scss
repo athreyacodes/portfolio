@@ -13,7 +13,7 @@
   font-size: 2rem;
   font-weight: 700;
   line-height: 1.1;
-  margin-block: 0.6rem;
+  margin-block: 0;
   text-wrap: balance;
 }
 
@@ -31,7 +31,7 @@
   font-size: var(--hero-subtitle-size);
   font-weight: 400;
   line-height: 1.5;
-  margin-top: 24px;
+  margin-top: var(--hero-row-gap);
   max-width: 50ch;
 }
 
@@ -44,7 +44,6 @@
 @include desktop {
   .hero-name {
     font-size: 4rem;
-    margin-block: 0.75rem;
   }
 }
 

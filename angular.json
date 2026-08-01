@@ -89,6 +89,14 @@
         },
         "serve": {
           "builder": "@angular/build:dev-server",
+          "options": {
+            "prebundle": {
+              "exclude": [
+                "@angular/material",
+                "@angular/cdk"
+              ]
+            }
+          },
           "configurations": {
             "production": {
               "buildTarget": "portfolio:build:production"
