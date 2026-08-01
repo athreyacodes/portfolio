@@ -1,34 +1,29 @@
 import { Component, OnInit, inject } from '@angular/core';
 import { NgOptimizedImage } from '@angular/common';
 import { MatTooltipModule } from '@angular/material/tooltip';
-import { MatIconModule } from '@angular/material/icon';
 import { SeoService } from '../../services/seo.service';
-import { ScrollService } from '../../services/scroll.service';
 import { ThemeService } from '../../services/theme.service';
-import { getExperienceYears } from '../../utils/experience';
 import meData from '../../data/me.json';
 
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [NgOptimizedImage, MatTooltipModule, MatIconModule],
+  imports: [NgOptimizedImage, MatTooltipModule],
   templateUrl: './home.html',
   styleUrl: './home.scss'
 })
 export class HomeComponent implements OnInit {
   private readonly seoService = inject(SeoService);
-  private readonly scrollService = inject(ScrollService);
   private readonly themeService = inject(ThemeService);
 
   protected readonly me = meData;
-  protected readonly experienceYears = getExperienceYears(meData.experienceStartYear);
   protected copyFeedback = '';
 
   ngOnInit(): void {
     this.seoService.updateSeo('home');
     this.seoService.setPersonSchema({
       name: meData.name,
-      jobTitle: meData.title,
+      jobTitle: meData.homeTitle,
       email: meData.email,
       image: meData.photoPath,
       sameAs: [meData.linkedin, meData.github]
@@ -46,10 +41,6 @@ export class HomeComponent implements OnInit {
     window.setTimeout(() => {
       this.copyFeedback = '';
     }, 2500);
-  }
-
-  protected scrollToSkills(): void {
-    this.scrollService.scrollTo('skills');
   }
 
   protected toggleTheme(): void {

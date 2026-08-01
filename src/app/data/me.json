@@ -1,5 +1,6 @@
 {
   "name": "Athreya M R",
+  "displayName": "Athreya",
   "fullName": "ATHREYA M R",
   "photoPath": "images/dp.jpg",
   "experienceStartYear": 2015,
@@ -7,6 +8,8 @@
   "preRole": "I'm a",
   "title": "WEB DEVELOPER",
   "subtitle": "Highly skilled in <strong>Angular</strong>, HTML, CSS and Javascript",
+  "homeTitle": "Front-end Architect",
+  "homeSubtitle": "I design and build <strong>large-scale enterprise</strong> web applications",
   "email": "athreyacodes@gmail.com",
   "location": "Bangalore, IN",
   "linkedin": "https://www.linkedin.com/in/athreyamr/",
@@ -22,5 +25,6 @@
     "linkedin": "My LinkedIn",
     "github": "My Github"
   },
+  "homeMailLabel": "Copy My Email ID",
   "clickToCopy": "Click to copy."
 }
