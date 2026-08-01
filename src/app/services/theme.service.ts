@@ -1,4 +1,4 @@
-import { Injectable, Inject, PLATFORM_ID } from '@angular/core';
+import { Injectable, inject, PLATFORM_ID } from '@angular/core';
 import { isPlatformBrowser, DOCUMENT } from '@angular/common';
 
 const THEME_OVERRIDE_KEY = 'portfolio-theme-override';
@@ -7,10 +7,8 @@ const THEME_OVERRIDE_KEY = 'portfolio-theme-override';
   providedIn: 'root'
 })
 export class ThemeService {
-  constructor(
-    @Inject(DOCUMENT) private document: Document,
-    @Inject(PLATFORM_ID) private platformId: object
-  ) {}
+  private readonly document = inject(DOCUMENT);
+  private readonly platformId = inject(PLATFORM_ID);
 
   init(): void {
     if (!isPlatformBrowser(this.platformId)) {
@@ -64,11 +62,6 @@ export class ThemeService {
     };
 
     updateTheme(mediaQuery);
-
-    try {
-      mediaQuery.addEventListener('change', updateTheme);
-    } catch {
-      mediaQuery.addListener(updateTheme);
-    }
+    mediaQuery.addEventListener('change', updateTheme);
   }
 }

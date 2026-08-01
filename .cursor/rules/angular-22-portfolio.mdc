@@ -1,0 +1,33 @@
+---
+description: Angular 22 conventions for this portfolio
+globs: src/**/*.{ts,html,scss}
+alwaysApply: false
+---
+
+# Angular 22 — Portfolio
+
+Stack: Angular 22 standalone app, SSR/prerender (`outputMode: server`), SCSS, `layers-ui`, Material tooltip only.
+
+## Components & DI
+
+- Prefer `inject()` over constructor injection.
+- Do not set `standalone: true` (default).
+- Prefer signals for local UI state (`signal`, `computed`); avoid `OnInit` when a resolver or constructor/`afterNextRender` is enough.
+- Colocate `*.ts` / `*.html` / `*.scss` under `pages/` or feature folders.
+
+## Routing & SEO
+
+- Put page `title` on the route; apply meta/OG/JSON-LD in a `ResolveFn` so SSR/prerender emit tags in the initial HTML.
+- Keep copy in `src/app/data/seo.json` + `me.json`. Use absolute URLs for `og:image` / canonical (via `siteUrl`).
+- Prefer `NgOptimizedImage` with explicit `width`/`height`; mark LCP images `priority`.
+
+## Styles
+
+- Shared tokens/typography live in `src/styles/`; page layout overrides stay in the page SCSS.
+- Use existing breakpoint mixins from `_breakpoints.scss`.
+- Do not reintroduce dead hero utilities (meta rows, CTA buttons, intro-banner layout).
+
+## Hygiene
+
+- No unused services, utils, or Material modules.
+- Keep changes scoped; do not expand scope into unplanned sections.

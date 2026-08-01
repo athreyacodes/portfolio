@@ -1,9 +1,9 @@
-import { Injectable, Inject } from '@angular/core';
-import { Title, Meta } from '@angular/platform-browser';
+import { Injectable, inject } from '@angular/core';
+import { Meta, Title } from '@angular/platform-browser';
 import { DOCUMENT } from '@angular/common';
 import seoData from '../data/seo.json';
 
-export type SeoKey = keyof typeof seoData;
+export type SeoKey = Exclude<keyof typeof seoData, 'siteUrl'>;
 
 export interface PersonSchema {
   name: string;
@@ -17,41 +17,46 @@ export interface PersonSchema {
   providedIn: 'root'
 })
 export class SeoService {
+  private readonly titleService = inject(Title);
+  private readonly metaService = inject(Meta);
+  private readonly document = inject(DOCUMENT);
+
+  private readonly siteUrl = seoData.siteUrl.replace(/\/$/, '');
   private personSchemaScript: HTMLScriptElement | null = null;
 
-  constructor(
-    private titleService: Title,
-    private metaService: Meta,
-    @Inject(DOCUMENT) private document: Document
-  ) {}
-
-  updateSeo(key: SeoKey): void {
+  updateSeo(key: SeoKey, replacements: Record<string, string | number> = {}): void {
     const config = seoData[key];
     if (!config) {
       console.warn(`SEO configuration key "${key}" not found in seo.json`);
       return;
     }
 
+    const description = this.applyReplacements(config.description, replacements);
+    const pageUrl = `${this.siteUrl}/`;
+    const ogImage = this.toAbsoluteUrl(config.ogImage);
+    const twitterImage = this.toAbsoluteUrl(config.twitterImage);
+
     this.titleService.setTitle(config.title);
-    this.metaService.updateTag({ name: 'description', content: config.description });
+
+    this.metaService.updateTag({ name: 'description', content: description });
+    this.metaService.updateTag({ name: 'robots', content: config.robots });
+    this.metaService.updateTag({ name: 'author', content: 'Athreya M R' });
 
     this.metaService.updateTag({ property: 'og:title', content: config.ogTitle });
     this.metaService.updateTag({ property: 'og:description', content: config.ogDescription });
-    this.metaService.updateTag({ property: 'og:image', content: config.ogImage });
+    this.metaService.updateTag({ property: 'og:image', content: ogImage });
     this.metaService.updateTag({ property: 'og:type', content: config.ogType });
-
-    if ('ogUrl' in config && config.ogUrl) {
-      this.metaService.updateTag({ property: 'og:url', content: config.ogUrl });
-    }
+    this.metaService.updateTag({ property: 'og:url', content: pageUrl });
+    this.metaService.updateTag({ property: 'og:locale', content: 'en_US' });
+    this.metaService.updateTag({ property: 'og:site_name', content: 'Athreya M R' });
 
     this.metaService.updateTag({ name: 'twitter:card', content: config.twitterCard });
     this.metaService.updateTag({ name: 'twitter:title', content: config.twitterTitle });
     this.metaService.updateTag({ name: 'twitter:description', content: config.twitterDescription });
-    this.metaService.updateTag({ name: 'twitter:image', content: config.twitterImage });
+    this.metaService.updateTag({ name: 'twitter:image', content: twitterImage });
+    this.metaService.updateTag({ name: 'twitter:image:alt', content: config.twitterImageAlt });
 
-    if ('canonicalUrl' in config && config.canonicalUrl) {
-      this.setCanonicalUrl(config.canonicalUrl);
-    }
+    this.setCanonicalUrl(pageUrl);
   }
 
   setPersonSchema(person: PersonSchema): void {
@@ -60,24 +65,45 @@ export class SeoService {
       '@type': 'Person',
       name: person.name,
       jobTitle: person.jobTitle,
+      url: `${this.siteUrl}/`,
       email: person.email,
       image: this.toAbsoluteUrl(person.image),
       sameAs: person.sameAs
     };
 
+    const payload = JSON.stringify(schema);
+
     if (this.personSchemaScript) {
-      this.personSchemaScript.textContent = JSON.stringify(schema);
+      this.personSchemaScript.textContent = payload;
+      return;
+    }
+
+    const existing = this.document.head.querySelector(
+      'script[type="application/ld+json"][data-seo="person"]'
+    ) as HTMLScriptElement | null;
+
+    if (existing) {
+      existing.textContent = payload;
+      this.personSchemaScript = existing;
       return;
     }
 
     this.personSchemaScript = this.document.createElement('script');
     this.personSchemaScript.type = 'application/ld+json';
-    this.personSchemaScript.textContent = JSON.stringify(schema);
+    this.personSchemaScript.setAttribute('data-seo', 'person');
+    this.personSchemaScript.textContent = payload;
     this.document.head.appendChild(this.personSchemaScript);
   }
 
+  private applyReplacements(value: string, replacements: Record<string, string | number>): string {
+    return Object.entries(replacements).reduce(
+      (result, [token, replacement]) => result.replaceAll(`{${token}}`, String(replacement)),
+      value
+    );
+  }
+
   private setCanonicalUrl(url: string): void {
-    let link = this.document.querySelector('link[rel="canonical"]') as HTMLLinkElement | null;
+    let link = this.document.head.querySelector('link[rel="canonical"]') as HTMLLinkElement | null;
 
     if (!link) {
       link = this.document.createElement('link');
@@ -89,15 +115,10 @@ export class SeoService {
   }
 
   private toAbsoluteUrl(path: string): string {
-    if (path.startsWith('http')) {
+    if (path.startsWith('http://') || path.startsWith('https://')) {
       return path;
     }
 
-    const config = seoData.home;
-    const base = 'canonicalUrl' in config && config.canonicalUrl
-      ? config.canonicalUrl.replace(/\/$/, '')
-      : '';
-
-    return `${base}/${path.replace(/^\//, '')}`;
+    return `${this.siteUrl}/${path.replace(/^\//, '')}`;
   }
 }

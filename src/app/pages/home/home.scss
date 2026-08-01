@@ -2,7 +2,6 @@
 
 :host {
   display: block;
-  // Same photo / card geometry for every viewport.
   --hero-photo-size: 200px;
   --hero-photo-top: 28px;
   --hero-photo-overlap: 90px;
@@ -42,6 +41,12 @@
 .hero-panel--right {
   width: 100%;
   max-width: 42rem;
+
+  .hero-pre-title,
+  .hero-title,
+  .hero-subtitle {
+    color: var(--hero-right-text-color);
+  }
 }
 
 .hero-panel--active {
@@ -62,15 +67,6 @@
         background-color: transparent;
         color: var(--secondary-color);
         transform: scale(1.1);
-        box-shadow: none;
-      }
-    }
-
-    @media (hover: none) {
-      &:hover {
-        background-color: transparent;
-        color: var(--secondary-color);
-        transform: none;
         box-shadow: none;
       }
     }
@@ -103,7 +99,6 @@
   text-align: left;
   margin-top: calc(var(--hero-photo-top) + 12px);
   margin-left: var(--hero-text-inset);
-  margin-right: 0;
 }
 
 .hero-name-block {
@@ -113,13 +108,13 @@
   width: fit-content;
 }
 
-.hero-name.c-pointer {
-  cursor: pointer;
-}
-
 .hero-name {
   font-size: clamp(2rem, 4vw, 2.75rem);
   margin: 0;
+
+  &.c-pointer {
+    cursor: pointer;
+  }
 }
 
 .hero-role {
@@ -135,29 +130,21 @@
   margin: 0;
 }
 
-.hero-panel--right {
-  .hero-pre-title,
-  .hero-title,
-  .hero-subtitle {
-    color: var(--hero-right-text-color);
-  }
-}
-
 .hero-social {
   display: flex;
   justify-content: center;
   align-items: center;
   gap: var(--space-2);
   margin-top: var(--space-3);
-}
 
-.hero-social .btn-icon--on-card {
-  width: 2.4rem;
-  height: 2.4rem;
+  .btn-icon--on-card {
+    width: 2.4rem;
+    height: 2.4rem;
 
-  svg {
-    width: 1.2rem;
-    height: 1.2rem;
+    svg {
+      width: 1.2rem;
+      height: 1.2rem;
+    }
   }
 }
 
@@ -208,7 +195,6 @@
   }
 
   .hero-panel--left {
-    width: fit-content;
     flex-shrink: 0;
   }
 
@@ -223,16 +209,13 @@
     padding-left: 1.25rem;
   }
 
-  .hero-name {
-    font-size: clamp(2.25rem, 3vw, 3rem);
-  }
-
+  .hero-name,
   .hero-title {
     font-size: clamp(2.25rem, 3vw, 3rem);
   }
 }
 
-// Tablet portrait: keep role beside the card with a tighter left block.
+// Tablet portrait: role beside the card with a tighter left block.
 @media only screen and (min-width: #{$breakpoint-tablet-min}) and (max-width: #{$breakpoint-laptop-max}) and (orientation: portrait) {
   :host {
     --hero-photo-size: 150px;
@@ -293,9 +276,7 @@
 @include mobile {
   :host {
     --hero-side-gap: 2.5rem;
-    // Photo ~62% of card width — matches the reference proportions.
     --hero-photo-size: calc((100vw - var(--hero-side-gap) * 2) * 0.62);
-    // Slightly more of the photo sits above the card.
     --hero-photo-top: calc(var(--hero-photo-size) * -0.36);
     --hero-photo-overlap: 0px;
     --hero-text-inset: 0px;
@@ -312,15 +293,11 @@
 
   .hero-panel--left {
     width: 100%;
-    max-width: none;
-    aspect-ratio: unset;
     height: auto;
-    min-height: unset;
     padding: 0 1rem var(--hero-card-pad-bottom);
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: flex-start;
   }
 
   .hero-photo {
@@ -336,11 +313,8 @@
   .hero-identity {
     align-items: center;
     text-align: center;
-    // Sit just below the overlapping photo.
     margin-top: calc(var(--hero-photo-size) + var(--hero-photo-top) + 8px);
     margin-left: 0;
-    margin-right: 0;
-    margin-bottom: 0;
     width: 100%;
   }
 
@@ -355,10 +329,6 @@
 
   .hero-name {
     font-size: clamp(2.1rem, 9vw, 2.6rem);
-  }
-
-  .hero-social {
-    margin-top: var(--space-3);
   }
 
   .hero-social .btn-icon--on-card {
@@ -377,7 +347,6 @@
     display: flex;
     justify-content: center;
     padding: 0;
-    min-height: unset;
   }
 
   .hero-role {

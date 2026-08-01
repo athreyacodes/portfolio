@@ -1,16 +1,17 @@
 {
+  "siteUrl": "https://athreya.codes",
   "home": {
     "title": "Athreya M R | Frontend Architect",
-    "description": "Frontend Architect with 11+ years of experience designing and building large-scale enterprise web applications with Angular, TypeScript, and modern full-stack practices.",
+    "description": "Frontend Architect with {years}+ years of experience designing and building large-scale enterprise web applications with Angular, TypeScript, and modern full-stack practices.",
     "ogTitle": "Athreya M R | Frontend Architect",
     "ogDescription": "Frontend Architect specializing in Angular, design systems, microfrontends, and AI-enabled full-stack development.",
     "ogImage": "/images/dp.jpg",
     "ogType": "website",
-    "ogUrl": "https://portfolio-f2684.web.app/",
-    "canonicalUrl": "https://portfolio-f2684.web.app/",
     "twitterCard": "summary_large_image",
     "twitterTitle": "Athreya M R | Frontend Architect",
     "twitterDescription": "Frontend Architect specializing in Angular, design systems, microfrontends, and AI-enabled full-stack development.",
-    "twitterImage": "/images/dp.jpg"
+    "twitterImage": "/images/dp.jpg",
+    "twitterImageAlt": "Athreya M R profile photo",
+    "robots": "index, follow"
   }
 }

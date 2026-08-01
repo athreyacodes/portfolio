@@ -1,0 +1,18 @@
+---
+description: Project overview and non-negotiables for portfolio agents
+alwaysApply: true
+---
+
+# Portfolio
+
+Personal Angular 22 SSR portfolio. Live hero is `HomeComponent` (`src/app/pages/home`). Content: `me.json` / `seo.json`. Design tokens come from `layers-ui` plus `src/styles`.
+
+## Do
+
+- Keep SEO resolver + absolute social/canonical URLs working on every page change.
+- Prefer lean, modern Angular 22 patterns (`inject`, signals, route `title`/`resolve`).
+
+## Don't
+
+- Do not revive `intro-banner` or unused CTA/meta hero chrome unless explicitly requested.
+- Do not commit secrets or change Firebase project IDs without being asked.
