@@ -292,12 +292,14 @@
 
 @include mobile {
   :host {
-    --hero-photo-size: 160px;
-    // Card starts above image midpoint (~35% of photo above the card).
-    --hero-photo-top: -56px;
+    --hero-side-gap: 2.5rem;
+    // Photo ~62% of card width — matches the reference proportions.
+    --hero-photo-size: calc((100vw - var(--hero-side-gap) * 2) * 0.62);
+    // Slightly more of the photo sits above the card.
+    --hero-photo-top: calc(var(--hero-photo-size) * -0.36);
     --hero-photo-overlap: 0px;
     --hero-text-inset: 0px;
-    --hero-card-pad-bottom: 0.65rem;
+    --hero-card-pad-bottom: 1.15rem;
     --hero-card-height: auto;
   }
 
@@ -305,15 +307,16 @@
     flex-direction: column;
     align-items: center;
     gap: var(--space-4);
-    padding: calc(var(--hero-photo-top) * -1 + 8px) 1rem var(--space-4);
+    padding: calc(var(--hero-photo-top) * -1 + 1.25rem) var(--hero-side-gap) var(--space-4);
   }
 
   .hero-panel--left {
-    width: min(100%, 16.5rem);
-    aspect-ratio: 1 / 1;
+    width: 100%;
+    max-width: none;
+    aspect-ratio: unset;
     height: auto;
     min-height: unset;
-    padding: 0 0.75rem var(--hero-card-pad-bottom);
+    padding: 0 1rem var(--hero-card-pad-bottom);
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -333,8 +336,8 @@
   .hero-identity {
     align-items: center;
     text-align: center;
-    // Just below the overlapping photo inside the card.
-    margin-top: calc(var(--hero-photo-size) + var(--hero-photo-top) + 6px);
+    // Sit just below the overlapping photo.
+    margin-top: calc(var(--hero-photo-size) + var(--hero-photo-top) + 8px);
     margin-left: 0;
     margin-right: 0;
     margin-bottom: 0;
@@ -346,17 +349,31 @@
     align-self: center;
   }
 
+  .hero-pre-title {
+    font-size: 1.05rem;
+  }
+
   .hero-name {
-    font-size: 1.85rem;
+    font-size: clamp(2.1rem, 9vw, 2.6rem);
   }
 
   .hero-social {
-    margin-top: var(--space-2);
+    margin-top: var(--space-3);
+  }
+
+  .hero-social .btn-icon--on-card {
+    width: 2.5rem;
+    height: 2.5rem;
+
+    svg {
+      width: 1.25rem;
+      height: 1.25rem;
+    }
   }
 
   .hero-panel--right {
     width: 100%;
-    max-width: 16.5rem;
+    max-width: none;
     display: flex;
     justify-content: center;
     padding: 0;
@@ -370,11 +387,12 @@
   }
 
   .hero-title {
-    font-size: 1.6rem;
+    font-size: clamp(1.85rem, 8vw, 2.35rem);
   }
 
   .hero-subtitle {
     text-align: center;
     max-width: 100%;
+    font-size: clamp(1rem, 4.2vw, 1.15rem);
   }
 }
