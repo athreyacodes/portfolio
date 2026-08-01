@@ -57,31 +57,3 @@ app-root {
   display: block;
   min-height: 100%;
 }
-
-// Undo broken wave packing from layers-ui 0.24.0 (scale/inset/isolation).
-// Safe once a fixed layers-ui publish lands; harmless as reinforcement.
-.wave3-container {
-  top: 0;
-  left: 0;
-  right: auto;
-  bottom: auto;
-  inset: auto;
-  width: 100%;
-  height: 100%;
-  height: 100dvh;
-  min-height: 100%;
-  isolation: auto;
-  background-color: transparent;
-  pointer-events: none;
-}
-
-.wave3-container div {
-  left: -15%;
-  width: 130%;
-  height: 130%;
-}
-
-.wave3-container div.blur {
-  transform: none;
-  backface-visibility: visible;
-}
