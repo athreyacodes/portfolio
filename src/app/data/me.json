@@ -7,7 +7,7 @@
   "preRole": "I'm a",
   "title": "WEB DEVELOPER",
   "subtitle": "Highly skilled in <strong>Angular</strong>, HTML, CSS and Javascript",
-  "email": "athreyamr10@gmail.com",
+  "email": "athreyacodes@gmail.com",
   "location": "Bangalore, IN",
   "linkedin": "https://www.linkedin.com/in/athreyamr/",
   "github": "https://github.com/athreyacodes",
@@ -21,5 +21,6 @@
     "mail": "Contact Me",
     "linkedin": "My LinkedIn",
     "github": "My Github"
-  }
+  },
+  "clickToCopy": "Click to copy."
 }

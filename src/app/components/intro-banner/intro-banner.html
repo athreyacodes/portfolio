@@ -1,14 +1,22 @@
 <section class="hero-split" aria-label="Introduction">
-  <div class="hero-panel hero-panel--left">
+  <div class="hero-panel hero-panel--left hero-panel--active">
     <div class="hero-photo">
-      <img
-        [ngSrc]="me.photoPath"
-        width="581"
-        height="581"
-        priority
-        [alt]="me.name + ' profile photo'"
-        class="profile-dp shadow-lg"
-      />
+      <button
+        type="button"
+        class="hero-photo-toggle c-pointer"
+        (click)="toggleTheme()"
+        aria-label="Toggle theme (temporary)"
+      >
+        <img
+          [ngSrc]="me.photoPath"
+          width="581"
+          height="581"
+          priority
+          appDynamicImageHeight
+          [alt]="me.name + ' profile photo'"
+          class="profile-dp shadow-lg"
+        />
+      </button>
     </div>
 
     <div class="hero-identity">
@@ -19,6 +27,9 @@
         type="button"
         class="hero-meta hero-email c-pointer"
         (click)="copyEmail()"
+        [matTooltip]="me.clickToCopy"
+        matTooltipClass="text-12 tooltip"
+        matTooltipPosition="left"
         [attr.aria-label]="'Copy email: ' + me.email"
       >
         {{ me.email }}
@@ -27,20 +38,27 @@
     </div>
 
     <div class="hero-social" aria-label="Social links">
-      <a
-        class="btn-icon"
-        [href]="'mailto:' + me.email"
+      <button
+        type="button"
+        class="btn-icon btn-icon--on-card"
+        (click)="copyEmail()"
+        [matTooltip]="me.socialLabels.mail"
+        matTooltipClass="tooltip-transparent"
+        matTooltipPosition="below"
         [attr.aria-label]="me.socialLabels.mail"
       >
         <svg viewBox="0 0 24 24" aria-hidden="true">
           <path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4-8 5-8-5V6l8 5 8-5v2z" />
         </svg>
-      </a>
+      </button>
       <a
-        class="btn-icon"
+        class="btn-icon btn-icon--on-card"
         [href]="me.linkedin"
         target="_blank"
         rel="noopener noreferrer"
+        [matTooltip]="me.socialLabels.linkedin"
+        matTooltipClass="tooltip-transparent"
+        matTooltipPosition="below"
         [attr.aria-label]="me.socialLabels.linkedin"
       >
         <svg viewBox="0 0 24 24" aria-hidden="true">
@@ -48,10 +66,13 @@
         </svg>
       </a>
       <a
-        class="btn-icon"
+        class="btn-icon btn-icon--on-card"
         [href]="me.github"
         target="_blank"
         rel="noopener noreferrer"
+        [matTooltip]="me.socialLabels.github"
+        matTooltipClass="tooltip-transparent"
+        matTooltipPosition="below"
         [attr.aria-label]="me.socialLabels.github"
       >
         <svg viewBox="0 0 24 24" aria-hidden="true">
@@ -61,7 +82,7 @@
     </div>
   </div>
 
-  <div class="hero-panel hero-panel--right hero-panel--active">
+  <div class="hero-panel hero-panel--right">
     <div class="hero-role">
       <p class="hero-pre-title">{{ me.preRole }}</p>
       <p class="hero-title">{{ me.title }}</p>

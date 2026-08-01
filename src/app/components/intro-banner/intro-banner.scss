@@ -2,11 +2,9 @@
 
 .hero-split {
   display: flex;
-  min-height: var(--hero-panel-min-height);
   width: 100%;
-  padding: var(--hero-section-padding);
+  padding: 50px;
   box-sizing: border-box;
-  gap: var(--space-3);
   position: relative;
 }
 
@@ -16,54 +14,57 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  min-height: var(--hero-panel-min-height);
-  padding: var(--space-4);
+  min-height: 90vh;
   border-radius: var(--hero-card-radius);
   transition: background-color var(--hero-transition), box-shadow var(--hero-transition);
 }
 
 .hero-panel--left {
-  width: 40%;
+  width: 40vw;
 }
 
 .hero-panel--right {
-  width: 60%;
+  width: 60vw;
 }
 
 .hero-panel--active {
-  background-color: var(--primary-color);
-  box-shadow: var(--shadow-lg);
+  background-color: var(--hero-card-bg);
+  box-shadow: var(--hero-card-shadow);
 
   .hero-pre-title,
-  .hero-title,
-  .hero-subtitle,
-  .hero-experience {
+  .hero-name,
+  .hero-meta {
     color: var(--secondary-color);
   }
 
-  .btn-accent {
-    background-color: var(--secondary-color);
-    color: var(--primary-color);
-    border-color: var(--secondary-color);
-  }
+  .btn-icon--on-card {
+    background-color: transparent;
+    color: var(--secondary-color);
+    box-shadow: none;
 
-  .btn-primary {
-    background-color: var(--bg-color);
-    color: var(--primary-color);
+    &:hover {
+      background-color: var(--secondary-color);
+      color: var(--primary-color);
+    }
   }
 }
 
 .hero-photo {
   position: absolute;
-  top: var(--space-4);
+  top: 20px;
   right: 0;
   z-index: 1;
 }
 
+.hero-photo-toggle {
+  display: block;
+  padding: 0;
+  border: none;
+  background: none;
+  line-height: 0;
+}
+
 .profile-dp {
-  width: clamp(140px, 18vw, 240px);
-  height: auto;
-  aspect-ratio: 1 / 1;
   border-radius: var(--hero-card-radius);
   object-fit: cover;
   transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1);
@@ -75,9 +76,30 @@
 }
 
 .hero-identity {
-  text-align: center;
-  margin-top: clamp(8rem, 20vw, 12rem);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  margin-top: 10px;
+  margin-right: 20px;
   z-index: 2;
+}
+
+.hero-role {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-top: 10px;
+  margin-left: 20px;
+  max-width: 42rem;
+}
+
+.hero-panel--right {
+  .hero-pre-title,
+  .hero-title,
+  .hero-subtitle,
+  .hero-experience {
+    color: var(--primary-color);
+  }
 }
 
 .hero-email {
@@ -88,8 +110,9 @@
   background: none;
   color: inherit;
   cursor: pointer;
-  text-decoration: underline;
-  text-underline-offset: 0.2em;
+  text-decoration: none;
+  text-align: right;
+  font-family: var(--font-montserrat), sans-serif;
 
   &:hover {
     opacity: 0.85;
@@ -98,29 +121,28 @@
 
 .hero-location {
   margin-top: var(--space-2);
-}
-
-.hero-role {
-  text-align: center;
-  max-width: 42rem;
+  text-align: right;
 }
 
 .hero-actions {
+  position: absolute;
+  bottom: 5em;
   display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
+  justify-content: space-around;
+  align-items: center;
   gap: var(--space-3);
-  margin-top: var(--space-4);
-  width: 100%;
-  max-width: 32rem;
+  max-width: 50vw;
+  height: 60px;
 }
 
 .hero-social {
-  display: flex;
-  gap: var(--space-3);
-  margin-top: var(--space-4);
   position: absolute;
-  bottom: 5rem;
+  bottom: 5em;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  gap: var(--space-3);
+  height: 60px;
 }
 
 .hero-copy-feedback {
@@ -156,73 +178,121 @@
   }
 }
 
-@include laptop {
-  .hero-panel--left,
-  .hero-panel--right {
-    width: 50%;
+@media only screen and (min-width: 1100px) and (max-width: 1300px) {
+  .hero-title {
+    font-size: 3rem;
   }
 }
 
-@include tablet {
+@include laptop {
   .hero-panel--left,
   .hero-panel--right {
-    width: 50%;
-  }
-
-  .hero-title {
-    text-wrap: balance;
+    width: 50vw;
   }
 
   .hero-download-cv {
     display: none;
   }
 
+  .hero-photo {
+    right: unset;
+    top: 40px;
+  }
+
+  .hero-identity {
+    align-items: flex-start;
+    margin-top: 90px;
+    margin-right: 0;
+    text-align: left;
+  }
+
+  .hero-email,
+  .hero-location {
+    text-align: left;
+  }
+
+  .hero-role {
+    align-items: flex-start;
+    margin-top: 100px;
+    margin-left: 0;
+    text-align: left;
+  }
+
+  .hero-actions,
   .hero-social {
-    position: relative;
-    bottom: auto;
-    margin-top: var(--space-4);
+    bottom: 5em;
+    height: 50px;
   }
 }
 
-@include mobile {
-  .hero-split {
-    flex-direction: column;
-    min-height: auto;
-    padding-top: calc(var(--hero-section-padding) + var(--space-5));
+@include tablet {
+  .hero-panel--left,
+  .hero-panel--right {
+    width: 50vw;
   }
 
   .hero-panel {
-    width: 100%;
     min-height: auto;
-    padding: var(--space-3);
   }
 
-  .hero-panel--left {
-    order: 1;
-  }
-
-  .hero-panel--right {
-    order: 2;
+  .hero-download-cv {
+    display: none;
   }
 
   .hero-photo {
     position: relative;
-    top: -5rem;
-    right: auto;
-    margin-bottom: -3rem;
+    top: 40px;
+    right: unset;
+  }
+
+  .hero-panel--right {
+    justify-content: space-between;
   }
 
   .hero-identity {
-    margin-top: 0;
+    align-items: flex-start;
+    margin-top: 90px;
+    margin-right: 0;
+    text-align: left;
+  }
+
+  .hero-email,
+  .hero-location {
+    text-align: left;
+  }
+
+  .hero-role {
+    align-items: flex-start;
+    margin-top: 100px;
+    margin-left: 0;
+    text-align: left;
   }
 
   .hero-title {
     text-wrap: balance;
   }
 
-  .hero-actions {
+  .hero-actions,
+  .hero-social {
+    position: relative;
+    bottom: 0;
+    height: 45px;
+    margin: 20px 0 40px;
+    max-width: 100%;
+  }
+}
+
+@include mobile {
+  .hero-split {
     flex-direction: column;
-    align-items: stretch;
+    padding-top: 120px;
+    padding-left: var(--space-3);
+    padding-right: var(--space-3);
+  }
+
+  .hero-panel {
+    width: 100%;
+    min-height: auto;
   }
 
   .hero-download-cv,
@@ -230,9 +300,44 @@
     display: none;
   }
 
+  .hero-photo {
+    position: absolute;
+    top: -90px;
+    right: unset;
+  }
+
+  .hero-panel--right {
+    justify-content: space-between;
+  }
+
+  .hero-identity {
+    align-items: center;
+    margin-top: 120px;
+    margin-right: 0;
+    margin-bottom: 30px;
+    text-align: center;
+  }
+
+  .hero-role {
+    align-items: center;
+    margin-top: 50px;
+    margin-left: 0;
+    text-align: center;
+  }
+
+  .hero-title {
+    text-wrap: balance;
+  }
+
+  .hero-actions {
+    display: none;
+  }
+
   .hero-social {
     position: relative;
-    bottom: auto;
+    bottom: 0;
+    height: 45px;
+    margin: 10px 0 40px;
     justify-content: center;
     width: 100%;
   }

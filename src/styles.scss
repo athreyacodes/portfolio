@@ -1,15 +1,26 @@
 @use './styles/breakpoints' as *;
 @use './styles/tokens';
 @use './styles/typography';
+@use './styles/material';
+
+:root {
+  --secondary-color: #fafafa;
+}
 
 html, body {
   height: 100%;
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: var(--font-quicksand), sans-serif;
+  font-family: var(--font-montserrat), sans-serif;
+  scroll-behavior: smooth;
+  overflow-x: hidden;
 }
 
 *, *:before, *:after {
   box-sizing: inherit;
+}
+
+.color-scheme-dark {
+  --secondary-color: #fafafa;
 }

@@ -1,0 +1,60 @@
+@use '@angular/material' as mat;
+
+@include mat.core();
+
+html {
+  @include mat.tooltip-theme(
+    mat.define-theme(
+      (
+        color: (
+          theme-type: light,
+          primary: mat.$azure-palette,
+          tertiary: mat.$blue-palette
+        )
+      )
+    )
+  );
+}
+
+.color-scheme-dark html {
+  @include mat.tooltip-theme(
+    mat.define-theme(
+      (
+        color: (
+          theme-type: dark,
+          primary: mat.$azure-palette,
+          tertiary: mat.$blue-palette
+        )
+      )
+    )
+  );
+}
+
+.text-12 {
+  font-size: 12px !important;
+}
+
+.tooltip-transparent {
+  .mdc-tooltip__surface {
+    background-color: transparent !important;
+    color: var(--primary-color);
+    box-shadow: none;
+    padding: 10px 20px !important;
+    border-radius: 10px !important;
+  }
+}
+
+.tooltip {
+  .mdc-tooltip__surface {
+    padding: 10px 20px !important;
+    border-radius: 10px !important;
+    font-family: var(--font-montserrat), sans-serif;
+    font-size: 12px;
+  }
+}
+
+.color-scheme-dark {
+  .tooltip-transparent .mdc-tooltip__surface {
+    color: var(--secondary-color);
+  }
+}

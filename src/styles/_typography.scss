@@ -4,10 +4,11 @@
   font-weight: 500;
   margin-bottom: var(--space-2);
   line-height: 1.4;
+  align-self: flex-start;
 }
 
 .hero-name {
-  font-family: var(--font-quicksand), sans-serif;
+  font-family: var(--font-montserrat), sans-serif;
   font-size: var(--hero-name-size);
   font-weight: 700;
   line-height: 1.1;
@@ -16,7 +17,7 @@
 }
 
 .hero-title {
-  font-family: var(--font-quicksand), sans-serif;
+  font-family: var(--font-montserrat), sans-serif;
   font-size: var(--hero-title-size);
   font-weight: 700;
   line-height: 1.05;

@@ -1,5 +1,6 @@
-import { Component, signal, afterNextRender } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
+import { ThemeService } from './services/theme.service';
 
 @Component({
   selector: 'app-root',
@@ -8,31 +9,9 @@ import { RouterOutlet } from '@angular/router';
   styleUrl: './app.scss'
 })
 export class App {
-  protected readonly title = signal('portfolio');
+  private readonly themeService = inject(ThemeService);
 
   constructor() {
-    afterNextRender(() => {
-      const mediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
-      
-      const updateTheme = (query: MediaQueryList | MediaQueryListEvent) => {
-        if (query.matches) {
-          document.body.classList.add('color-scheme-dark');
-        } else {
-          document.body.classList.remove('color-scheme-dark');
-        }
-      };
-      
-      // Perform initial sync on hydration
-      updateTheme(mediaQuery);
-
-      // Listen for system/browser theme updates dynamically
-      try {
-        mediaQuery.addEventListener('change', updateTheme);
-      } catch (e) {
-        try {
-          mediaQuery.addListener(updateTheme);
-        } catch (e2) {}
-      }
-    });
+    this.themeService.init();
   }
 }
