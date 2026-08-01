@@ -7,6 +7,7 @@
   <base href="/">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 </head>
 
 <body>
@@ -15,6 +16,14 @@
   <script>
     (function () {
       try {
+        var override = sessionStorage.getItem('portfolio-theme-override');
+        if (override === 'dark') {
+          document.body.classList.add('color-scheme-dark');
+          return;
+        }
+        if (override === 'light') {
+          return;
+        }
         if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
           document.body.classList.add('color-scheme-dark');
         }

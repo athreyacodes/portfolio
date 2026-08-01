@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { Component, inject, afterNextRender } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { ThemeService } from './services/theme.service';
 
@@ -12,6 +12,8 @@ export class App {
   private readonly themeService = inject(ThemeService);
 
   constructor() {
-    this.themeService.init();
+    afterNextRender(() => {
+      this.themeService.init();
+    });
   }
 }

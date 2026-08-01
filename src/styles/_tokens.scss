@@ -1,18 +1,46 @@
-// Portfolio-specific design tokens (reference layers-ui CSS variables)
+@use './breakpoints' as *;
 
 :root {
   --hero-card-radius: 25px;
   --hero-section-padding: var(--space-4);
   --hero-panel-min-height: 90vh;
-  --hero-name-size: clamp(1.75rem, 4vw, 3rem);
-  --hero-title-size: clamp(2rem, 5vw, 4rem);
-  --hero-pre-title-size: clamp(1rem, 2vw, 1.25rem);
-  --hero-subtitle-size: clamp(0.95rem, 1.5vw, 1.25rem);
+  --hero-pre-title-size: 20px;
+  --hero-subtitle-size: 20px;
+  --hero-meta-size: 16px;
   --hero-transition: 0.3s ease;
   --hero-card-bg: var(--primary-color);
-  --hero-card-shadow: 0 19px 38px rgba(0, 0, 0, 0.3), 0 15px 12px rgba(0, 0, 0, 0.22);
+  --shadow-high: 0 19px 38px rgba(0, 0, 0, 0.3), 0 15px 12px rgba(0, 0, 0, 0.22);
+  --hero-card-shadow: var(--shadow-high);
+  --hero-photo-shadow: var(--shadow-high);
+  --hero-photo-size: 130px;
+  --hero-photo-offset: -65px;
+  --hero-identity-offset: 160px;
 }
 
 .color-scheme-dark {
   --hero-card-bg: var(--primary-dark);
+}
+
+@include tablet {
+  :root {
+    --hero-photo-size: 160px;
+    --hero-photo-offset: -40px;
+    --hero-identity-offset: 180px;
+  }
+}
+
+@include laptop {
+  :root {
+    --hero-photo-size: 200px;
+    --hero-photo-offset: 40px;
+    --hero-identity-offset: 90px;
+  }
+}
+
+@include desktop {
+  :root {
+    --hero-photo-size: clamp(220px, 16vw, 260px);
+    --hero-photo-offset: 20px;
+    --hero-identity-offset: 10px;
+  }
 }

@@ -1,24 +1,25 @@
+@use './breakpoints' as *;
+
 .hero-pre-title {
   font-family: var(--font-montserrat), sans-serif;
   font-size: var(--hero-pre-title-size);
   font-weight: 500;
-  margin-bottom: var(--space-2);
+  margin-bottom: 10px;
   line-height: 1.4;
-  align-self: flex-start;
 }
 
 .hero-name {
   font-family: var(--font-montserrat), sans-serif;
-  font-size: var(--hero-name-size);
+  font-size: 2rem;
   font-weight: 700;
   line-height: 1.1;
-  margin: 0;
+  margin-block: 0.6rem;
   text-wrap: balance;
 }
 
 .hero-title {
   font-family: var(--font-montserrat), sans-serif;
-  font-size: var(--hero-title-size);
+  font-size: 4rem;
   font-weight: 700;
   line-height: 1.05;
   margin: 0;
@@ -30,12 +31,86 @@
   font-size: var(--hero-subtitle-size);
   font-weight: 400;
   line-height: 1.5;
-  margin-top: var(--space-3);
+  margin-top: 24px;
   max-width: 50ch;
 }
 
 .hero-meta {
   font-family: var(--font-montserrat), sans-serif;
-  font-size: var(--hero-subtitle-size);
+  font-size: var(--hero-meta-size);
   line-height: 1.5;
+}
+
+@include desktop {
+  .hero-name {
+    font-size: 4rem;
+    margin-block: 0.75rem;
+  }
+}
+
+@media only screen and (min-width: 1100px) and (max-width: 1300px) {
+  .hero-name {
+    font-size: 3rem;
+  }
+
+  .hero-title {
+    font-size: 3rem;
+  }
+}
+
+@include laptop {
+  .hero-name {
+    font-size: 2.2rem;
+  }
+
+  .hero-title {
+    font-size: 2.2rem;
+  }
+
+  .hero-subtitle,
+  .hero-meta {
+    font-size: 16px;
+  }
+}
+
+@include tablet {
+  .hero-name,
+  .hero-title {
+    font-size: 2rem;
+  }
+
+  .hero-pre-title {
+    font-size: 14px;
+  }
+
+  .hero-subtitle {
+    font-size: 16px;
+  }
+
+  .hero-meta {
+    font-size: 14px;
+  }
+}
+
+@include mobile {
+  .hero-name,
+  .hero-title {
+    font-size: 2rem;
+  }
+
+  .hero-pre-title {
+    font-size: 14px;
+  }
+
+  .hero-subtitle {
+    font-size: 16px;
+  }
+
+  .hero-meta {
+    font-size: 14px;
+  }
+
+  .hero-title {
+    text-wrap: balance;
+  }
 }

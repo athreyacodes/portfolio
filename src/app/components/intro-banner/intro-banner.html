@@ -1,43 +1,44 @@
 <section class="hero-split" aria-label="Introduction">
-  <div class="hero-panel hero-panel--left hero-panel--active">
-    <div class="hero-photo">
-      <button
-        type="button"
-        class="hero-photo-toggle c-pointer"
+  <div class="hero-panel hero-panel--left hero-panel--active hero-animate">
+    <div class="hero-photo hero-animate">
+      <img
+        [ngSrc]="me.photoPath"
+        width="280"
+        height="280"
+        priority
+        [alt]="me.name + ' profile photo'"
+        class="profile-dp"
+      />
+    </div>
+
+    <div class="hero-identity hero-animate">
+      <p class="hero-pre-title">{{ me.preName }}</p>
+      <h1
+        class="hero-name c-pointer"
         (click)="toggleTheme()"
         aria-label="Toggle theme (temporary)"
       >
-        <img
-          [ngSrc]="me.photoPath"
-          width="581"
-          height="581"
-          priority
-          appDynamicImageHeight
-          [alt]="me.name + ' profile photo'"
-          class="profile-dp shadow-lg"
-        />
-      </button>
-    </div>
+        {{ me.fullName }}
+      </h1>
 
-    <div class="hero-identity">
-      <p class="hero-pre-title">{{ me.preName }}</p>
-      <h1 class="hero-name">{{ me.fullName }}</h1>
-
-      <button
-        type="button"
-        class="hero-meta hero-email c-pointer"
-        (click)="copyEmail()"
-        [matTooltip]="me.clickToCopy"
-        matTooltipClass="text-12 tooltip"
-        matTooltipPosition="left"
-        [attr.aria-label]="'Copy email: ' + me.email"
-      >
-        {{ me.email }}
-      </button>
+      <div class="hero-contact-row">
+        <span class="hero-meta hero-email-text">{{ me.email }}</span>
+        <button
+          type="button"
+          class="hero-copy-btn c-pointer"
+          (click)="copyEmail()"
+          [matTooltip]="me.clickToCopy"
+          matTooltipClass="text-12 tooltip"
+          matTooltipPosition="left"
+          [attr.aria-label]="'Copy email: ' + me.email"
+        >
+          <mat-icon>content_copy</mat-icon>
+        </button>
+      </div>
       <p class="hero-meta hero-location">{{ me.location }}</p>
     </div>
 
-    <div class="hero-social" aria-label="Social links">
+    <div class="hero-social hero-animate" aria-label="Social links">
       <button
         type="button"
         class="btn-icon btn-icon--on-card"
@@ -82,8 +83,8 @@
     </div>
   </div>
 
-  <div class="hero-panel hero-panel--right">
-    <div class="hero-role">
+  <div class="hero-panel hero-panel--right hero-animate">
+    <div class="hero-role hero-animate">
       <p class="hero-pre-title">{{ me.preRole }}</p>
       <p class="hero-title">{{ me.title }}</p>
       <p class="hero-subtitle" [innerHTML]="me.subtitle"></p>
@@ -92,7 +93,7 @@
       </p>
     </div>
 
-    <div class="hero-actions">
+    <div class="hero-actions hero-animate">
       <button type="button" class="btn-accent" (click)="scrollToSkills()">
         {{ me.cta.skills }}
       </button>

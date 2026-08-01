@@ -36,8 +36,16 @@ export class ThemeService {
       return;
     }
 
-    const isDark = this.document.body.classList.toggle('color-scheme-dark');
-    sessionStorage.setItem(THEME_OVERRIDE_KEY, isDark ? 'dark' : 'light');
+    const body = this.document.body;
+    const willBeDark = !body.classList.contains('color-scheme-dark');
+
+    if (willBeDark) {
+      body.classList.add('color-scheme-dark');
+      sessionStorage.setItem(THEME_OVERRIDE_KEY, 'dark');
+    } else {
+      body.classList.remove('color-scheme-dark');
+      sessionStorage.setItem(THEME_OVERRIDE_KEY, 'light');
+    }
   }
 
   private syncWithSystemPreference(): void {

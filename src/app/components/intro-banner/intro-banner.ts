@@ -1,17 +1,17 @@
 import { Component, OnInit, inject } from '@angular/core';
 import { NgOptimizedImage } from '@angular/common';
 import { MatTooltipModule } from '@angular/material/tooltip';
+import { MatIconModule } from '@angular/material/icon';
 import { SeoService } from '../../services/seo.service';
 import { ScrollService } from '../../services/scroll.service';
 import { ThemeService } from '../../services/theme.service';
-import { DynamicImageHeightDirective } from '../../directives/dynamic-image-height.directive';
 import { getExperienceYears } from '../../utils/experience';
 import meData from '../../data/me.json';
 
 @Component({
   selector: 'app-intro-banner',
   standalone: true,
-  imports: [NgOptimizedImage, DynamicImageHeightDirective, MatTooltipModule],
+  imports: [NgOptimizedImage, MatTooltipModule, MatIconModule],
   templateUrl: './intro-banner.html',
   styleUrl: './intro-banner.scss'
 })
