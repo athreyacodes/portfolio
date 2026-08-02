@@ -1,59 +1,55 @@
 # Portfolio
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 22.0.7.
+Personal Angular 22 SSR portfolio for [Athreya M R](https://athreya.codes) — Frontend Architect.
 
-## Development server
+Live site: [https://athreya.codes](https://athreya.codes)
 
-To start a local development server, run:
+## Stack
 
-```bash
-ng serve
+- Angular 22 with SSR / prerender (`@angular/ssr`)
+- [layers-ui](https://www.npmjs.com/package/layers-ui) design system + Angular Material tooltips
+- Firebase Hosting (`portfolio-f2684`)
+
+## Content
+
+Page copy and profile data live in JSON, not hard-coded in components:
+
+| File | Purpose |
+|------|---------|
+| `src/app/data/me.json` | Name, role, subtitle, email, social links, photo path |
+| `src/app/data/seo.json` | Titles, descriptions, Open Graph / Twitter meta, site URL |
+
+SEO is applied via `homeSeoResolver` + `SeoService` on the home route. Static `public/robots.txt` and `public/sitemap.xml` ship with the build.
+
+## Project layout
+
+```
+src/app/
+  pages/home/          # Live hero (HomeComponent)
+  services/            # SeoService, ThemeService
+  resolvers/           # home SEO resolver
+  data/                # me.json, seo.json
+src/styles/            # Tokens, typography, breakpoints, Material overrides
+public/                # favicon, images, robots.txt, sitemap.xml
 ```
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
-
-## Code scaffolding
-
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+## Scripts
 
 ```bash
-ng generate component component-name
+npm start              # ng serve (http://localhost:4200)
+npm run start:clean    # clear .angular/cache, then serve
+npm run build          # production SSR/prerender build → dist/portfolio
+npm run watch          # development build in watch mode
+npm run serve:ssr:portfolio  # run the Node SSR server from dist/
 ```
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+## Deploy
+
+Push to `main` triggers [`.github/workflows/firebase-deploy.yml`](.github/workflows/firebase-deploy.yml): `npm ci` → `npm run build` → Firebase Hosting deploy of `dist/portfolio/browser`.
+
+Local deploy (requires Firebase CLI auth):
 
 ```bash
-ng generate --help
+npm run build
+npx firebase deploy --only hosting
 ```
-
-## Building
-
-To build the project run:
-
-```bash
-ng build
-```
-
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
-
-## Running unit tests
-
-To execute unit tests with the [Vitest](https://vitest.dev/) test runner, use the following command:
-
-```bash
-ng test
-```
-
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
