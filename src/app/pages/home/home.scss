@@ -111,10 +111,6 @@
 .hero-name {
   font-size: clamp(2rem, 4vw, 2.75rem);
   margin: 0;
-
-  &.c-pointer {
-    cursor: pointer;
-  }
 }
 
 .hero-role {

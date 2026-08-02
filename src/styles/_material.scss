@@ -16,7 +16,7 @@ html {
   );
 }
 
-.color-scheme-dark html {
+html.color-scheme-dark {
   @include mat.tooltip-theme(
     mat.define-theme(
       (

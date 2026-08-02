@@ -1,7 +1,6 @@
-import { Component, inject, signal } from '@angular/core';
+import { Component, signal } from '@angular/core';
 import { NgOptimizedImage } from '@angular/common';
 import { MatTooltipModule } from '@angular/material/tooltip';
-import { ThemeService } from '../../services/theme.service';
 import meData from '../../data/me.json';
 
 @Component({
@@ -11,8 +10,6 @@ import meData from '../../data/me.json';
   styleUrl: './home.scss'
 })
 export class HomeComponent {
-  private readonly themeService = inject(ThemeService);
-
   protected readonly me = meData;
   protected readonly copyFeedback = signal('');
 
@@ -27,9 +24,5 @@ export class HomeComponent {
     window.setTimeout(() => {
       this.copyFeedback.set('');
     }, 2500);
-  }
-
-  protected toggleTheme(): void {
-    this.themeService.toggleTheme();
   }
 }
