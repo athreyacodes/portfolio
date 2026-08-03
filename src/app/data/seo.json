@@ -2,14 +2,14 @@
   "siteUrl": "https://athreya.codes",
   "home": {
     "title": "Athreya M R | Frontend Architect",
-    "description": "Frontend Architect with {years}+ years of experience designing and building large-scale enterprise web applications with Angular, TypeScript, and modern full-stack practices.",
+    "description": "Frontend Architect with {years}+ years of experience building solid, scalable enterprise Angular apps — micro frontends, Nx monorepos, and SEO-ready SSR/SSG sites.",
     "ogTitle": "Athreya M R | Frontend Architect",
-    "ogDescription": "Frontend Architect specializing in Angular, design systems, microfrontends, and AI-enabled full-stack development.",
+    "ogDescription": "Frontend Architect specializing in Angular, micro frontends, Nx monorepos, and SSR/SSG web applications.",
     "ogImage": "/images/dp.jpg",
     "ogType": "website",
     "twitterCard": "summary_large_image",
     "twitterTitle": "Athreya M R | Frontend Architect",
-    "twitterDescription": "Frontend Architect specializing in Angular, design systems, microfrontends, and AI-enabled full-stack development.",
+    "twitterDescription": "Frontend Architect specializing in Angular, micro frontends, Nx monorepos, and SSR/SSG web applications.",
     "twitterImage": "/images/dp.jpg",
     "twitterImageAlt": "Athreya M R profile photo",
     "robots": "index, follow"

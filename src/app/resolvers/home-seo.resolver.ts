@@ -12,7 +12,7 @@ export const homeSeoResolver: ResolveFn<boolean> = () => {
   seo.updateSeo('home', { years });
   seo.setPersonSchema({
     name: meData.name,
-    jobTitle: meData.homeTitle,
+    jobTitle: meData.locales.en.homeTitle,
     email: meData.email,
     image: meData.photoPath,
     sameAs: [meData.linkedin, meData.github]

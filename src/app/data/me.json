@@ -3,16 +3,127 @@
   "displayName": "Athreya",
   "photoPath": "images/dp.jpg",
   "experienceStartYear": 2015,
-  "preName": "Hello, I'm",
-  "preRole": "I'm a",
-  "homeTitle": "Front-end Architect",
-  "homeSubtitle": "I design and build <strong>large-scale enterprise</strong> web applications",
   "email": "athreyacodes@gmail.com",
   "linkedin": "https://www.linkedin.com/in/athreyamr/",
   "github": "https://github.com/athreyacodes",
-  "socialLabels": {
-    "linkedin": "My LinkedIn",
-    "github": "My Github"
-  },
-  "homeMailLabel": "Copy My Email ID"
+  "locales": {
+    "en": {
+      "preName": "Hello, I'm",
+      "preRole": "I'm a",
+      "homeTitle": "Front-end Architect",
+      "homeSubtitle": "I design and build <strong>large-scale enterprise</strong> web applications",
+      "socialLabels": {
+        "linkedin": "My LinkedIn",
+        "github": "My Github"
+      },
+      "homeMailLabel": "Copy My Email ID",
+      "emailCopied": "Email copied to clipboard",
+      "emailCopyFailed": "Could not copy email",
+      "skills": {
+        "title": "My Skills",
+        "subtitle": "I created this portfolio to showcase what I can do with modern web development.",
+        "cards": [
+          {
+            "id": "enterprise",
+            "title": "I build enterprise apps",
+            "description": "I like to build <strong>solid</strong>, <strong>scalable</strong> and <strong>responsive</strong> frontend products with a smooth user experience.",
+            "image": "responsive.svg",
+            "variant": "primary"
+          },
+          {
+            "id": "responsive",
+            "title": "Personalization, on point!",
+            "description": "I think <strong>personalization</strong> helps people feel at home in a product.",
+            "themeHint": "Try changing the theme",
+            "languageHint": "Try changing the language",
+            "themes": [
+              { "id": "light", "label": "Light" },
+              { "id": "dark", "label": "Dark" }
+            ],
+            "languages": [
+              { "id": "en", "label": "English" },
+              { "id": "fr", "label": "Français" }
+            ],
+            "image": "theme3.svg",
+            "variant": "inverse"
+          },
+          {
+            "id": "architecture",
+            "title": "Built for scale",
+            "description": "Ideas like <strong>micro frontends</strong> and <strong>Nx monorepos</strong> help keep large apps easy to ship and maintain.",
+            "demo": "Coming soon — live Nx monorepo",
+            "image": "micro-fe.svg",
+            "variant": "inverse",
+            "demoKey": "enterprise"
+          },
+          {
+            "id": "ssr",
+            "title": "Fast and findable",
+            "description": "I also build <strong>SSR</strong> and <strong>SSG</strong> sites — blogs and portfolios that load fast and work well with SEO.",
+            "image": "multilingual.svg",
+            "variant": "inverse"
+          }
+        ]
+      }
+    },
+    "fr": {
+      "preName": "Bonjour, je suis",
+      "preRole": "Je suis",
+      "homeTitle": "Architecte Front-end",
+      "homeSubtitle": "Je conçois et construis des applications web <strong>entreprise à grande échelle</strong>",
+      "socialLabels": {
+        "linkedin": "Mon LinkedIn",
+        "github": "Mon Github"
+      },
+      "homeMailLabel": "Copier mon e-mail",
+      "emailCopied": "E-mail copié dans le presse-papiers",
+      "emailCopyFailed": "Impossible de copier l'e-mail",
+      "skills": {
+        "title": "Mes compétences",
+        "subtitle": "J'ai créé ce portfolio pour montrer ce que je sais faire en développement web moderne.",
+        "cards": [
+          {
+            "id": "enterprise",
+            "title": "Je construis des apps entreprise",
+            "description": "J'aime créer des produits frontend <strong>solides</strong>, <strong>évolutifs</strong> et <strong>responsives</strong>, avec une expérience fluide.",
+            "image": "responsive.svg",
+            "variant": "primary"
+          },
+          {
+            "id": "responsive",
+            "title": "Personnalisation, au point !",
+            "description": "Je pense que la <strong>personnalisation</strong> aide les gens à se sentir chez eux dans un produit.",
+            "themeHint": "Essayez de changer le thème",
+            "languageHint": "Essayez de changer la langue",
+            "themes": [
+              { "id": "light", "label": "Clair" },
+              { "id": "dark", "label": "Sombre" }
+            ],
+            "languages": [
+              { "id": "en", "label": "English" },
+              { "id": "fr", "label": "Français" }
+            ],
+            "image": "theme3.svg",
+            "variant": "inverse"
+          },
+          {
+            "id": "architecture",
+            "title": "Pensé pour l'échelle",
+            "description": "Des idées comme les <strong>micro-frontends</strong> et les <strong>monorepos Nx</strong> aident à livrer et maintenir de grandes apps.",
+            "demo": "Bientôt — monorepo Nx en direct",
+            "image": "micro-fe.svg",
+            "variant": "inverse",
+            "demoKey": "enterprise"
+          },
+          {
+            "id": "ssr",
+            "title": "Rapide et trouvable",
+            "description": "Je construis aussi des sites <strong>SSR</strong> et <strong>SSG</strong> — blogs et portfolios rapides et bien pensés pour le SEO.",
+            "image": "multilingual.svg",
+            "variant": "inverse"
+          }
+        ]
+      }
+    }
+  }
 }
