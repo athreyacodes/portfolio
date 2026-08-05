@@ -55,7 +55,8 @@
             "themeHint": "Try changing the theme",
             "themes": [
               { "id": "light", "label": "Light" },
-              { "id": "dark", "label": "Dark" }
+              { "id": "dark", "label": "Dark" },
+              { "id": "system", "label": "System" }
             ],
             "image": "theme3.svg",
             "variant": "inverse"
@@ -67,7 +68,8 @@
             "languageHint": "Try changing the language",
             "languages": [
               { "id": "en", "label": "English" },
-              { "id": "fr", "label": "Français" }
+              { "id": "fr", "label": "Français" },
+              { "id": "es", "label": "Español" }
             ],
             "image": "multilingual.svg",
             "variant": "inverse"
@@ -123,7 +125,8 @@
             "themeHint": "Essayez de changer le thème",
             "themes": [
               { "id": "light", "label": "Clair" },
-              { "id": "dark", "label": "Sombre" }
+              { "id": "dark", "label": "Sombre" },
+              { "id": "system", "label": "Système" }
             ],
             "image": "theme3.svg",
             "variant": "inverse"
@@ -135,7 +138,78 @@
             "languageHint": "Essayez de changer la langue",
             "languages": [
               { "id": "en", "label": "English" },
-              { "id": "fr", "label": "Français" }
+              { "id": "fr", "label": "Français" },
+              { "id": "es", "label": "Español" }
+            ],
+            "image": "multilingual.svg",
+            "variant": "inverse"
+          }
+        ]
+      }
+    },
+    "es": {
+      "preName": "Hola, soy",
+      "preRole": "Soy",
+      "homeTitle": "Arquitecto Front-end",
+      "homeSubtitles": [
+        "Diseño y construyo productos y plataformas <strong>empresariales a gran escala</strong>.",
+        "Con <strong>más de 11 años</strong> de experiencia en Angular y micro frontends.",
+        "Actualmente exploro el <strong>desarrollo AI-First</strong> para crear aplicaciones full stack de extremo a extremo."
+      ],
+      "socialLabels": {
+        "linkedin": "Mi LinkedIn",
+        "github": "Mi Github"
+      },
+      "homeMailLabel": "Copiar mi correo",
+      "emailCopied": "Correo copiado al portapapeles",
+      "emailCopyFailed": "No se pudo copiar el correo",
+      "skills": {
+        "title": "Lo que hago",
+        "subtitle": "Creé este portfolio para mostrar lo que puedo hacer con el desarrollo web moderno.",
+        "cards": [
+          {
+            "id": "enterprise",
+            "title": "Construyo para la empresa",
+            "description": "Me especializo en <strong>Angular</strong> — design systems, librerías UI reutilizables, rendimiento y modernización de plataformas legacy en productos <strong>sólidos</strong>, <strong>escalables</strong> y <strong>responsivos</strong>.",
+            "image": "responsive.svg",
+            "variant": "primary"
+          },
+          {
+            "id": "architecture",
+            "title": "Pensado para escalar",
+            "description": "Trabajo a fondo con <strong>micro frontends</strong> y <strong>monorepos Nx</strong> para mantener grandes apps entregables y mantenibles.",
+            "image": "micro-fe.svg",
+            "variant": "inverse"
+          },
+          {
+            "id": "ssr",
+            "title": "Rápido y encontrable",
+            "description": "Construyo sitios <strong>SSR</strong> y <strong>SSG</strong> que cargan rápido y rinden bien en SEO.",
+            "image": "result.svg",
+            "variant": "inverse"
+          },
+          {
+            "id": "design",
+            "title": "¡Diseño, al punto!",
+            "description": "Creo que la <strong>personalización</strong> es clave para que las personas se sientan en casa en un producto.",
+            "themeHint": "Prueba a cambiar el tema",
+            "themes": [
+              { "id": "light", "label": "Claro" },
+              { "id": "dark", "label": "Oscuro" },
+              { "id": "system", "label": "Sistema" }
+            ],
+            "image": "theme3.svg",
+            "variant": "inverse"
+          },
+          {
+            "id": "language",
+            "title": "¡Alcanzando el mundo!",
+            "description": "Soportar distintos idiomas amplía un producto por el mundo — yo puedo hacerlo realidad.",
+            "languageHint": "Prueba a cambiar el idioma",
+            "languages": [
+              { "id": "en", "label": "English" },
+              { "id": "fr", "label": "Français" },
+              { "id": "es", "label": "Español" }
             ],
             "image": "multilingual.svg",
             "variant": "inverse"

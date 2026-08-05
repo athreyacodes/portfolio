@@ -420,7 +420,7 @@
     align-items: flex-start;
     gap: 0;
     padding: 50px;
-    padding-bottom: 2.25rem;
+    padding-bottom: 0.75rem;
     padding-left: calc(50px + var(--hero-photo-overlap));
     @include hero-intro-row;
   }

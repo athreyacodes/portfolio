@@ -20,7 +20,7 @@
 .skills {
   box-sizing: border-box;
   width: 100%;
-  padding: var(--space-3) 1.5rem var(--space-5);
+  padding: 0 1.5rem var(--space-5);
   opacity: 0;
   visibility: hidden;
   pointer-events: none;
@@ -33,6 +33,25 @@
       opacity 1.2s cubic-bezier(0.25, 1, 0.4, 1),
       visibility 0s linear 0s;
   }
+}
+
+.skills-rule {
+  width: min(12rem, 28%);
+  height: 1px;
+  margin: 1.5rem auto 0;
+  background: color-mix(in srgb, var(--hero-right-text-color) 35%, transparent);
+}
+
+.skills-subtitle {
+  margin: 1.75rem auto 2.5rem;
+  max-width: 100%;
+  text-align: center;
+  white-space: nowrap;
+  font-family: var(--font-montserrat), sans-serif;
+  font-size: clamp(0.85rem, 1.3vw, 1rem);
+  line-height: 1.4;
+  color: var(--hero-right-text-color);
+  opacity: 0.9;
 }
 
 .skills-layout {
@@ -235,7 +254,7 @@
 // Desktop: primary ~30% + 2×2 grid matching height
 @include desktop {
   .skills {
-    padding: 2.25rem 50px var(--space-5);
+    padding: 0 50px var(--space-5);
   }
 
   .skills-layout {
@@ -289,14 +308,14 @@
 
   .skills-chip {
     min-height: 2.15rem;
-    padding: 0.35rem 0.7rem;
-    font-size: 0.75rem;
+    padding: 0.35rem 0.55rem;
+    font-size: 0.72rem;
   }
 }
 
 @include laptop {
   .skills {
-    padding: var(--space-3) 2rem var(--space-5);
+    padding: 0 2rem var(--space-5);
   }
 
   .skills-layout {
@@ -325,7 +344,7 @@
 
 @media only screen and (min-width: #{$breakpoint-tablet-min}) and (max-width: #{$breakpoint-tablet-max}) {
   .skills {
-    padding: var(--space-4) 1rem var(--space-5);
+    padding: 0 1rem var(--space-5);
   }
 }
 
@@ -339,9 +358,24 @@
   }
 }
 
+.skills-chip-label--short {
+  display: none;
+}
+
 @include mobile {
   .skills {
-    padding: var(--space-4) 1rem var(--space-5);
+    padding: 0 1rem var(--space-5);
+  }
+
+  .skills-rule {
+    margin-top: 1.25rem;
+  }
+
+  .skills-subtitle {
+    margin: 1.5rem auto 2rem;
+    white-space: normal;
+    text-wrap: balance;
+    padding-inline: 0.25rem;
   }
 
   .skills-card--tile {
@@ -351,5 +385,13 @@
   .skills-card--tile .skills-card-img {
     width: 38%;
     min-width: 38%;
+  }
+
+  .skills-chip-label--full {
+    display: none;
+  }
+
+  .skills-chip-label--short {
+    display: inline;
   }
 }

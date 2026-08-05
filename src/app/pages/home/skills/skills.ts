@@ -1,6 +1,6 @@
 import { Component, computed, inject, input } from '@angular/core';
 import { LanguageService, LocaleCode } from '../../../services/language.service';
-import { ThemeService, ThemeMode } from '../../../services/theme.service';
+import { ThemeService } from '../../../services/theme.service';
 
 type SkillCard = ReturnType<LanguageService['copy']>['skills']['cards'][number];
 
@@ -50,8 +50,8 @@ export class SkillsComponent {
   }
 
   protected setTheme(mode: string): void {
-    if (mode === 'light' || mode === 'dark') {
-      this.themeService.setTheme(mode as ThemeMode);
+    if (mode === 'light' || mode === 'dark' || mode === 'system') {
+      this.themeService.setTheme(mode);
     }
   }
 
@@ -60,7 +60,7 @@ export class SkillsComponent {
   }
 
   protected isThemeActive(id: string): boolean {
-    return id === 'dark' ? this.isDark() : !this.isDark();
+    return this.themeService.mode() === id;
   }
 
   protected isLocaleActive(id: string): boolean {

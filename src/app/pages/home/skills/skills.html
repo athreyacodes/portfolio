@@ -4,6 +4,8 @@
   [class.skills--visible]="visible()"
 >
   <h2 id="skills-heading" class="skills-sr-only">{{ copy().skills.title }}</h2>
+  <div class="skills-rule" aria-hidden="true"></div>
+  <p class="skills-subtitle">{{ copy().skills.subtitle }}</p>
 
   <div class="skills-layout">
     @if (primaryCard(); as primary) {
@@ -57,8 +59,10 @@
                         class="skills-chip"
                         [class.skills-chip--active]="isLocaleActive(lang.id)"
                         (click)="setLocale(lang.id)"
+                        [attr.aria-label]="lang.label"
                       >
-                        {{ lang.label }}
+                        <span class="skills-chip-label skills-chip-label--full">{{ lang.label }}</span>
+                        <span class="skills-chip-label skills-chip-label--short">{{ lang.id.toUpperCase() }}</span>
                       </button>
                     }
                   </div>
