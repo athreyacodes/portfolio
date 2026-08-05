@@ -47,7 +47,7 @@ export class HomeComponent {
 
       const bootHoldMs = 550;
       const dockAtMs = 2100;
-      const dockMs = 1000;
+      const dockMs = 1200;
       const subtitleAtMs = dockAtMs + dockMs + 150;
 
       const timers = [
@@ -83,7 +83,7 @@ export class HomeComponent {
         [{ transform: `translateX(${dx}px)` }, { transform: 'translateX(0)' }],
         {
           duration: durationMs,
-          easing: 'cubic-bezier(0.22, 1, 0.36, 1)',
+          easing: 'cubic-bezier(0.65, 0, 0.35, 1)',
           fill: 'none'
         }
       );

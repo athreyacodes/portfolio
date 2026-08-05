@@ -8,9 +8,10 @@
   --hero-text-inset: 148px;
   --hero-card-pad-bottom: 28px;
   --hero-card-height: calc(var(--hero-photo-size) + var(--hero-photo-top) + var(--hero-card-pad-bottom));
-  --hero-intro-ease: cubic-bezier(0.16, 1, 0.3, 1);
-  --hero-intro-duration: 1s;
-  --hero-name-fade-duration: 1s;
+  --hero-intro-ease: cubic-bezier(0.65, 0, 0.35, 1);
+  --hero-intro-duration: 1.2s;
+  --hero-name-fade-duration: 1.2s;
+  --hero-content-fade-delay: 0.35s;
   --hero-reveal-ease: cubic-bezier(0.25, 1, 0.4, 1);
   --hero-reveal-duration: 1.45s;
   --hero-photo-inset: calc((var(--hero-card-height) - var(--hero-photo-size)) / 2);
@@ -34,6 +35,7 @@
 }
 
 .hero-panel--left {
+  z-index: 2;
   width: max-content;
   max-width: 100%;
   min-width: var(--hero-card-height);
@@ -52,11 +54,10 @@
 }
 
 .hero-panel--right {
+  z-index: 1;
   width: 100%;
   min-width: 0;
   transition:
-    // Avoid fading the panel itself — only content wipe/fades should read
-    max-height var(--hero-intro-duration) var(--hero-intro-ease),
     max-width var(--hero-intro-duration) var(--hero-intro-ease),
     flex-grow var(--hero-intro-duration) var(--hero-intro-ease),
     padding var(--hero-intro-duration) var(--hero-intro-ease);
@@ -159,7 +160,11 @@
   align-items: inherit;
   text-align: inherit;
   width: 100%;
-  opacity: 1;
+  opacity: 0;
+  visibility: hidden;
+  transition:
+    opacity var(--hero-name-fade-duration) var(--hero-reveal-ease),
+    visibility 0s;
 }
 
 .hero-subtitle {
@@ -212,93 +217,100 @@
   }
 }
 
-// Column / stacked intro (mobile + non-row breakpoints)
-.hero-split[data-intro='0'] {
-  .hero-identity {
-    max-width: 0;
-    margin-top: 0;
-    margin-left: 0;
-    opacity: 0;
-    visibility: hidden;
-    pointer-events: none;
+// Column / stacked intro (mobile only — row layouts use hero-intro-row)
+@include mobile {
+  .hero-split[data-intro='0'] {
+    .hero-identity {
+      max-width: 0;
+      margin-top: 0;
+      margin-left: 0;
+      opacity: 0;
+      visibility: hidden;
+      pointer-events: none;
+    }
+
+    .hero-panel--right {
+      max-height: 0;
+      overflow: hidden;
+      opacity: 0;
+      pointer-events: none;
+    }
+
+    .hero-role-heading,
+    .hero-subtitle {
+      opacity: 0;
+    }
   }
 
-  .hero-panel--right {
-    max-height: 0;
-    overflow: hidden;
-    opacity: 0;
-    pointer-events: none;
+  .hero-split[data-intro='1'] {
+    .hero-identity {
+      max-width: 24rem;
+      opacity: 1;
+      visibility: visible;
+      pointer-events: auto;
+      transition:
+        margin-left var(--hero-intro-duration) var(--hero-intro-ease),
+        margin-top var(--hero-intro-duration) var(--hero-intro-ease),
+        opacity var(--hero-name-fade-duration) var(--hero-reveal-ease) var(--hero-content-fade-delay),
+        visibility 0s linear var(--hero-content-fade-delay);
+    }
+
+    .hero-panel--right {
+      max-height: 0;
+      overflow: hidden;
+      opacity: 0;
+      pointer-events: none;
+    }
+
+    .hero-role-heading,
+    .hero-subtitle {
+      opacity: 0;
+    }
   }
 
-  .hero-role-heading,
-  .hero-subtitle {
-    opacity: 0;
-  }
-}
+  .hero-split[data-intro='2'] {
+    .hero-identity {
+      opacity: 1;
+      visibility: visible;
+      pointer-events: auto;
+    }
 
-.hero-split[data-intro='1'] {
-  .hero-identity {
-    max-width: 24rem;
-    opacity: 1;
-    visibility: visible;
-    pointer-events: auto;
-    transition:
-      margin-left var(--hero-intro-duration) var(--hero-intro-ease),
-      margin-top var(--hero-intro-duration) var(--hero-intro-ease),
-      opacity var(--hero-name-fade-duration) var(--hero-reveal-ease),
-      visibility 0s;
-  }
+    .hero-panel--right {
+      max-height: none;
+      overflow: hidden;
+      opacity: 1;
+      pointer-events: auto;
+    }
 
-  .hero-panel--right {
-    max-height: 0;
-    overflow: hidden;
-    opacity: 0;
-    pointer-events: none;
-  }
+    .hero-role-heading {
+      opacity: 1;
+      visibility: visible;
+      pointer-events: auto;
+      transition:
+        opacity var(--hero-name-fade-duration) var(--hero-reveal-ease) var(--hero-content-fade-delay),
+        visibility 0s linear var(--hero-content-fade-delay);
+    }
 
-  .hero-role-heading,
-  .hero-subtitle {
-    opacity: 0;
-  }
-}
-
-.hero-split[data-intro='2'] {
-  .hero-identity {
-    opacity: 1;
-    visibility: visible;
-    pointer-events: auto;
+    .hero-subtitle {
+      opacity: 0;
+      pointer-events: none;
+    }
   }
 
-  .hero-panel--right {
-    max-height: none;
-    overflow: hidden;
-    opacity: 1;
-    pointer-events: auto;
-  }
+  .hero-split[data-intro='3'] {
+    .hero-panel--right {
+      max-height: none;
+      overflow: visible;
+      opacity: 1;
+      pointer-events: auto;
+    }
 
-  .hero-role-heading {
-    opacity: 1;
-    pointer-events: auto;
-  }
-
-  .hero-subtitle {
-    opacity: 0;
-    pointer-events: none;
-  }
-}
-
-.hero-split[data-intro='3'] {
-  .hero-panel--right {
-    max-height: none;
-    overflow: visible;
-    opacity: 1;
-    pointer-events: auto;
-  }
-
-  .hero-role-heading,
-  .hero-subtitle {
-    opacity: 1;
-    pointer-events: auto;
+    .hero-role-heading,
+    .hero-subtitle {
+      opacity: 1;
+      visibility: visible;
+      pointer-events: auto;
+    }
   }
 }
 
@@ -377,13 +389,14 @@
       transition:
         margin-left var(--hero-intro-duration) var(--hero-intro-ease),
         margin-top var(--hero-intro-duration) var(--hero-intro-ease),
-        opacity var(--hero-name-fade-duration) var(--hero-reveal-ease),
-        visibility 0s;
+        opacity var(--hero-name-fade-duration) var(--hero-reveal-ease) var(--hero-content-fade-delay),
+        visibility 0s linear var(--hero-content-fade-delay);
     }
 
     .hero-panel--right {
       flex: 0 0 0;
       max-width: 0;
+      max-height: none;
       min-width: 0;
       width: 0;
       padding: 0;
@@ -398,7 +411,7 @@
     }
   }
 
-  // Phase 2: name card slides left, role uncovered (no fade on heading)
+  // Phase 2: name card slides left, role heading fades in with delay
   &[data-intro='2'] {
     padding-left: calc(50px + var(--hero-photo-overlap));
     padding-right: 50px;
@@ -427,15 +440,21 @@
     .hero-panel--right {
       flex: 1 1 0;
       max-width: none;
+      max-height: none;
       width: auto;
       opacity: 1;
       overflow: hidden;
       pointer-events: auto;
+      transition: none;
     }
 
     .hero-role-heading {
       opacity: 1;
+      visibility: visible;
       pointer-events: auto;
+      transition:
+        opacity var(--hero-name-fade-duration) var(--hero-reveal-ease) var(--hero-content-fade-delay),
+        visibility 0s linear var(--hero-content-fade-delay);
     }
 
     .hero-subtitle {
@@ -469,15 +488,18 @@
     .hero-panel--right {
       flex: 1 1 0;
       max-width: none;
+      max-height: none;
       width: auto;
       opacity: 1;
       overflow: visible;
       pointer-events: auto;
+      transition: none;
     }
 
     .hero-role-heading,
     .hero-subtitle {
       opacity: 1;
+      visibility: visible;
       pointer-events: auto;
     }
   }
@@ -511,6 +533,10 @@
   .hero-name,
   .hero-title {
     font-size: clamp(2.25rem, 3vw, 3rem);
+  }
+
+  .hero-title {
+    white-space: nowrap;
   }
 }
 
