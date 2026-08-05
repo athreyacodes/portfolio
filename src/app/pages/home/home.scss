@@ -10,7 +10,7 @@
   --hero-card-height: calc(var(--hero-photo-size) + var(--hero-photo-top) + var(--hero-card-pad-bottom));
   --hero-intro-ease: cubic-bezier(0.16, 1, 0.3, 1);
   --hero-intro-duration: 1s;
-  --hero-name-fade-duration: 0.55s;
+  --hero-name-fade-duration: 1s;
   --hero-reveal-ease: cubic-bezier(0.25, 1, 0.4, 1);
   --hero-reveal-duration: 1.45s;
   --hero-photo-inset: calc((var(--hero-card-height) - var(--hero-photo-size)) / 2);
@@ -130,7 +130,7 @@
     margin-left var(--hero-intro-duration) var(--hero-intro-ease),
     margin-top var(--hero-intro-duration) var(--hero-intro-ease),
     opacity var(--hero-name-fade-duration) var(--hero-reveal-ease),
-    visibility 0s linear var(--hero-name-fade-duration);
+    visibility 0s;
 }
 
 .hero-name-block {
@@ -245,8 +245,8 @@
     transition:
       margin-left var(--hero-intro-duration) var(--hero-intro-ease),
       margin-top var(--hero-intro-duration) var(--hero-intro-ease),
-      opacity var(--hero-name-fade-duration) var(--hero-reveal-ease) var(--hero-intro-duration),
-      visibility 0s linear var(--hero-intro-duration);
+      opacity var(--hero-name-fade-duration) var(--hero-reveal-ease),
+      visibility 0s;
   }
 
   .hero-panel--right {
@@ -377,8 +377,8 @@
       transition:
         margin-left var(--hero-intro-duration) var(--hero-intro-ease),
         margin-top var(--hero-intro-duration) var(--hero-intro-ease),
-        opacity var(--hero-name-fade-duration) var(--hero-reveal-ease) var(--hero-intro-duration),
-        visibility 0s linear var(--hero-intro-duration);
+        opacity var(--hero-name-fade-duration) var(--hero-reveal-ease),
+        visibility 0s;
     }
 
     .hero-panel--right {
