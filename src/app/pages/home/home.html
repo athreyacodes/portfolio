@@ -1,6 +1,10 @@
-<section class="hero-split" aria-label="Introduction">
-  <div class="hero-panel hero-panel--left hero-panel--active hero-animate">
-    <div class="hero-photo hero-animate">
+<section
+  class="hero-split"
+  aria-label="Introduction"
+  [attr.data-intro]="introPhase()"
+>
+  <div #heroLeft class="hero-panel hero-panel--left hero-panel--active">
+    <div class="hero-photo">
       <img
         [ngSrc]="me.photoPath"
         width="280"
@@ -11,7 +15,7 @@
       />
     </div>
 
-    <div class="hero-identity hero-animate">
+    <div class="hero-identity">
       <p class="hero-pre-title">{{ copy().preName }}</p>
       <div class="hero-name-block">
         <h1 class="hero-name">{{ me.displayName }}</h1>
@@ -63,10 +67,12 @@
     </div>
   </div>
 
-  <div class="hero-panel hero-panel--right hero-animate">
+  <div class="hero-panel hero-panel--right">
     <div class="hero-role">
-      <p class="hero-pre-title">{{ copy().preRole }}</p>
-      <p class="hero-title">{{ copy().homeTitle }}</p>
+      <div class="hero-role-heading">
+        <p class="hero-pre-title">{{ copy().preRole }}</p>
+        <p class="hero-title">{{ copy().homeTitle }}</p>
+      </div>
       <p class="hero-subtitle" [innerHTML]="copy().homeSubtitles[1]"></p>
     </div>
   </div>
