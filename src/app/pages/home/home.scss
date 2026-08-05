@@ -244,7 +244,9 @@
 
   .hero-split[data-intro='1'] {
     .hero-identity {
-      max-width: 24rem;
+      max-width: 100%;
+      margin-top: calc(var(--hero-photo-size) + var(--hero-photo-top) + 8px);
+      margin-left: 0;
       opacity: 1;
       visibility: visible;
       pointer-events: auto;
@@ -270,6 +272,9 @@
 
   .hero-split[data-intro='2'] {
     .hero-identity {
+      max-width: 100%;
+      margin-top: calc(var(--hero-photo-size) + var(--hero-photo-top) + 8px);
+      margin-left: 0;
       opacity: 1;
       visibility: visible;
       pointer-events: auto;
@@ -298,6 +303,15 @@
   }
 
   .hero-split[data-intro='3'] {
+    .hero-identity {
+      max-width: 100%;
+      margin-top: calc(var(--hero-photo-size) + var(--hero-photo-top) + 8px);
+      margin-left: 0;
+      opacity: 1;
+      visibility: visible;
+      pointer-events: auto;
+    }
+
     .hero-panel--right {
       max-height: none;
       overflow: visible;
@@ -627,8 +641,15 @@
     --hero-photo-top: calc(var(--hero-photo-size) * -0.36);
     --hero-photo-overlap: 0px;
     --hero-text-inset: 0px;
-    --hero-card-pad-bottom: 1.15rem;
+    --hero-card-pad-bottom: 1.65rem;
     --hero-card-height: auto;
+    --hero-mobile-square: min(calc(100vw - var(--hero-side-gap) * 2), 260px);
+    --hero-mobile-boot-photo: calc(var(--hero-mobile-square) * 0.76);
+    --hero-mobile-photo-inset: calc((var(--hero-mobile-square) - var(--hero-mobile-boot-photo)) / 2);
+    --hero-mobile-card-min: calc(
+      var(--hero-photo-size) + var(--hero-photo-top) + 8px + 1.5rem + 3rem + 0.75rem + 2.75rem +
+        var(--hero-card-pad-bottom)
+    );
   }
 
   .hero-split {
@@ -636,6 +657,7 @@
     align-items: center;
     gap: var(--space-4);
     padding: calc(var(--hero-photo-top) * -1 + 1.25rem) var(--hero-side-gap) var(--space-4);
+    transition: padding-top var(--hero-intro-duration) var(--hero-intro-ease);
   }
 
   .hero-panel--left {
@@ -660,6 +682,87 @@
     justify-content: center;
   }
 
+  // Intro: keep photo full-width + flex-centered; animate `top` (can go negative)
+  .hero-split[data-intro] {
+    .hero-panel--left {
+      overflow: visible;
+      transition:
+        width var(--hero-intro-duration) var(--hero-intro-ease),
+        max-width var(--hero-intro-duration) var(--hero-intro-ease),
+        min-height var(--hero-intro-duration) var(--hero-intro-ease),
+        height var(--hero-intro-duration) var(--hero-intro-ease),
+        padding var(--hero-intro-duration) var(--hero-intro-ease);
+    }
+
+    .hero-photo {
+      left: 0;
+      right: 0;
+      width: 100%;
+      height: auto;
+      margin-left: 0;
+      transform: none;
+      display: flex;
+      justify-content: center;
+      transition: top var(--hero-intro-duration) var(--hero-intro-ease);
+    }
+
+    .profile-dp {
+      transition:
+        width var(--hero-intro-duration) var(--hero-intro-ease),
+        height var(--hero-intro-duration) var(--hero-intro-ease);
+    }
+  }
+
+  .hero-split[data-intro='0'] {
+    padding-top: var(--space-4);
+    padding-left: var(--hero-side-gap);
+    padding-right: var(--hero-side-gap);
+
+    .hero-panel--left {
+      width: var(--hero-mobile-square);
+      max-width: var(--hero-mobile-square);
+      min-width: 0;
+      min-height: var(--hero-mobile-square);
+      height: var(--hero-mobile-square);
+      padding: 0;
+      margin-inline: auto;
+    }
+
+    .hero-photo {
+      top: var(--hero-mobile-photo-inset);
+    }
+
+    .profile-dp {
+      width: var(--hero-mobile-boot-photo);
+      height: var(--hero-mobile-boot-photo);
+    }
+  }
+
+  .hero-split[data-intro='1'],
+  .hero-split[data-intro='2'],
+  .hero-split[data-intro='3'] {
+    padding-top: calc(var(--hero-photo-top) * -1 + 1.25rem);
+
+    .hero-panel--left {
+      width: 100%;
+      max-width: 100%;
+      min-width: 0;
+      min-height: var(--hero-mobile-card-min);
+      height: var(--hero-mobile-card-min);
+      padding: 0 1rem var(--hero-card-pad-bottom);
+      margin-inline: auto;
+    }
+
+    .hero-photo {
+      top: var(--hero-photo-top);
+    }
+
+    .profile-dp {
+      width: var(--hero-photo-size);
+      height: var(--hero-photo-size);
+    }
+  }
+
   .hero-identity {
     align-items: center;
     text-align: center;
@@ -667,6 +770,7 @@
     margin-left: 0;
     width: 100%;
     max-width: 100%;
+    overflow: visible;
   }
 
   .hero-name-block {
