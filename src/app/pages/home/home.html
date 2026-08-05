@@ -2,6 +2,8 @@
   class="hero-split"
   aria-label="Introduction"
   [attr.data-intro]="introPhase()"
+  [class.hero-intro-cold]="!introLive()"
+  [class.hero-intro-visible]="introVisible()"
 >
   <div #heroLeft class="hero-panel hero-panel--left hero-panel--active">
     <div class="hero-photo">

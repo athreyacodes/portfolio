@@ -26,7 +26,14 @@
   box-sizing: border-box;
   padding: calc(var(--hero-photo-top) + 12px) 1.5rem var(--space-4);
   padding-left: calc(1.5rem + var(--hero-photo-overlap));
-  transition: padding-left var(--hero-intro-duration) var(--hero-intro-ease);
+  opacity: 0;
+  transition:
+    padding-left var(--hero-intro-duration) var(--hero-intro-ease),
+    opacity 0.2s ease;
+
+  &.hero-intro-visible {
+    opacity: 1;
+  }
 }
 
 .hero-panel {
@@ -852,4 +859,15 @@
     pointer-events: auto !important;
     flex: 1 1 auto !important;
   }
+}
+
+// Disable transitions while snapping SSR final → boot (prevents reverse tween on refresh)
+.hero-split.hero-intro-cold,
+.hero-split.hero-intro-cold * {
+  transition: none !important;
+  animation: none !important;
+}
+
+.hero-split.hero-intro-cold {
+  opacity: 0 !important;
 }
