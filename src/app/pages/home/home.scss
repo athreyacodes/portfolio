@@ -15,6 +15,12 @@
   --hero-reveal-ease: cubic-bezier(0.25, 1, 0.4, 1);
   --hero-reveal-duration: 1.45s;
   --hero-photo-inset: calc((var(--hero-card-height) - var(--hero-photo-size)) / 2);
+  opacity: 0;
+
+  &.home--visible {
+    opacity: 1;
+    transition: opacity 0.25s ease;
+  }
 }
 
 .hero-split {
@@ -26,14 +32,7 @@
   box-sizing: border-box;
   padding: calc(var(--hero-photo-top) + 12px) 1.5rem var(--space-4);
   padding-left: calc(1.5rem + var(--hero-photo-overlap));
-  opacity: 0;
-  transition:
-    padding-left var(--hero-intro-duration) var(--hero-intro-ease),
-    opacity 0.2s ease;
-
-  &.hero-intro-visible {
-    opacity: 1;
-  }
+  transition: padding-left var(--hero-intro-duration) var(--hero-intro-ease);
 }
 
 .hero-panel {
@@ -54,10 +53,7 @@
   box-shadow: var(--hero-card-shadow);
   transition:
     background-color var(--hero-transition),
-    box-shadow var(--hero-transition),
-    max-width var(--hero-intro-duration) var(--hero-intro-ease),
-    padding-right var(--hero-intro-duration) var(--hero-intro-ease),
-    margin var(--hero-intro-duration) var(--hero-intro-ease);
+    box-shadow var(--hero-transition);
 }
 
 .hero-panel--right {
@@ -131,14 +127,8 @@
   margin-top: calc(var(--hero-photo-top) + 12px);
   margin-left: var(--hero-text-inset);
   max-width: 24rem;
-  overflow: hidden;
-  opacity: 0;
-  visibility: hidden;
-  transition:
-    margin-left var(--hero-intro-duration) var(--hero-intro-ease),
-    margin-top var(--hero-intro-duration) var(--hero-intro-ease),
-    opacity var(--hero-name-fade-duration) var(--hero-reveal-ease),
-    visibility 0s;
+  opacity: 1;
+  visibility: visible;
 }
 
 .hero-name-block {
@@ -227,15 +217,6 @@
 // Column / stacked intro (mobile only — row layouts use hero-intro-row)
 @include mobile {
   .hero-split[data-intro='0'] {
-    .hero-identity {
-      max-width: 0;
-      margin-top: 0;
-      margin-left: 0;
-      opacity: 0;
-      visibility: hidden;
-      pointer-events: none;
-    }
-
     .hero-panel--right {
       max-height: 0;
       overflow: hidden;
@@ -250,43 +231,6 @@
   }
 
   .hero-split[data-intro='1'] {
-    .hero-identity {
-      max-width: 100%;
-      margin-top: calc(var(--hero-photo-size) + var(--hero-photo-top) + 8px);
-      margin-left: 0;
-      opacity: 1;
-      visibility: visible;
-      pointer-events: auto;
-      transition:
-        margin-left var(--hero-intro-duration) var(--hero-intro-ease),
-        margin-top var(--hero-intro-duration) var(--hero-intro-ease),
-        opacity var(--hero-name-fade-duration) var(--hero-reveal-ease) var(--hero-content-fade-delay),
-        visibility 0s linear var(--hero-content-fade-delay);
-    }
-
-    .hero-panel--right {
-      max-height: 0;
-      overflow: hidden;
-      opacity: 0;
-      pointer-events: none;
-    }
-
-    .hero-role-heading,
-    .hero-subtitle {
-      opacity: 0;
-    }
-  }
-
-  .hero-split[data-intro='2'] {
-    .hero-identity {
-      max-width: 100%;
-      margin-top: calc(var(--hero-photo-size) + var(--hero-photo-top) + 8px);
-      margin-left: 0;
-      opacity: 1;
-      visibility: visible;
-      pointer-events: auto;
-    }
-
     .hero-panel--right {
       max-height: none;
       overflow: hidden;
@@ -309,16 +253,7 @@
     }
   }
 
-  .hero-split[data-intro='3'] {
-    .hero-identity {
-      max-width: 100%;
-      margin-top: calc(var(--hero-photo-size) + var(--hero-photo-top) + 8px);
-      margin-left: 0;
-      opacity: 1;
-      visibility: visible;
-      pointer-events: auto;
-    }
-
+  .hero-split[data-intro='2'] {
     .hero-panel--right {
       max-height: none;
       overflow: visible;
@@ -336,55 +271,14 @@
 }
 
 // ---------------------------------------------------------------------------
-// Intro choreography — row layouts (desktop + tablet portrait)
+// Intro choreography — row layouts (desktop + tablet)
+// Phase 0: full name card centered (photo left + name), role hidden
+// Phase 1: card docks left, role heading fades in
+// Phase 2: subtitle fades in
 // ---------------------------------------------------------------------------
 
 @mixin hero-intro-row {
-  // Phase 0: square card, photo centered, name + role hidden
   &[data-intro='0'] {
-    padding-left: 50px;
-    padding-right: 50px;
-
-    .hero-panel--left {
-      max-width: var(--hero-card-height);
-      padding-right: 0;
-      margin-inline: auto;
-    }
-
-    .hero-photo {
-      top: var(--hero-photo-inset);
-      left: var(--hero-photo-inset);
-      margin-left: 0;
-    }
-
-    .hero-identity {
-      margin-left: 0;
-      margin-top: calc(var(--hero-photo-top) + 12px);
-      max-width: 0;
-      opacity: 0;
-      visibility: hidden;
-      pointer-events: none;
-    }
-
-    .hero-panel--right {
-      flex: 0 0 0;
-      max-width: 0;
-      min-width: 0;
-      width: 0;
-      padding: 0;
-      overflow: hidden;
-      opacity: 0;
-      pointer-events: none;
-    }
-
-    .hero-role-heading,
-    .hero-subtitle {
-      opacity: 0;
-    }
-  }
-
-  // Phase 1: photo slides, card square → rectangle, name fades in after slide
-  &[data-intro='1'] {
     padding-left: calc(50px + var(--hero-photo-overlap));
     padding-right: 50px;
 
@@ -407,17 +301,11 @@
       opacity: 1;
       visibility: visible;
       pointer-events: auto;
-      transition:
-        margin-left var(--hero-intro-duration) var(--hero-intro-ease),
-        margin-top var(--hero-intro-duration) var(--hero-intro-ease),
-        opacity var(--hero-name-fade-duration) var(--hero-reveal-ease) var(--hero-content-fade-delay),
-        visibility 0s linear var(--hero-content-fade-delay);
     }
 
     .hero-panel--right {
       flex: 0 0 0;
       max-width: 0;
-      max-height: none;
       min-width: 0;
       width: 0;
       padding: 0;
@@ -429,11 +317,11 @@
     .hero-role-heading,
     .hero-subtitle {
       opacity: 0;
+      visibility: hidden;
     }
   }
 
-  // Phase 2: name card slides left, role heading fades in with delay
-  &[data-intro='2'] {
+  &[data-intro='1'] {
     padding-left: calc(50px + var(--hero-photo-overlap));
     padding-right: 50px;
 
@@ -480,12 +368,12 @@
 
     .hero-subtitle {
       opacity: 0;
+      visibility: hidden;
       pointer-events: none;
     }
   }
 
-  // Phase 3: subtitle fades in
-  &[data-intro='3'] {
+  &[data-intro='2'] {
     .hero-panel--left {
       max-width: 30rem;
       margin-inline: 0;
@@ -532,6 +420,7 @@
     align-items: flex-start;
     gap: 0;
     padding: 50px;
+    padding-bottom: 2.25rem;
     padding-left: calc(50px + var(--hero-photo-overlap));
     @include hero-intro-row;
   }
@@ -580,11 +469,6 @@
     @include hero-intro-row;
 
     &[data-intro='0'] {
-      padding-left: 1rem;
-      padding-right: 1rem;
-    }
-
-    &[data-intro='1'] {
       padding-left: calc(1rem + var(--hero-photo-overlap));
       padding-right: 1rem;
 
@@ -593,8 +477,8 @@
       }
     }
 
-    &[data-intro='2'],
-    &[data-intro='3'] {
+    &[data-intro='1'],
+    &[data-intro='2'] {
       .hero-panel--left {
         padding-right: 1.5rem;
       }
@@ -643,18 +527,15 @@
 
 @include mobile {
   :host {
-    --hero-side-gap: 2.5rem;
+    --hero-side-gap: 3.35rem;
     --hero-photo-size: calc((100vw - var(--hero-side-gap) * 2) * 0.62);
     --hero-photo-top: calc(var(--hero-photo-size) * -0.36);
     --hero-photo-overlap: 0px;
     --hero-text-inset: 0px;
-    --hero-card-pad-bottom: 1.65rem;
+    --hero-card-pad-bottom: 2.5rem;
     --hero-card-height: auto;
-    --hero-mobile-square: min(calc(100vw - var(--hero-side-gap) * 2), 260px);
-    --hero-mobile-boot-photo: calc(var(--hero-mobile-square) * 0.76);
-    --hero-mobile-photo-inset: calc((var(--hero-mobile-square) - var(--hero-mobile-boot-photo)) / 2);
     --hero-mobile-card-min: calc(
-      var(--hero-photo-size) + var(--hero-photo-top) + 8px + 1.5rem + 3rem + 0.75rem + 2.75rem +
+      var(--hero-photo-size) + var(--hero-photo-top) + 8px + 1.5rem + 3.15rem + 0.85rem + 2.85rem +
         var(--hero-card-pad-bottom)
     );
   }
@@ -664,19 +545,20 @@
     align-items: center;
     gap: var(--space-4);
     padding: calc(var(--hero-photo-top) * -1 + 1.25rem) var(--hero-side-gap) var(--space-4);
-    transition: padding-top var(--hero-intro-duration) var(--hero-intro-ease);
   }
 
   .hero-panel--left {
     width: 100%;
     max-width: 100%;
     min-width: 0;
-    height: auto;
+    min-height: var(--hero-mobile-card-min);
+    height: var(--hero-mobile-card-min);
     padding: 0 1rem var(--hero-card-pad-bottom);
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-inline: 0;
+    margin-inline: auto;
+    overflow: visible;
   }
 
   .hero-photo {
@@ -687,87 +569,6 @@
     margin-left: 0;
     display: flex;
     justify-content: center;
-  }
-
-  // Intro: keep photo full-width + flex-centered; animate `top` (can go negative)
-  .hero-split[data-intro] {
-    .hero-panel--left {
-      overflow: visible;
-      transition:
-        width var(--hero-intro-duration) var(--hero-intro-ease),
-        max-width var(--hero-intro-duration) var(--hero-intro-ease),
-        min-height var(--hero-intro-duration) var(--hero-intro-ease),
-        height var(--hero-intro-duration) var(--hero-intro-ease),
-        padding var(--hero-intro-duration) var(--hero-intro-ease);
-    }
-
-    .hero-photo {
-      left: 0;
-      right: 0;
-      width: 100%;
-      height: auto;
-      margin-left: 0;
-      transform: none;
-      display: flex;
-      justify-content: center;
-      transition: top var(--hero-intro-duration) var(--hero-intro-ease);
-    }
-
-    .profile-dp {
-      transition:
-        width var(--hero-intro-duration) var(--hero-intro-ease),
-        height var(--hero-intro-duration) var(--hero-intro-ease);
-    }
-  }
-
-  .hero-split[data-intro='0'] {
-    padding-top: var(--space-4);
-    padding-left: var(--hero-side-gap);
-    padding-right: var(--hero-side-gap);
-
-    .hero-panel--left {
-      width: var(--hero-mobile-square);
-      max-width: var(--hero-mobile-square);
-      min-width: 0;
-      min-height: var(--hero-mobile-square);
-      height: var(--hero-mobile-square);
-      padding: 0;
-      margin-inline: auto;
-    }
-
-    .hero-photo {
-      top: var(--hero-mobile-photo-inset);
-    }
-
-    .profile-dp {
-      width: var(--hero-mobile-boot-photo);
-      height: var(--hero-mobile-boot-photo);
-    }
-  }
-
-  .hero-split[data-intro='1'],
-  .hero-split[data-intro='2'],
-  .hero-split[data-intro='3'] {
-    padding-top: calc(var(--hero-photo-top) * -1 + 1.25rem);
-
-    .hero-panel--left {
-      width: 100%;
-      max-width: 100%;
-      min-width: 0;
-      min-height: var(--hero-mobile-card-min);
-      height: var(--hero-mobile-card-min);
-      padding: 0 1rem var(--hero-card-pad-bottom);
-      margin-inline: auto;
-    }
-
-    .hero-photo {
-      top: var(--hero-photo-top);
-    }
-
-    .profile-dp {
-      width: var(--hero-photo-size);
-      height: var(--hero-photo-size);
-    }
   }
 
   .hero-identity {
@@ -828,6 +629,12 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
+  :host,
+  :host.home--visible {
+    opacity: 1 !important;
+    transition: none !important;
+  }
+
   .hero-split,
   .hero-panel--left,
   .hero-photo,
@@ -838,19 +645,15 @@
     transition: none !important;
   }
 
-  .hero-split[data-intro='0'] .hero-identity,
   .hero-split[data-intro='0'] .hero-role-heading,
   .hero-split[data-intro='0'] .hero-subtitle,
-  .hero-split[data-intro='1'] .hero-role-heading,
-  .hero-split[data-intro='1'] .hero-subtitle,
-  .hero-split[data-intro='2'] .hero-subtitle {
+  .hero-split[data-intro='1'] .hero-subtitle {
     opacity: 1 !important;
     visibility: visible !important;
     pointer-events: auto !important;
   }
 
-  .hero-split[data-intro='0'] .hero-panel--right,
-  .hero-split[data-intro='1'] .hero-panel--right {
+  .hero-split[data-intro='0'] .hero-panel--right {
     opacity: 1 !important;
     max-height: none !important;
     max-width: none !important;
@@ -862,12 +665,8 @@
 }
 
 // Disable transitions while snapping SSR final → boot (prevents reverse tween on refresh)
-.hero-split.hero-intro-cold,
-.hero-split.hero-intro-cold * {
+:host.home--cold,
+:host.home--cold * {
   transition: none !important;
   animation: none !important;
-}
-
-.hero-split.hero-intro-cold {
-  opacity: 0 !important;
 }

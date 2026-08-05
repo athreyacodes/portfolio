@@ -14,16 +14,20 @@ import meData from '../../data/me.json';
 import { LanguageService } from '../../services/language.service';
 import { SkillsComponent } from './skills/skills';
 
-/** 0 = boot, 1 = photo + card + name, 2 = dock left + role, 3 = subtitle fade */
-export type HeroIntroPhase = 0 | 1 | 2 | 3;
+/** 0 = centered name card, 1 = dock left + role, 2 = subtitle */
+export type HeroIntroPhase = 0 | 1 | 2;
 
 @Component({
   selector: 'app-home',
   imports: [NgOptimizedImage, MatTooltipModule, SkillsComponent],
   templateUrl: './home.html',
   styleUrl: './home.scss',
-  // SSR/prerender ships the final hero (phase 3). Client rebuilds and plays the intro.
-  host: { ngSkipHydration: 'true' }
+  // SSR/prerender ships the final hero (phase 2). Client rebuilds and plays the intro.
+  host: {
+    ngSkipHydration: 'true',
+    '[class.home--visible]': 'pageVisible()',
+    '[class.home--cold]': '!introLive()'
+  }
 })
 export class HomeComponent {
   private readonly languageService = inject(LanguageService);
@@ -35,15 +39,17 @@ export class HomeComponent {
   protected readonly copy = this.languageService.copy;
   protected readonly copyFeedback = signal('');
   /**
-   * When false, all intro transitions are disabled so the SSR final state can
+   * When false, intro transitions are disabled so the SSR final state can
    * snap to boot without animating backwards on refresh.
    */
   protected readonly introLive = signal(!isPlatformBrowser(this.platformId));
-  /** Fades the hero in after the cold boot snap (hides SSR → boot flicker). */
-  protected readonly introVisible = signal(!isPlatformBrowser(this.platformId));
-  /** Server/prerender: fully visible for SEO. Browser: boot at 0 and animate. */
+  /** Whole-page fade after cold boot snap (covers hero + skills). */
+  protected readonly pageVisible = signal(!isPlatformBrowser(this.platformId));
+  /** Skills stay hidden until after the role subtitle. */
+  protected readonly skillsVisible = signal(false);
+  /** Server/prerender: fully visible for SEO. Browser: boot at 0 and dock. */
   protected readonly introPhase = signal<HeroIntroPhase>(
-    isPlatformBrowser(this.platformId) ? 0 : 3
+    isPlatformBrowser(this.platformId) ? 0 : 2
   );
 
   private introTimers: number[] = [];
@@ -56,7 +62,6 @@ export class HomeComponent {
 
       this.startIntro();
 
-      // bfcache restore can leave the page on the final frame — replay cleanly
       const onPageShow = (event: PageTransitionEvent): void => {
         if (event.persisted) {
           this.startIntro();
@@ -74,32 +79,34 @@ export class HomeComponent {
     this.clearIntroTimers();
 
     if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-      this.introPhase.set(3);
+      this.introPhase.set(2);
       this.introLive.set(true);
-      this.introVisible.set(true);
+      this.pageVisible.set(true);
+      this.skillsVisible.set(true);
       return;
     }
 
-    // Snap to boot with transitions off (kills reverse tween from prerendered phase 3)
+    // Hide page, snap to centered name card (no reverse tween / flicker)
     this.introLive.set(false);
-    this.introVisible.set(false);
+    this.pageVisible.set(false);
+    this.skillsVisible.set(false);
     this.introPhase.set(0);
 
     requestAnimationFrame(() => {
       requestAnimationFrame(() => {
         this.introLive.set(true);
-        this.introVisible.set(true);
+        this.pageVisible.set(true);
 
         const fadeInMs = 200;
-        const bootHoldMs = 900; // 700 + 200
-        const dockAtMs = 2500; // 2300 + 200
+        const bootHoldMs = 900;
         const dockMs = 1200;
-        const subtitleAtMs = dockAtMs + dockMs + 150;
+        const subtitleAtMs = bootHoldMs + dockMs + 150;
+        const skillsAtMs = subtitleAtMs + 450;
 
         this.introTimers = [
-          window.setTimeout(() => this.introPhase.set(1), fadeInMs + bootHoldMs),
-          window.setTimeout(() => this.dockCardLeft(dockMs), fadeInMs + dockAtMs),
-          window.setTimeout(() => this.introPhase.set(3), fadeInMs + subtitleAtMs)
+          window.setTimeout(() => this.dockCardLeft(dockMs), fadeInMs + bootHoldMs),
+          window.setTimeout(() => this.introPhase.set(2), fadeInMs + subtitleAtMs),
+          window.setTimeout(() => this.skillsVisible.set(true), fadeInMs + skillsAtMs)
         ];
       });
     });
@@ -112,29 +119,31 @@ export class HomeComponent {
     this.introTimers = [];
   }
 
-  /** FLIP: slide name card left; role heading is already in place behind it. */
+  /** FLIP: slide name card left to reveal role. */
   private dockCardLeft(durationMs: number): void {
     const el = this.heroLeft().nativeElement;
     const firstLeft = el.getBoundingClientRect().left;
 
-    this.introPhase.set(2);
+    this.introPhase.set(1);
 
     requestAnimationFrame(() => {
-      const lastLeft = el.getBoundingClientRect().left;
-      const dx = firstLeft - lastLeft;
+      requestAnimationFrame(() => {
+        const lastLeft = el.getBoundingClientRect().left;
+        const dx = firstLeft - lastLeft;
 
-      if (Math.abs(dx) < 1) {
-        return;
-      }
-
-      el.animate(
-        [{ transform: `translateX(${dx}px)` }, { transform: 'translateX(0)' }],
-        {
-          duration: durationMs,
-          easing: 'cubic-bezier(0.65, 0, 0.35, 1)',
-          fill: 'none'
+        if (Math.abs(dx) < 1) {
+          return;
         }
-      );
+
+        el.animate(
+          [{ transform: `translateX(${dx}px)` }, { transform: 'translateX(0)' }],
+          {
+            duration: durationMs,
+            easing: 'cubic-bezier(0.65, 0, 0.35, 1)',
+            fill: 'none'
+          }
+        );
+      });
     });
   }
 

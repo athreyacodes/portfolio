@@ -24,46 +24,51 @@
       "emailCopied": "Email copied to clipboard",
       "emailCopyFailed": "Could not copy email",
       "skills": {
-        "title": "My Skills",
+        "title": "What I do",
         "subtitle": "I created this portfolio to showcase what I can do with modern web development.",
         "cards": [
           {
             "id": "enterprise",
-            "title": "I build enterprise apps",
-            "description": "I like to build <strong>solid</strong>, <strong>scalable</strong> and <strong>responsive</strong> frontend products with a smooth user experience.",
+            "title": "I build for the enterprise",
+            "description": "I specialize in <strong>Angular</strong> — design systems, reusable UI libraries, performance work, and modernizing legacy platforms into <strong>solid</strong>, <strong>scalable</strong>, and <strong>responsive</strong> products.",
             "image": "responsive.svg",
             "variant": "primary"
           },
           {
-            "id": "responsive",
-            "title": "Personalization, on point!",
-            "description": "I think <strong>personalization</strong> helps people feel at home in a product.",
+            "id": "architecture",
+            "title": "Built for scale",
+            "description": "I work extensively with <strong>micro frontends</strong> and <strong>Nx monorepos</strong> to keep large apps shippable and maintainable.",
+            "image": "micro-fe.svg",
+            "variant": "inverse"
+          },
+          {
+            "id": "ssr",
+            "title": "Fast and findable",
+            "description": "I build <strong>SSR</strong> and <strong>SSG</strong> sites that load quickly and stay strong on SEO.",
+            "image": "result.svg",
+            "variant": "inverse"
+          },
+          {
+            "id": "design",
+            "title": "Design, on point!",
+            "description": "I think <strong>personalization</strong> is a key part of making people feel at home in a product.",
             "themeHint": "Try changing the theme",
-            "languageHint": "Try changing the language",
             "themes": [
               { "id": "light", "label": "Light" },
               { "id": "dark", "label": "Dark" }
-            ],
-            "languages": [
-              { "id": "en", "label": "English" },
-              { "id": "fr", "label": "Français" }
             ],
             "image": "theme3.svg",
             "variant": "inverse"
           },
           {
-            "id": "architecture",
-            "title": "Built for scale",
-            "description": "Ideas like <strong>micro frontends</strong> and <strong>Nx monorepos</strong> help keep large apps easy to ship and maintain.",
-            "demo": "Coming soon — live Nx monorepo",
-            "image": "micro-fe.svg",
-            "variant": "inverse",
-            "demoKey": "enterprise"
-          },
-          {
-            "id": "ssr",
-            "title": "Fast and findable",
-            "description": "I also build <strong>SSR</strong> and <strong>SSG</strong> sites — blogs and portfolios that load fast and work well with SEO.",
+            "id": "language",
+            "title": "Reaching across the globe!",
+            "description": "Supporting different languages expands a product across the globe — I can make that happen.",
+            "languageHint": "Try changing the language",
+            "languages": [
+              { "id": "en", "label": "English" },
+              { "id": "fr", "label": "Français" }
+            ],
             "image": "multilingual.svg",
             "variant": "inverse"
           }
@@ -87,46 +92,51 @@
       "emailCopied": "E-mail copié dans le presse-papiers",
       "emailCopyFailed": "Impossible de copier l'e-mail",
       "skills": {
-        "title": "Mes compétences",
+        "title": "Ce que je fais",
         "subtitle": "J'ai créé ce portfolio pour montrer ce que je sais faire en développement web moderne.",
         "cards": [
           {
             "id": "enterprise",
-            "title": "Je construis des apps entreprise",
-            "description": "J'aime créer des produits frontend <strong>solides</strong>, <strong>évolutifs</strong> et <strong>responsives</strong>, avec une expérience fluide.",
+            "title": "Je construis pour l'entreprise",
+            "description": "Je me spécialise en <strong>Angular</strong> — design systems, bibliothèques UI réutilisables, performance, et modernisation de plateformes legacy en produits <strong>solides</strong>, <strong>évolutifs</strong> et <strong>responsives</strong>.",
             "image": "responsive.svg",
             "variant": "primary"
           },
           {
-            "id": "responsive",
-            "title": "Personnalisation, au point !",
-            "description": "Je pense que la <strong>personnalisation</strong> aide les gens à se sentir chez eux dans un produit.",
+            "id": "architecture",
+            "title": "Pensé pour l'échelle",
+            "description": "Je travaille beaucoup avec les <strong>micro-frontends</strong> et les <strong>monorepos Nx</strong> pour garder les grandes apps livrables et maintenables.",
+            "image": "micro-fe.svg",
+            "variant": "inverse"
+          },
+          {
+            "id": "ssr",
+            "title": "Rapide et trouvable",
+            "description": "Je construis des sites <strong>SSR</strong> et <strong>SSG</strong> rapides, solides pour le SEO.",
+            "image": "result.svg",
+            "variant": "inverse"
+          },
+          {
+            "id": "design",
+            "title": "Design, au point !",
+            "description": "Je pense que la <strong>personnalisation</strong> est essentielle pour que les gens se sentent chez eux dans un produit.",
             "themeHint": "Essayez de changer le thème",
-            "languageHint": "Essayez de changer la langue",
             "themes": [
               { "id": "light", "label": "Clair" },
               { "id": "dark", "label": "Sombre" }
-            ],
-            "languages": [
-              { "id": "en", "label": "English" },
-              { "id": "fr", "label": "Français" }
             ],
             "image": "theme3.svg",
             "variant": "inverse"
           },
           {
-            "id": "architecture",
-            "title": "Pensé pour l'échelle",
-            "description": "Des idées comme les <strong>micro-frontends</strong> et les <strong>monorepos Nx</strong> aident à livrer et maintenir de grandes apps.",
-            "demo": "Bientôt — monorepo Nx en direct",
-            "image": "micro-fe.svg",
-            "variant": "inverse",
-            "demoKey": "enterprise"
-          },
-          {
-            "id": "ssr",
-            "title": "Rapide et trouvable",
-            "description": "Je construis aussi des sites <strong>SSR</strong> et <strong>SSG</strong> — blogs et portfolios rapides et bien pensés pour le SEO.",
+            "id": "language",
+            "title": "À travers le monde !",
+            "description": "Prendre en charge plusieurs langues développe votre activité à travers le monde — je peux le faire.",
+            "languageHint": "Essayez de changer la langue",
+            "languages": [
+              { "id": "en", "label": "English" },
+              { "id": "fr", "label": "Français" }
+            ],
             "image": "multilingual.svg",
             "variant": "inverse"
           }

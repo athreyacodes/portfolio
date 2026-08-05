@@ -1,62 +1,75 @@
-<section class="skills" aria-labelledby="skills-heading">
-  <header class="skills-header hero-animate">
-    <h2 id="skills-heading" class="skills-title">{{ copy().skills.title }}</h2>
-    <p class="skills-subtitle">{{ copy().skills.subtitle }}</p>
-  </header>
+<section
+  class="skills"
+  aria-labelledby="skills-heading"
+  [class.skills--visible]="visible()"
+>
+  <h2 id="skills-heading" class="skills-sr-only">{{ copy().skills.title }}</h2>
 
-  <div class="skills-list">
-    @for (card of copy().skills.cards; track card.id; let i = $index) {
-      <article
-        class="skills-card hero-animate"
-        [class.skills-card--primary]="card.variant === 'primary'"
-        [class.skills-card--inverse]="card.variant === 'inverse'"
-        [style.animation-delay.ms]="80 + i * 70"
-        [attr.data-demo]="'demoKey' in card ? card.demoKey : null"
-      >
-        <h3 class="skills-card-title">{{ card.title }}</h3>
+  <div class="skills-layout">
+    @if (primaryCard(); as primary) {
+      <article class="skills-card skills-card--primary skills-card--feature">
+        <h3 class="skills-card-title">{{ primary.title }}</h3>
 
         <div class="skills-card-img">
-          <img [src]="imageSrc(card.image)" [alt]="''" />
+          <img [src]="imageSrc(primary.image)" alt="" />
         </div>
 
-        <p class="skills-card-body" [innerHTML]="card.description"></p>
+        <p class="skills-card-body" [innerHTML]="primary.description"></p>
+      </article>
+    }
 
-        @if (card.id === 'responsive' && card.themes && card.languages) {
-          <div class="skills-demo-controls">
-            <p class="skills-hint">{{ card.themeHint }}</p>
-            <div class="skills-btn-group" role="group" aria-label="Theme">
-              @for (theme of card.themes; track theme.id) {
-                <button
-                  type="button"
-                  class="skills-chip"
-                  [class.skills-chip--active]="isThemeActive(theme.id)"
-                  (click)="setTheme(theme.id)"
-                >
-                  {{ theme.label }}
-                </button>
-              }
-            </div>
+    <div class="skills-grid">
+      @for (card of secondaryCards(); track card.id) {
+        <article class="skills-card skills-card--inverse skills-card--tile">
+          <div class="skills-card-img">
+            <img [src]="imageSrc(card.image)" alt="" />
+          </div>
 
-            <p class="skills-hint">{{ card.languageHint }}</p>
-            <div class="skills-btn-group" role="group" aria-label="Language">
-              @for (lang of card.languages; track lang.id) {
-                <button
-                  type="button"
-                  class="skills-chip"
-                  [class.skills-chip--active]="isLocaleActive(lang.id)"
-                  (click)="setLocale(lang.id)"
-                >
-                  {{ lang.label }}
-                </button>
+          <div class="skills-card-copy">
+            <h3 class="skills-card-title">{{ card.title }}</h3>
+
+            <div class="skills-card-meta">
+              @if (hasThemes(card)) {
+                <p class="skills-card-body" [innerHTML]="card.description"></p>
+                <div class="skills-card-actions">
+                  <p class="skills-hint">{{ card.themeHint }}</p>
+                  <div class="skills-btn-group" role="group" aria-label="Theme">
+                    @for (theme of card.themes; track theme.id) {
+                      <button
+                        type="button"
+                        class="skills-chip"
+                        [class.skills-chip--active]="isThemeActive(theme.id)"
+                        (click)="setTheme(theme.id)"
+                      >
+                        {{ theme.label }}
+                      </button>
+                    }
+                  </div>
+                </div>
+              } @else if (hasLanguages(card)) {
+                <p class="skills-card-body" [innerHTML]="card.description"></p>
+                <div class="skills-card-actions">
+                  <p class="skills-hint">{{ card.languageHint }}</p>
+                  <div class="skills-btn-group" role="group" aria-label="Language">
+                    @for (lang of card.languages; track lang.id) {
+                      <button
+                        type="button"
+                        class="skills-chip"
+                        [class.skills-chip--active]="isLocaleActive(lang.id)"
+                        (click)="setLocale(lang.id)"
+                      >
+                        {{ lang.label }}
+                      </button>
+                    }
+                  </div>
+                </div>
+              } @else {
+                <p class="skills-card-body" [innerHTML]="card.description"></p>
               }
             </div>
           </div>
-        }
-
-        @if ('demo' in card && card.demo) {
-          <p class="skills-demo-rail">{{ card.demo }}</p>
-        }
-      </article>
-    }
+        </article>
+      }
+    </div>
   </div>
 </section>

@@ -2,8 +2,6 @@
   class="hero-split"
   aria-label="Introduction"
   [attr.data-intro]="introPhase()"
-  [class.hero-intro-cold]="!introLive()"
-  [class.hero-intro-visible]="introVisible()"
 >
   <div #heroLeft class="hero-panel hero-panel--left hero-panel--active">
     <div class="hero-photo">
@@ -82,6 +80,4 @@
   <p class="hero-copy-feedback" aria-live="polite">{{ copyFeedback() }}</p>
 </section>
 
-@if (false) {
-  <app-skills />
-}
+<app-skills [visible]="skillsVisible()" />
