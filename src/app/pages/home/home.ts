@@ -45,8 +45,8 @@ export class HomeComponent {
         return;
       }
 
-      const bootHoldMs = 550;
-      const dockAtMs = 2100;
+      const bootHoldMs = 700;
+      const dockAtMs = 2300;
       const dockMs = 1200;
       const subtitleAtMs = dockAtMs + dockMs + 150;
 
