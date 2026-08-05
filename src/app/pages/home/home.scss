@@ -40,7 +40,7 @@
 
 .hero-panel--right {
   width: 100%;
-  max-width: 42rem;
+  min-width: 0;
 
   .hero-pre-title,
   .hero-title,
@@ -118,6 +118,7 @@
   flex-direction: column;
   align-items: flex-start;
   text-align: left;
+  width: 100%;
 }
 
 .hero-title {
@@ -197,7 +198,7 @@
   .hero-panel--right {
     width: auto;
     flex: 1;
-    max-width: 48rem;
+    min-width: 0;
     min-height: var(--hero-card-height);
     display: flex;
     align-items: flex-start;
@@ -357,7 +358,6 @@
 
   .hero-subtitle {
     text-align: center;
-    max-width: 100%;
     font-size: clamp(1rem, 4.2vw, 1.15rem);
   }
 }
