@@ -1,5 +1,6 @@
 import {
   afterNextRender,
+  ApplicationRef,
   Component,
   DestroyRef,
   ElementRef,
@@ -33,6 +34,7 @@ export class HomeComponent {
   private readonly languageService = inject(LanguageService);
   private readonly platformId = inject(PLATFORM_ID);
   private readonly destroyRef = inject(DestroyRef);
+  private readonly appRef = inject(ApplicationRef);
   private readonly heroLeft = viewChild.required<ElementRef<HTMLElement>>('heroLeft');
 
   protected readonly me = meData;
@@ -119,31 +121,44 @@ export class HomeComponent {
     this.introTimers = [];
   }
 
-  /** FLIP: slide name card left to reveal role. */
+  /**
+   * FLIP dock: invert in the same turn as the layout change so the browser
+   * never paints the card at the docked left before the slide starts.
+   */
   private dockCardLeft(durationMs: number): void {
     const el = this.heroLeft().nativeElement;
     const firstLeft = el.getBoundingClientRect().left;
 
     this.introPhase.set(1);
+    this.appRef.tick();
+
+    const lastLeft = el.getBoundingClientRect().left;
+    const dx = firstLeft - lastLeft;
+
+    if (Math.abs(dx) < 1) {
+      return;
+    }
+
+    el.style.transform = `translateX(${dx}px)`;
 
     requestAnimationFrame(() => {
-      requestAnimationFrame(() => {
-        const lastLeft = el.getBoundingClientRect().left;
-        const dx = firstLeft - lastLeft;
-
-        if (Math.abs(dx) < 1) {
-          return;
+      const animation = el.animate(
+        [{ transform: `translateX(${dx}px)` }, { transform: 'translateX(0)' }],
+        {
+          duration: durationMs,
+          easing: 'cubic-bezier(0.65, 0, 0.35, 1)',
+          fill: 'forwards'
         }
+      );
 
-        el.animate(
-          [{ transform: `translateX(${dx}px)` }, { transform: 'translateX(0)' }],
-          {
-            duration: durationMs,
-            easing: 'cubic-bezier(0.65, 0, 0.35, 1)',
-            fill: 'none'
-          }
-        );
-      });
+      animation.finished
+        .then(() => {
+          el.style.transform = '';
+          animation.cancel();
+        })
+        .catch(() => {
+          el.style.transform = '';
+        });
     });
   }
 
