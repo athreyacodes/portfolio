@@ -21,7 +21,9 @@ export type HeroIntroPhase = 0 | 1 | 2 | 3;
   selector: 'app-home',
   imports: [NgOptimizedImage, MatTooltipModule, SkillsComponent],
   templateUrl: './home.html',
-  styleUrl: './home.scss'
+  styleUrl: './home.scss',
+  // SSR/prerender ships the final hero (phase 3). Client rebuilds and plays the intro.
+  host: { ngSkipHydration: 'true' }
 })
 export class HomeComponent {
   private readonly languageService = inject(LanguageService);
@@ -32,7 +34,10 @@ export class HomeComponent {
   protected readonly me = meData;
   protected readonly copy = this.languageService.copy;
   protected readonly copyFeedback = signal('');
-  protected readonly introPhase = signal<HeroIntroPhase>(0);
+  /** Server/prerender: fully visible for SEO. Browser: boot at 0 and animate. */
+  protected readonly introPhase = signal<HeroIntroPhase>(
+    isPlatformBrowser(this.platformId) ? 0 : 3
+  );
 
   constructor() {
     afterNextRender(() => {
