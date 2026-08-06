@@ -21,3 +21,21 @@
     transform: none;
   }
 }
+
+// Opt-in via `ENABLE_ANIMATIONS` → `html.animations-on` (see main.ts).
+// Default (no class): kill CSS motion site-wide, including layers-ui waves.
+html:not(.animations-on) {
+  scroll-behavior: auto !important;
+
+  *,
+  *::before,
+  *::after {
+    animation: none !important;
+    transition: none !important;
+  }
+
+  .hero-animate {
+    opacity: 1;
+    transform: none;
+  }
+}

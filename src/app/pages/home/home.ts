@@ -11,6 +11,7 @@ import {
 } from '@angular/core';
 import { isPlatformBrowser, NgOptimizedImage } from '@angular/common';
 import { MatTooltipModule } from '@angular/material/tooltip';
+import { ENABLE_ANIMATIONS } from '../../constants/animations';
 import meData from '../../data/me.json';
 import { LanguageService } from '../../services/language.service';
 import { SkillsComponent } from './skills/skills';
@@ -44,14 +45,20 @@ export class HomeComponent {
    * When false, intro transitions are disabled so the SSR final state can
    * snap to boot without animating backwards on refresh.
    */
-  protected readonly introLive = signal(!isPlatformBrowser(this.platformId));
+  protected readonly introLive = signal(
+    !isPlatformBrowser(this.platformId) || !ENABLE_ANIMATIONS
+  );
   /** Whole-page fade after cold boot snap (covers hero + skills). */
-  protected readonly pageVisible = signal(!isPlatformBrowser(this.platformId));
+  protected readonly pageVisible = signal(
+    !isPlatformBrowser(this.platformId) || !ENABLE_ANIMATIONS
+  );
   /** Skills stay hidden until after the role subtitle. */
-  protected readonly skillsVisible = signal(false);
+  protected readonly skillsVisible = signal(
+    !isPlatformBrowser(this.platformId) || !ENABLE_ANIMATIONS
+  );
   /** Server/prerender: fully visible for SEO. Browser: boot at 0 and dock. */
   protected readonly introPhase = signal<HeroIntroPhase>(
-    isPlatformBrowser(this.platformId) ? 0 : 2
+    isPlatformBrowser(this.platformId) && ENABLE_ANIMATIONS ? 0 : 2
   );
 
   private introTimers: number[] = [];
@@ -80,7 +87,10 @@ export class HomeComponent {
   private startIntro(): void {
     this.clearIntroTimers();
 
-    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    if (
+      !ENABLE_ANIMATIONS ||
+      window.matchMedia('(prefers-reduced-motion: reduce)').matches
+    ) {
       this.introPhase.set(2);
       this.introLive.set(true);
       this.pageVisible.set(true);
