@@ -1,0 +1,80 @@
+@use './breakpoints' as *;
+
+.banner-pre-title {
+  font-family: var(--font-montserrat), sans-serif;
+  font-size: 20px;
+  font-weight: 500;
+  margin: 0 0 10px;
+  line-height: 1.4;
+}
+
+.banner-title {
+  font-family: var(--font-montserrat), sans-serif;
+  text-wrap: nowrap;
+  font-size: 4em;
+  font-weight: 600;
+  line-height: 1.1;
+  margin: 0;
+  transition: var(--intro-transition);
+}
+
+.banner-sub-title {
+  font-family: var(--font-montserrat), sans-serif;
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 1.5;
+  margin: 10px 0 0;
+  max-width: 50vw;
+}
+
+.banner-sub-title.c-pointer {
+  cursor: pointer;
+}
+
+@include desktop-mid {
+  .banner-title {
+    font-size: 3em;
+  }
+}
+
+@include laptop {
+  .banner-title {
+    font-size: 2.5em;
+  }
+
+  .banner-pre-title,
+  .banner-sub-title {
+    font-size: 16px;
+  }
+}
+
+@include tablet {
+  .banner-title {
+    font-size: 2em;
+  }
+
+  .banner-pre-title,
+  .banner-sub-title {
+    font-size: 14px;
+  }
+
+  .banner-sub-title {
+    max-width: 80vw;
+  }
+}
+
+@include mobile {
+  .banner-title {
+    font-size: 1.75em;
+    text-wrap: balance;
+  }
+
+  .banner-pre-title,
+  .banner-sub-title {
+    font-size: 14px;
+  }
+
+  .banner-sub-title {
+    max-width: 90vw;
+  }
+}

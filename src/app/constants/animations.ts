@@ -1,6 +1,5 @@
 /**
- * Master switch for site motion (hero intro, CSS transitions, wave backdrop,
- * Material enter/leave). Flip to `true` to re-enable. Not reactive — rebuild
- * after changing.
+ * Master switch for site motion (intro transitions, cloud wind).
+ * Flip to `false` to freeze motion site-wide (see `_animations.scss`).
  */
-export const ENABLE_ANIMATIONS: boolean = false;
+export const ENABLE_ANIMATIONS: boolean = true;

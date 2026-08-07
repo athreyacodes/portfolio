@@ -1,7 +1,6 @@
 {
   "name": "Athreya M R",
-  "displayName": "Athreya",
-  "photoPath": "images/dp.jpg",
+  "photoPath": "images/dp-og.jpg",
   "experienceStartYear": 2015,
   "email": "athreyacodes@gmail.com",
   "linkedin": "https://www.linkedin.com/in/athreyamr/",
@@ -13,69 +12,19 @@
       "homeTitle": "Front-end Architect",
       "homeSubtitles": [
         "I design and build <strong>large-scale enterprise</strong> products and platforms.",
-        "With <strong>11+ years</strong> of expertise in Angular and micro frontends.",
+        "With <strong>{years}+ years</strong> of expertise in Angular and micro frontends.",
         "Currently exploring <strong>AI-First Development</strong> to build full stack end-to-end applications."
       ],
+      "location": "Bangalore, IN",
       "socialLabels": {
         "linkedin": "My LinkedIn",
         "github": "My Github"
       },
       "homeMailLabel": "Copy My Email ID",
+      "mailLabel": "Contact Me",
+      "clickToCopy": "Click to copy",
       "emailCopied": "Email copied to clipboard",
-      "emailCopyFailed": "Could not copy email",
-      "skills": {
-        "title": "What I do",
-        "subtitle": "I created this portfolio to showcase what I can do with modern web development.",
-        "cards": [
-          {
-            "id": "enterprise",
-            "title": "I build for the enterprise",
-            "description": "I specialize in <strong>Angular</strong> — design systems, reusable UI libraries, performance work, and modernizing legacy platforms into <strong>solid</strong>, <strong>scalable</strong>, and <strong>responsive</strong> products.",
-            "image": "responsive.svg",
-            "variant": "primary"
-          },
-          {
-            "id": "architecture",
-            "title": "Built for scale",
-            "description": "I work extensively with <strong>micro frontends</strong> and <strong>Nx monorepos</strong> to keep large apps shippable and maintainable.",
-            "image": "micro-fe.svg",
-            "variant": "inverse"
-          },
-          {
-            "id": "ssr",
-            "title": "Fast and findable",
-            "description": "I build <strong>SSR</strong> and <strong>SSG</strong> sites that load quickly and stay strong on SEO.",
-            "image": "result.svg",
-            "variant": "inverse"
-          },
-          {
-            "id": "design",
-            "title": "Design, on point!",
-            "description": "I think <strong>personalization</strong> is a key part of making people feel at home in a product.",
-            "themeHint": "Try changing the theme",
-            "themes": [
-              { "id": "light", "label": "Light" },
-              { "id": "dark", "label": "Dark" },
-              { "id": "system", "label": "System" }
-            ],
-            "image": "theme3.svg",
-            "variant": "inverse"
-          },
-          {
-            "id": "language",
-            "title": "Reaching across the globe!",
-            "description": "Supporting different languages expands a product across the globe — I can make that happen.",
-            "languageHint": "Try changing the language",
-            "languages": [
-              { "id": "en", "label": "English" },
-              { "id": "fr", "label": "Français" },
-              { "id": "es", "label": "Español" }
-            ],
-            "image": "multilingual.svg",
-            "variant": "inverse"
-          }
-        ]
-      }
+      "emailCopyFailed": "Could not copy email"
     },
     "fr": {
       "preName": "Bonjour, je suis",
@@ -83,69 +32,19 @@
       "homeTitle": "Architecte Front-end",
       "homeSubtitles": [
         "Je conçois et construis des produits et plateformes <strong>entreprise à grande échelle</strong>.",
-        "Avec <strong>11+ ans</strong> d'expertise en Angular et micro-frontends.",
+        "Avec <strong>{years}+ ans</strong> d'expertise en Angular et micro-frontends.",
         "J'explore actuellement le <strong>développement AI-First</strong> pour construire des applications full stack de bout en bout."
       ],
+      "location": "Bangalore, IN",
       "socialLabels": {
         "linkedin": "Mon LinkedIn",
         "github": "Mon Github"
       },
       "homeMailLabel": "Copier mon e-mail",
+      "mailLabel": "Me contacter",
+      "clickToCopy": "Cliquer pour copier",
       "emailCopied": "E-mail copié dans le presse-papiers",
-      "emailCopyFailed": "Impossible de copier l'e-mail",
-      "skills": {
-        "title": "Ce que je fais",
-        "subtitle": "J'ai créé ce portfolio pour montrer ce que je sais faire en développement web moderne.",
-        "cards": [
-          {
-            "id": "enterprise",
-            "title": "Je construis pour l'entreprise",
-            "description": "Je me spécialise en <strong>Angular</strong> — design systems, bibliothèques UI réutilisables, performance, et modernisation de plateformes legacy en produits <strong>solides</strong>, <strong>évolutifs</strong> et <strong>responsives</strong>.",
-            "image": "responsive.svg",
-            "variant": "primary"
-          },
-          {
-            "id": "architecture",
-            "title": "Pensé pour l'échelle",
-            "description": "Je travaille beaucoup avec les <strong>micro-frontends</strong> et les <strong>monorepos Nx</strong> pour garder les grandes apps livrables et maintenables.",
-            "image": "micro-fe.svg",
-            "variant": "inverse"
-          },
-          {
-            "id": "ssr",
-            "title": "Rapide et trouvable",
-            "description": "Je construis des sites <strong>SSR</strong> et <strong>SSG</strong> rapides, solides pour le SEO.",
-            "image": "result.svg",
-            "variant": "inverse"
-          },
-          {
-            "id": "design",
-            "title": "Design, au point !",
-            "description": "Je pense que la <strong>personnalisation</strong> est essentielle pour que les gens se sentent chez eux dans un produit.",
-            "themeHint": "Essayez de changer le thème",
-            "themes": [
-              { "id": "light", "label": "Clair" },
-              { "id": "dark", "label": "Sombre" },
-              { "id": "system", "label": "Système" }
-            ],
-            "image": "theme3.svg",
-            "variant": "inverse"
-          },
-          {
-            "id": "language",
-            "title": "À travers le monde !",
-            "description": "Prendre en charge plusieurs langues développe votre activité à travers le monde — je peux le faire.",
-            "languageHint": "Essayez de changer la langue",
-            "languages": [
-              { "id": "en", "label": "English" },
-              { "id": "fr", "label": "Français" },
-              { "id": "es", "label": "Español" }
-            ],
-            "image": "multilingual.svg",
-            "variant": "inverse"
-          }
-        ]
-      }
+      "emailCopyFailed": "Impossible de copier l'e-mail"
     },
     "es": {
       "preName": "Hola, soy",
@@ -153,69 +52,19 @@
       "homeTitle": "Arquitecto Front-end",
       "homeSubtitles": [
         "Diseño y construyo productos y plataformas <strong>empresariales a gran escala</strong>.",
-        "Con <strong>más de 11 años</strong> de experiencia en Angular y micro frontends.",
+        "Con <strong>más de {years} años</strong> de experiencia en Angular y micro frontends.",
         "Actualmente exploro el <strong>desarrollo AI-First</strong> para crear aplicaciones full stack de extremo a extremo."
       ],
+      "location": "Bangalore, IN",
       "socialLabels": {
         "linkedin": "Mi LinkedIn",
         "github": "Mi Github"
       },
       "homeMailLabel": "Copiar mi correo",
+      "mailLabel": "Contáctame",
+      "clickToCopy": "Clic para copiar",
       "emailCopied": "Correo copiado al portapapeles",
-      "emailCopyFailed": "No se pudo copiar el correo",
-      "skills": {
-        "title": "Lo que hago",
-        "subtitle": "Creé este portfolio para mostrar lo que puedo hacer con el desarrollo web moderno.",
-        "cards": [
-          {
-            "id": "enterprise",
-            "title": "Construyo para la empresa",
-            "description": "Me especializo en <strong>Angular</strong> — design systems, librerías UI reutilizables, rendimiento y modernización de plataformas legacy en productos <strong>sólidos</strong>, <strong>escalables</strong> y <strong>responsivos</strong>.",
-            "image": "responsive.svg",
-            "variant": "primary"
-          },
-          {
-            "id": "architecture",
-            "title": "Pensado para escalar",
-            "description": "Trabajo a fondo con <strong>micro frontends</strong> y <strong>monorepos Nx</strong> para mantener grandes apps entregables y mantenibles.",
-            "image": "micro-fe.svg",
-            "variant": "inverse"
-          },
-          {
-            "id": "ssr",
-            "title": "Rápido y encontrable",
-            "description": "Construyo sitios <strong>SSR</strong> y <strong>SSG</strong> que cargan rápido y rinden bien en SEO.",
-            "image": "result.svg",
-            "variant": "inverse"
-          },
-          {
-            "id": "design",
-            "title": "¡Diseño, al punto!",
-            "description": "Creo que la <strong>personalización</strong> es clave para que las personas se sientan en casa en un producto.",
-            "themeHint": "Prueba a cambiar el tema",
-            "themes": [
-              { "id": "light", "label": "Claro" },
-              { "id": "dark", "label": "Oscuro" },
-              { "id": "system", "label": "Sistema" }
-            ],
-            "image": "theme3.svg",
-            "variant": "inverse"
-          },
-          {
-            "id": "language",
-            "title": "¡Alcanzando el mundo!",
-            "description": "Soportar distintos idiomas amplía un producto por el mundo — yo puedo hacerlo realidad.",
-            "languageHint": "Prueba a cambiar el idioma",
-            "languages": [
-              { "id": "en", "label": "English" },
-              { "id": "fr", "label": "Français" },
-              { "id": "es", "label": "Español" }
-            ],
-            "image": "multilingual.svg",
-            "variant": "inverse"
-          }
-        ]
-      }
+      "emailCopyFailed": "No se pudo copiar el correo"
     }
   }
 }

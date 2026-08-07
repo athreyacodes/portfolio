@@ -23,6 +23,7 @@ export class SeoService {
 
   private readonly siteUrl = seoData.siteUrl.replace(/\/$/, '');
   private personSchemaScript: HTMLScriptElement | null = null;
+  private websiteSchemaScript: HTMLScriptElement | null = null;
 
   updateSeo(key: SeoKey, replacements: Record<string, string | number> = {}): void {
     const config = seoData[key];
@@ -45,6 +46,15 @@ export class SeoService {
     this.metaService.updateTag({ property: 'og:title', content: config.ogTitle });
     this.metaService.updateTag({ property: 'og:description', content: config.ogDescription });
     this.metaService.updateTag({ property: 'og:image', content: ogImage });
+    this.metaService.updateTag({
+      property: 'og:image:width',
+      content: String(config.ogImageWidth)
+    });
+    this.metaService.updateTag({
+      property: 'og:image:height',
+      content: String(config.ogImageHeight)
+    });
+    this.metaService.updateTag({ property: 'og:image:alt', content: config.twitterImageAlt });
     this.metaService.updateTag({ property: 'og:type', content: config.ogType });
     this.metaService.updateTag({ property: 'og:url', content: pageUrl });
     this.metaService.updateTag({ property: 'og:locale', content: 'en_US' });
@@ -57,6 +67,7 @@ export class SeoService {
     this.metaService.updateTag({ name: 'twitter:image:alt', content: config.twitterImageAlt });
 
     this.setCanonicalUrl(pageUrl);
+    this.setWebsiteSchema(config.ogTitle, config.ogDescription);
   }
 
   setPersonSchema(person: PersonSchema): void {
@@ -71,28 +82,51 @@ export class SeoService {
       sameAs: person.sameAs
     };
 
+    this.upsertJsonLd('person', schema, (el) => {
+      this.personSchemaScript = el;
+    });
+  }
+
+  private setWebsiteSchema(name: string, description: string): void {
+    const schema = {
+      '@context': 'https://schema.org',
+      '@type': 'WebSite',
+      name,
+      description,
+      url: `${this.siteUrl}/`,
+      publisher: {
+        '@type': 'Person',
+        name: 'Athreya M R',
+        url: `${this.siteUrl}/`
+      }
+    };
+
+    this.upsertJsonLd('website', schema, (el) => {
+      this.websiteSchemaScript = el;
+    });
+  }
+
+  private upsertJsonLd(
+    key: string,
+    schema: Record<string, unknown>,
+    assign: (el: HTMLScriptElement) => void
+  ): void {
     const payload = JSON.stringify(schema);
-
-    if (this.personSchemaScript) {
-      this.personSchemaScript.textContent = payload;
-      return;
-    }
-
-    const existing = this.document.head.querySelector(
-      'script[type="application/ld+json"][data-seo="person"]'
-    ) as HTMLScriptElement | null;
+    const selector = `script[type="application/ld+json"][data-seo="${key}"]`;
+    const existing = this.document.head.querySelector(selector) as HTMLScriptElement | null;
 
     if (existing) {
       existing.textContent = payload;
-      this.personSchemaScript = existing;
+      assign(existing);
       return;
     }
 
-    this.personSchemaScript = this.document.createElement('script');
-    this.personSchemaScript.type = 'application/ld+json';
-    this.personSchemaScript.setAttribute('data-seo', 'person');
-    this.personSchemaScript.textContent = payload;
-    this.document.head.appendChild(this.personSchemaScript);
+    const script = this.document.createElement('script');
+    script.type = 'application/ld+json';
+    script.setAttribute('data-seo', key);
+    script.textContent = payload;
+    this.document.head.appendChild(script);
+    assign(script);
   }
 
   private applyReplacements(value: string, replacements: Record<string, string | number>): string {

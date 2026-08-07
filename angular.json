@@ -43,15 +43,10 @@
               {
                 "glob": "**/*",
                 "input": "public"
-              },
-              {
-                "glob": "**/*",
-                "input": "node_modules/layers-ui/fonts",
-                "output": "/assets/layers-ui/fonts"
               }
             ],
             "styles": [
-              "node_modules/layers-ui/layers.min.css",
+              "src/styles/vendor/layers-ui.min.css",
               "src/styles.scss"
             ],
             "server": "src/main.server.ts",
@@ -68,13 +63,13 @@
               "budgets": [
                 {
                   "type": "initial",
-                  "maximumWarning": "1MB",
-                  "maximumError": "2MB"
+                  "maximumWarning": "400kB",
+                  "maximumError": "600kB"
                 },
                 {
                   "type": "anyComponentStyle",
-                  "maximumWarning": "24kB",
-                  "maximumError": "32kB"
+                  "maximumWarning": "16kB",
+                  "maximumError": "24kB"
                 }
               ],
               "outputHashing": "all"
@@ -89,14 +84,6 @@
         },
         "serve": {
           "builder": "@angular/build:dev-server",
-          "options": {
-            "prebundle": {
-              "exclude": [
-                "@angular/material",
-                "@angular/cdk"
-              ]
-            }
-          },
           "configurations": {
             "production": {
               "buildTarget": "portfolio:build:production"

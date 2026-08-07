@@ -1,41 +1,12 @@
-@keyframes hero-fade-in {
-  from {
-    opacity: 0;
-    transform: translateY(14px);
-  }
-
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-.hero-animate {
-  animation: hero-fade-in 0.65s cubic-bezier(0.16, 1, 0.3, 1) both;
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .hero-animate {
-    animation: none;
-    opacity: 1;
-    transform: none;
-  }
-}
-
 // Opt-in via `ENABLE_ANIMATIONS` → `html.animations-on` (see main.ts).
-// Default (no class): kill CSS motion site-wide, including layers-ui waves.
+// Cloud wind keeps running when animations are off (decorative backdrop).
 html:not(.animations-on) {
   scroll-behavior: auto !important;
 
-  *,
-  *::before,
-  *::after {
+  *:not(.cloud-bg__strip),
+  *:not(.cloud-bg__strip)::before,
+  *:not(.cloud-bg__strip)::after {
     animation: none !important;
     transition: none !important;
-  }
-
-  .hero-animate {
-    opacity: 1;
-    transform: none;
   }
 }

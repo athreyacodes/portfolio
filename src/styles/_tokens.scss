@@ -1,17 +1,22 @@
 :root {
-  --hero-card-radius: 25px;
-  --hero-pre-title-size: 20px;
-  --hero-subtitle-size: 20px;
-  --hero-row-gap: 24px;
-  --hero-right-text-color: var(--primary-color);
-  --hero-transition: 0.3s ease;
-  --hero-card-bg: var(--primary-color);
   --shadow-high: 0 19px 38px rgba(0, 0, 0, 0.3), 0 15px 12px rgba(0, 0, 0, 0.22);
-  --hero-card-shadow: var(--shadow-high);
-  --hero-photo-shadow: var(--shadow-high);
+
+  /* Intro / cloud — mapped from portfolio-dev onto layers-ui tokens */
+  --cloud-bg: var(--bg-color, #eeeeee);
+  --cloud-bg-light: #d2dfdf;
+  --intro-card-bg: var(--primary-color);
+  --intro-on-card: var(--secondary-color);
+  --intro-accent-text: var(--primary-color);
+  --intro-radius: 10px;
+  --intro-radius-high: 25px;
+  --intro-transition: all 0.3s ease;
+  --intro-transition-quick: all 0.2s ease;
 }
 
 .color-scheme-dark {
-  --hero-card-bg: var(--primary-dark);
-  --hero-right-text-color: var(--secondary-color);
+  --cloud-bg: var(--bg-color, #050505);
+  --cloud-bg-light: #151a1a;
+  --intro-card-bg: var(--primary-dark, #0d3a3c);
+  --intro-on-card: #d2dfdf;
+  --intro-accent-text: #d2dfdf;
 }

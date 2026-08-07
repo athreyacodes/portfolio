@@ -1,17 +1,15 @@
 @use './styles/breakpoints' as *;
+@use './styles/fonts';
 @use './styles/tokens';
-@use './styles/typography';
+@use './styles/buttons';
+@use './styles/banner';
 @use './styles/animations';
-@use './styles/material';
 
 :root {
-  --secondary-color: #eeeeee;
   color-scheme: light;
 }
 
 // Paint overscroll / chrome on html only.
-// Opaque body bg hides the wave (z-index: -1000) — especially in Safari.
-// .color-scheme-dark must be on <html> so --bg-color resolves here.
 html {
   background-color: var(--bg-color, #eeeeee);
 }
@@ -31,8 +29,6 @@ body {
 
 body {
   background-color: transparent;
-  // Keep content clear of the notch / home indicator while the page color
-  // still paints edge-to-edge behind Safari chrome via theme-color + html bg.
   padding-top: env(safe-area-inset-top, 0px);
   padding-right: env(safe-area-inset-right, 0px);
   padding-bottom: env(safe-area-inset-bottom, 0px);
@@ -46,7 +42,6 @@ body {
 }
 
 .color-scheme-dark {
-  --secondary-color: #eeeeee;
   color-scheme: dark;
 }
 

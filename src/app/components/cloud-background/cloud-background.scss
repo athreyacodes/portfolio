@@ -1,0 +1,46 @@
+:host {
+  display: block;
+  pointer-events: none;
+}
+
+.cloud-bg {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  width: 100%;
+  height: 100%;
+  min-width: 500px;
+  min-height: 500px;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background: linear-gradient(
+    to bottom,
+    var(--cloud-bg-light) 0%,
+    var(--cloud-bg) 100%
+  );
+}
+
+.cloud-bg__strip {
+  position: relative;
+  height: 100%;
+  background: url('/images/background/cloud3.png') 100px 250px;
+  background-repeat: repeat-x;
+  animation: cloud-wind 100s linear infinite;
+}
+
+@keyframes cloud-wind {
+  0% {
+    background-position: 0 20px, 0 30px, 100px 25px;
+  }
+
+  100% {
+    background-position: 1000px 20px, 1200px 30px, 1100px 25px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cloud-bg__strip {
+    animation: none;
+  }
+}

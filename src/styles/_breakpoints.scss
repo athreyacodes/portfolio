@@ -5,8 +5,8 @@ $breakpoint-tablet-max: 820px;
 $breakpoint-laptop-min: 821px;
 $breakpoint-laptop-max: 1099px;
 $breakpoint-desktop-min: 1100px;
+$breakpoint-desktop-mid-max: 1300px;
 
-// Mixins for responsive styling
 @mixin mobile {
   @media only screen and (max-width: #{$breakpoint-mobile-max}) {
     @content;
@@ -27,6 +27,13 @@ $breakpoint-desktop-min: 1100px;
 
 @mixin desktop {
   @media only screen and (min-width: #{$breakpoint-desktop-min}) {
+    @content;
+  }
+}
+
+/** portfolio-dev: slightly smaller banner title between 1100–1300 */
+@mixin desktop-mid {
+  @media only screen and (min-width: #{$breakpoint-desktop-min}) and (max-width: #{$breakpoint-desktop-mid-max}) {
     @content;
   }
 }
