@@ -30,7 +30,7 @@
       {{ 'banner.pre_name' | translate }}
     </div>
     <div class="banner-title">
-      {{ 'contact_info.fullname' | translate }}
+      {{ 'contact_info.display_name' | translate }}
     </div>
     @if (!AboutMeMode) {
       <div class="banner-sub-title c-pointer" (click)="CopyEmail()"
@@ -77,14 +77,6 @@
 </button>
 </div> -->
 
-<div class="detail-block">
-  <!-- <a [href]="'mailto:' + 'contact_info.email' | translate"> -->
-  <button id="SendMailBtn" class="box-shadow-hover-only icon-btn-accent" (click)="CopyEmail()"
-    [matTooltip]="'banner.icon.mail' | translate" [matTooltipPosition]="'below'" [matTooltipClass]="'tooltip-transparent'">
-    <mat-icon>{{Constants.MAIL_ICON}}</mat-icon>
-  </button>
-<!-- </a> -->
-</div>
 <div class="detail-block">
   <a target="_blank" [href]="'contact_info.linkedin' | translate">
     <button id="OpenLinkedInBtn" class="box-shadow-hover-only icon-btn-accent"
@@ -157,13 +149,10 @@
     </div>
     <div class="banner-title">{{ 'banner.title' | translate }}</div>
     <div class="banner-sub-title">
-      <div [innerHTML]="'banner.subtitle' | translate: { n: ExperienceInYears }"></div>
+      <div [innerHTML]="'banner.subtitle' | translate"></div>
     </div>
     <div class="banner-sub-title">
       <div [innerHTML]="'banner.subtitle2' | translate"></div>
-    </div>
-    <div class="banner-sub-title">
-      <div [innerHTML]="'banner.subtitle3' | translate"></div>
     </div>
   </div>
 </ng-template>

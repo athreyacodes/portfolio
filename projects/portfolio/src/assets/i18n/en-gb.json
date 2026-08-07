@@ -15,9 +15,8 @@
     },
     "banner": {
         "title": "Front-end Architect",
-        "subtitle": "With <strong>{{n}}+ years</strong> of expertise in Angular and micro frontends,",
-        "subtitle2": "I design and build <strong>large-scale enterprise</strong> products and platforms.",
-        "subtitle3": "Currently exploring <strong>AI-First Development</strong> to build full stack end-to-end applications.",
+        "subtitle": "11+ years of expertise | Angular | MFE | Enterprise apps",
+        "subtitle2": "Currently diving into AI-enabled fullstack development",
         "pre_name": "Hello, I'm",
         "pre_role": "I'm a",
         "work_btn": "See my Skills and Work",
