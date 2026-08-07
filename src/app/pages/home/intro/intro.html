@@ -32,41 +32,38 @@
     <div class="portfolio-title-block portfolio-title-left primary-text">
       <p class="banner-pre-title">{{ copy().preName }}</p>
       <h1 class="banner-title">{{ me.name }}</h1>
-      <button
-        type="button"
-        class="banner-sub-title c-pointer email-btn"
-        [attr.title]="copy().clickToCopy"
-        [attr.aria-label]="copy().homeMailLabel"
-        (click)="copyEmail()"
-      >
-        {{ me.email }}
-      </button>
-      @if (copyFeedback()) {
-        <p class="copy-feedback" role="status" aria-live="polite">
-          {{ copyFeedback() }}
-        </p>
-      }
+      <div class="email-row">
+        <button
+          type="button"
+          class="banner-sub-title c-pointer email-btn"
+          [attr.title]="copy().clickToCopy"
+          [attr.aria-label]="copy().homeMailLabel"
+          (click)="copyEmail()"
+        >
+          <span>{{ me.email }}</span>
+          <svg
+            class="email-copy-icon"
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 24 24"
+            aria-hidden="true"
+          >
+            <!-- Material Icons: content_copy -->
+            <path
+              fill="currentColor"
+              d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2m0 16H8V7h11z"
+            />
+          </svg>
+        </button>
+        @if (copyFeedback()) {
+          <p class="copy-feedback" role="status" aria-live="polite">
+            {{ copyFeedback() }}
+          </p>
+        }
+      </div>
       <p class="banner-sub-title">{{ copy().location }}</p>
     </div>
 
     <div class="portfolio-details-block icons">
-      <div class="detail-block">
-        <button
-          id="SendMailBtn"
-          type="button"
-          class="box-shadow-hover-only icon-btn-accent"
-          [attr.title]="copy().mailLabel"
-          [attr.aria-label]="copy().mailLabel"
-          (click)="copyEmail()"
-        >
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true">
-            <path
-              fill="currentColor"
-              d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2m0 4l-8 5l-8-5V6l8 5l8-5z"
-            />
-          </svg>
-        </button>
-      </div>
       <div class="detail-block">
         <a
           id="OpenLinkedInBtn"
@@ -111,9 +108,7 @@
       <p class="banner-pre-title">{{ copy().preRole }}</p>
       <h2 class="banner-title">{{ copy().homeTitle }}</h2>
       @for (line of subtitles(); track line) {
-        <div class="banner-sub-title">
-          <div [innerHTML]="line"></div>
-        </div>
+        <div class="banner-sub-title" [innerHTML]="line"></div>
       }
     </div>
   </div>

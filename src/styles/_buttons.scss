@@ -18,8 +18,11 @@
 }
 
 .icon-btn-accent {
-  min-width: 60px !important;
-  min-height: 60px !important;
+  --icon-btn-size: 72px;
+  --icon-glyph-size: 32px;
+
+  min-width: var(--icon-btn-size) !important;
+  min-height: var(--icon-btn-size) !important;
   display: inline-flex;
   justify-content: center;
   align-items: center;
@@ -39,23 +42,21 @@
 }
 
 .icon-btn-accent svg {
-  width: 24px;
-  height: 24px;
+  width: var(--icon-glyph-size);
+  height: var(--icon-glyph-size);
   fill: currentColor;
 }
 
-@include tablet {
+@include mid {
   .icon-btn-accent {
-    height: 45px;
-    min-width: 45px;
-    min-height: 45px;
+    --icon-btn-size: 64px;
+    --icon-glyph-size: 28px;
   }
 }
 
 @include mobile {
   .icon-btn-accent {
-    height: 45px;
-    min-width: 45px;
-    min-height: 45px;
+    --icon-btn-size: 52px;
+    --icon-glyph-size: 24px;
   }
 }

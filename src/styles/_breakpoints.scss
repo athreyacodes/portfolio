@@ -31,9 +31,23 @@ $breakpoint-desktop-mid-max: 1300px;
   }
 }
 
-/** portfolio-dev: slightly smaller banner title between 1100–1300 */
+/** Slightly smaller banner title between 1100–1300 (portfolio-dev). */
 @mixin desktop-mid {
   @media only screen and (min-width: #{$breakpoint-desktop-min}) and (max-width: #{$breakpoint-desktop-mid-max}) {
+    @content;
+  }
+}
+
+/** Tablet + laptop (551–1099): shared mid-layout rules. */
+@mixin mid {
+  @media only screen and (min-width: #{$breakpoint-tablet-min}) and (max-width: #{$breakpoint-laptop-max}) {
+    @content;
+  }
+}
+
+/** Everything below desktop (< 1100). */
+@mixin below-desktop {
+  @media only screen and (max-width: #{$breakpoint-laptop-max}) {
     @content;
   }
 }

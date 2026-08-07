@@ -8,6 +8,9 @@ import meData from '../../../data/me.json';
 import { LanguageService } from '../../../services/language.service';
 import { getExperienceYears } from '../../../utils/experience';
 
+/** Visible intro subtitle rows (third+ lines stay in me.json for later). */
+const VISIBLE_SUBTITLE_COUNT = 2;
+
 @Component({
   selector: 'app-intro',
   templateUrl: './intro.html',
@@ -24,9 +27,9 @@ export class IntroComponent {
     '(max-width: 900px) min(40vw, 200px), clamp(180px, 33vmin, 280px)';
 
   protected readonly subtitles = computed(() =>
-    this.copy().homeSubtitles.map((line) =>
-      line.replaceAll('{years}', String(this.years))
-    )
+    this.copy()
+      .homeSubtitles.slice(0, VISIBLE_SUBTITLE_COUNT)
+      .map((line) => line.replaceAll('{years}', String(this.years)))
   );
 
   protected async copyEmail(): Promise<void> {
