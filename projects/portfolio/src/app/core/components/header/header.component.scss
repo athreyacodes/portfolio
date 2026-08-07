@@ -11,12 +11,14 @@
   bottom: 0;
   display: flex;
   justify-content: space-between;
+  pointer-events: none;
 }
 
 .header-left-content,
 .header-right-content {
   display: flex;
   padding: 30px;
+  pointer-events: auto;
 }
 
 .header-icon {

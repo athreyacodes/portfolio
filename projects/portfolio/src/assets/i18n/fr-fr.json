@@ -59,28 +59,28 @@
   },
   "skills": {
     "title": "Mes compétences",
-    "sub_title": "J'ai créé ce site Web de portfolio pour mettre en valeur mes compétences et capacités actuelles en matière de développement Web.",
+    "sub_title": "Architecture de front ends évolutifs pour de grands produits d'entreprise—micro-frontends, SSR/SSG et livraison prête pour le SEO.",
     "coding": {
-      "title": "Je développe des sites internet",
-      "description": "J'aime développer <strong>Solide</strong>, <strong>Évolutif</strong> et <strong>Sensible</strong> des produits frontend avec des expériences utilisateur transparentes.",
+      "title": "Je construis des plateformes d'entreprise",
+      "description": "Je conçois et construis des front ends d'entreprise <strong>Solides</strong>, <strong>Évolutifs</strong> et <strong>Responsive</strong> avec une architecture claire et une UX fluide.",
       "description2": "",
       "action": "Voir mes compétences",
       "action2": "Dos",
       "details": {
         "first": {
-          "title": "1. Axé sur les résultats",
-          "content1": "<strong>Axé sur les résultats</strong> Développeur Front-End avec <strong>{{e}}</strong> années d'expérience pratique spécialisée dans le <strong>Cadre angulaire</strong>",
-          "content2": "Maîtrise de <strong>HTML, CSS et JavaScript</strong>, avec un sens aigu du design et une passion pour la création d'interfaces intuitives et réactives."
+          "title": "1. Architecture",
+          "content1": "Architecte front-end avec <strong>{{e}}</strong> années à construire de <strong>grandes applications d'entreprise</strong> sur <strong>Angular</strong>",
+          "content2": "Des plateformes qui restent maintenables à mesure que les équipes et les domaines grandissent."
         },
         "second": {
-          "title": "2. Direction",
-          "content1": "Adepte de <strong>Direction</strong>, j'ai guidé et encadré avec succès des équipes front-end, favorisant l'efficacité et l'innovation.",
-          "content2": "Projets constamment livrés dans les délais et dans les limites de leur portée, dépassant les attentes des clients."
+          "title": "2. SEO & SSG",
+          "content1": "Expérience concrète avec le <strong>SSR/SSG</strong> et une livraison prête pour le <strong>SEO</strong>.",
+          "content2": "Ce portfolio est un exemple de cette approche en pratique."
         },
         "third": {
-          "title": "3. Esprit d'équipe",
-          "content1": "<strong>Esprit d'équipe collaboratif</strong>, compétent dans la communication de concepts techniques complexes à des parties prenantes non techniques.",
-          "content2": "Contribué avec succès à l'amélioration de l'expérience utilisateur, ce qui a entraîné une amélioration de la satisfaction client."
+          "title": "3. Fullstack assisté par l'IA",
+          "content1": "Je me plonge actuellement dans le développement <strong>fullstack assisté par l'IA</strong>.",
+          "content2": "Associer une architecture front-end solide à une livraison produit moderne assistée par l'IA."
         }
       }
     },
@@ -91,12 +91,12 @@
     },
     "multilingual": {
       "title": "Atteindre le monde entier !",
-      "description": "La prise en charge de différentes langues permettra de développer votre activité à travers le monde. ",
+      "description": "Je rends les apps multilingues simples.",
       "description2": "Essayez de changer la langue"
     },
     "work": {
-      "title": "Axé sur la performance",
-      "description": "Des concepts avancés comme <strong>Micro-frontal</strong> et <strong>Google Analytics</strong> aidera à maintenir d’énormes applications.",
+      "title": "Conçu pour l'échelle",
+      "description": "Les <strong>Micro-frontends</strong> et les fondations de plateforme gardent les apps d'entreprise modulaires et maintenables.",
       "description2": "",
       "action": "Voir mon expérience"
     }

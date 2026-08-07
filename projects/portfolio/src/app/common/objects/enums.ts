@@ -12,5 +12,6 @@ export enum Theme {
 
 export enum LanguageCode {
   English = 'en-gb',
+  Spanish = 'es-419',
   French = 'fr-fr'
 }

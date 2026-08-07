@@ -61,28 +61,28 @@
     },
     "skills": {
         "title": "My Skills",
-        "sub_title": "I created this portfolio website to showcase my current skills and capability on web development.",
+        "sub_title": "Architecting scalable front ends for large enterprise products—micro frontends, SSR/SSG, and SEO-ready delivery.",
         "coding": {
-            "title": "I develop websites",
-            "description": "I like to develop <strong>Solid</strong>, <strong>Scalable</strong> and <strong>Responsive</strong> frontend products with seamless user experiences.",
+            "title": "I build enterprise platforms",
+            "description": "I design and build <strong>Solid</strong>, <strong>Scalable</strong> and <strong>Responsive</strong> enterprise front ends with clear architecture and seamless UX.",
             "description2": "",
             "action": "See my skills",
-            "action2": "Back",            
+            "action2": "Back",
             "details" : {
                 "first": {
-                    "title": "1. Result-Driven",
-                    "content1" : "<strong>Results-driven</strong> Front-End Developer with <strong>{{e}}</strong> years of hands-on experience specializing in the <strong>Angular framework</strong>",
-                    "content2" : "Proficient in <strong>HTML, CSS, and JavaScript</strong>, with a keen eye for design and a passion for creating intuitive, responsive interfaces."
+                    "title": "1. Architecture",
+                    "content1" : "Front-end architect with <strong>{{e}}</strong> years building <strong>large enterprise apps</strong> on <strong>Angular</strong>",
+                    "content2" : "Platforms that stay maintainable as teams and domains grow."
                 },
                 "second": {
-                    "title": "2. Leadership",
-                    "content1" : "Adept at <strong>Leadership</strong>, I have successfully guided and mentored front-end teams, fostering efficiency and innovation.",
-                    "content2" : "Consistently delivered projects on time and within scope, exceeding client expectations."
+                    "title": "2. SEO & SSG",
+                    "content1" : "Hands-on with <strong>SSR/SSG</strong> and <strong>SEO</strong>-ready delivery.",
+                    "content2" : "This portfolio is an example of that approach in practice."
                 },
                 "third": {
-                    "title": "3. Team player",
-                    "content1" : "<strong>Collaborative team player</strong>, skilled in communicating complex technical concepts to non-technical stakeholders.",
-                    "content2" : "Successfully contributed to enhancing user experiences, resulting in improved customer satisfaction."
+                    "title": "3. AI-enabled fullstack",
+                    "content1" : "Currently diving into <strong>AI-enabled fullstack</strong> development.",
+                    "content2" : "Pairing strong front-end architecture with modern AI-assisted product delivery."
                 }
             }
         },
@@ -93,12 +93,12 @@
         },
         "multilingual": {
             "title": "Reaching across the globe!",
-            "description": "Supporting different languages will expand your business across the globe. I can make that happen.",
+            "description": "I make multilingual apps simple.",
             "description2": "Try changing the language"
         },
         "work": {
-            "title": "Performance focused",
-            "description": "Advanced concepts like <strong>Micro front-end</strong> and <strong>Google analytics</strong> will help in maintaining huge apps.",
+            "title": "Built for scale",
+            "description": "<strong>Micro frontends</strong> and platform foundations keep enterprise apps modular and maintainable.",
             "description2": "",
             "action": "See my experience"
         }

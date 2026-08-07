@@ -21,11 +21,15 @@ export const NAV_ITEMS = [
 export const LANGUAGE_LIST = [
   {
     code: LanguageCode.English,
-    name :"English"
+    name: "EN"
+  },
+  {
+    code: LanguageCode.Spanish,
+    name: "ES"
   },
   {
     code: LanguageCode.French,
-    name :"Français"
+    name: "FR"
   }
 ];
 

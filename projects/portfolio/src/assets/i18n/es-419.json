@@ -3,17 +3,32 @@
         "code": "es-419",
         "name": "Español"
     },
-    "banner" : {
+    "theme": {
+        "light": {
+            "label": "Claro",
+            "long_label": "Modo claro"
+        },
+        "dark": {
+            "label": "Oscuro",
+            "long_label": "Modo oscuro"
+        }
+    },
+    "banner": {
         "title": "Arquitecto Front-end",
         "subtitle": "11+ años de experiencia | Angular | MFE | Apps empresariales",
         "subtitle2": "Actualmente explorando el desarrollo fullstack impulsado por IA",
         "pre_name": "Hola, soy",
         "pre_role": "Soy",
-        "work_btn": "Habilidades",
+        "work_btn": "Ver mis habilidades y trabajo",
         "exp_btn": "Experiencia",
         "about_btn": "Acerca de mí",
-        "download_cv": "Descargar currículum"
-
+        "get_in_touch": "Ponte en contacto",
+        "download_cv": "Descargar currículum",
+        "icon": {
+            "mail": "Contáctame",
+            "linkedin": "Mi LinkedIn",
+            "github": "Mi Github"
+        }
     },
     "contact_info": {
         "display_name": "ATHREYA",
@@ -21,25 +36,110 @@
         "firstname": "ATHREYA",
         "lastname": "M R",
         "email": "athreyacodes@gmail.com",
-        "location": "Bangalore, IN"
+        "location": "Bangalore, IN",
+        "linkedin": "https://www.linkedin.com/in/athreyamr/",
+        "github": "https://github.com/athreyacodes"
     },
     "global": {
         "copied": "'{{e}}' se copia al portapapeles.",
-        "click_to_copy": "Haga clic para copiar."
+        "click_to_copy": "Haga clic para copiar.",
+        "language_updated": "Idioma cambiado a {{l}}",
+        "theme_updated": "Tema actualizado",
+        "enable_auto_play": "Activar reproducción automática",
+        "disable_auto_play": "Desactivar reproducción automática",
+        "open_link_company": "Abrir el enlace de esta empresa en una nueva pestaña",
+        "go_to_top": "Ir arriba",
+        "close": "Cerrar"
     },
     "header": {
         "nav_items": {
-            "banner": "Hogar",
-            "skills": "Habilidades",
+            "banner": "Inicio",
+            "skills": "Mis habilidades y trabajo",
             "experience": "Experiencia",
             "about": "Acerca de mí"
         }
     },
     "skills": {
-        "multilingual":{
-            "title": "Plurilingüe",
-            "description": "La compatibilidad con diferentes idiomas expandirá su negocio en todo el mundo. Puedo hacer que eso suceda.",
-            "prompt": "Prueba a cambiar el idioma"
+        "title": "Mis habilidades",
+        "sub_title": "Arquitectura de front ends escalables para grandes productos empresariales—micro frontends, SSR/SSG y entrega lista para SEO.",
+        "coding": {
+            "title": "Construyo plataformas empresariales",
+            "description": "Diseño y construyo front ends empresariales <strong>Sólidos</strong>, <strong>Escalables</strong> y <strong>Responsive</strong> con arquitectura clara y una UX fluida.",
+            "description2": "",
+            "action": "Ver mis habilidades",
+            "action2": "Volver",
+            "details": {
+                "first": {
+                    "title": "1. Arquitectura",
+                    "content1": "Arquitecto front-end con <strong>{{e}}</strong> años construyendo <strong>grandes apps empresariales</strong> en <strong>Angular</strong>",
+                    "content2": "Plataformas que se mantienen a medida que crecen los equipos y los dominios."
+                },
+                "second": {
+                    "title": "2. SEO y SSG",
+                    "content1": "Experiencia práctica con <strong>SSR/SSG</strong> y entrega lista para <strong>SEO</strong>.",
+                    "content2": "Este portfolio es un ejemplo de ese enfoque en la práctica."
+                },
+                "third": {
+                    "title": "3. Fullstack con IA",
+                    "content1": "Actualmente explorando el desarrollo <strong>fullstack impulsado por IA</strong>.",
+                    "content2": "Combinando una sólida arquitectura front-end con la entrega moderna asistida por IA."
+                }
+            }
+        },
+        "theme": {
+            "title": "¡Diseño en punto!",
+            "description": "Creo que la <strong>Personalización</strong> es clave para que los clientes se sientan como en casa.",
+            "description2": "Prueba a cambiar el tema"
+        },
+        "multilingual": {
+            "title": "¡Llegando a todo el mundo!",
+            "description": "Hago que las apps multilingües sean simples.",
+            "description2": "Prueba a cambiar el idioma"
+        },
+        "work": {
+            "title": "Hecho para escalar",
+            "description": "Los <strong>Micro frontends</strong> y las bases de plataforma mantienen las apps empresariales modulares y mantenibles.",
+            "description2": "",
+            "action": "Ver mi experiencia"
+        }
+    },
+    "exp": {
+        "title": "Mi trabajo y experiencia",
+        "sub_title": "A lo largo de mi carrera, he contribuido al éxito de empresas destacadas, donde desempeñé un papel clave en el desarrollo de soluciones de vanguardia que elevaron el engagement y optimizaron el rendimiento.",
+        "companies": {
+            "0": {
+                "company": "Mphasis Ltd",
+                "logo": "assets/images/logo/mphasis.png",
+                "designation": "Ingeniero de software",
+                "from": "2015",
+                "to": "2019",
+                "url": "https://www.mphasis.com/",
+                "description": "Trabajé como ingeniero de software durante <strong>4</strong> años en desarrollo web Angular para <strong>FedEx</strong>, un cliente importante de Mphasis.",
+                "action": "Proyectos y logros",
+                "projects": {}
+            },
+            "1": {
+                "company": "Enate Technologies Ltd",
+                "logo": "assets/images/logo/enate.svg",
+                "designation": "Ingeniero de producto",
+                "from": "2019",
+                "to": "2024",
+                "url": "https://www.enate.io/",
+                "description": "<strong>Liderando</strong> un equipo front-end en la construcción de un producto robusto con <strong>Micro frontend</strong>, servicios de correo y otros requisitos complejos.",
+                "action": "Proyectos y logros",
+                "projects": {}
+            },
+            "2": {
+                "company": "Mimecast",
+                "logo": "assets/images/logo/mimecast.png",
+                "designation": "Ingeniero de software senior",
+                "from": "2024",
+                "to": "Presente",
+                "url": "https://www.mimecast.com/",
+                "description": "Construyendo un producto de seguridad de correo de <strong>nueva generación</strong> con <strong>Angular</strong> y <strong>Micro frontend con Nx Monorepo</strong>.",
+                "action": "Proyectos y logros",
+                "projects": {}
+            }
         }
     }
 }
