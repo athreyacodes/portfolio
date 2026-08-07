@@ -1,4 +1,4 @@
-<div class="skill-container">
+<div class="skill-container" [class.details-open]="MoreSkillsMode">
   <div class="skill-header">
     <div class="banner-title accent-text">
       {{'skills.title' | translate}}
@@ -48,7 +48,7 @@
   <div class="card box-shadow-high">
     <div class="card-title">{{'skills.coding.title' | translate}}</div>
     <div class="card-img">
-      <img [src]="imagePath + 'responsive.svg'">
+      <img [src]="imagePath + 'proud.svg'" alt="">
     </div>
     <div class="card-description" [innerHTML]="'skills.coding.description' | translate "></div>
     <!-- <div class="card-description" [innerHTML]="'skills.coding.description2' | translate "></div> -->

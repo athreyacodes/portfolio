@@ -5,16 +5,18 @@
     flex-direction: column;
     justify-content: space-between;
     height: 100%;
+    min-height: 0;
 }
 
 .carousel-content {
     display: flex;
-    min-height: 400px;
-    flex-grow: 1;
+    align-items: center;
+    min-height: 0;
+    flex: 1 1 auto;
     transition: $transition;
     div {
-        margin: 30px 0;
-        font-size: 1.1em;
+        margin: 16px 0;
+        font-size: 1.05em;
     }
 }
 
@@ -34,9 +36,10 @@
 }
 
 .skill-img img {
-    width: 20vw;
-    // max-width: 300px;
-    // min-height: 300px;
+    width: 16vw;
+    height: auto;
+    max-height: 240px;
+    object-fit: contain;
 }
 
 .carousel-control {

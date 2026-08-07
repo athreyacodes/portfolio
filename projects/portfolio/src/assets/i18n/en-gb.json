@@ -64,7 +64,7 @@
         "sub_title": "Architecting scalable front ends for large enterprise products—micro frontends, SSR/SSG, and SEO-ready delivery.",
         "coding": {
             "title": "I build enterprise platforms",
-            "description": "I design and build <strong>Solid</strong>, <strong>Scalable</strong> and <strong>Responsive</strong> enterprise front ends with clear architecture and seamless UX.",
+            "description": "<strong>Solid</strong>, <strong>scalable</strong>, <strong>responsive</strong> enterprise front ends.",
             "description2": "",
             "action": "See my skills",
             "action2": "Back",
@@ -105,7 +105,16 @@
     },
     "exp": {
         "title": "My Work and Experience",
-        "sub_title": "Throughout my career, I've contributed to the success of prominent companies, where I played a pivotal role in developing cutting-edge solutions that elevated user engagement and optimized performance.",
+        "sub_title": "Building Angular products for global teams since 2015.",
+        "at_company": "at {{company}}",
+        "future": {
+            "label": "Future",
+            "roles": {
+                "0": "Principal Software Engineer?",
+                "1": "Front-end architect?",
+                "2": "AI-Enabled Fullstack Engineer?"
+            }
+        },
         "companies": {
             "0": {
                 "company": "Mphasis Ltd",
@@ -140,7 +149,7 @@
                 "from": "2024",
                 "to": "Present",
                 "url": "https://www.mimecast.com/",
-                "description": "Building a <strong>next-gen</strong> email security product with <strong>Angular</strong> and <strong>Micro front-end with Nx Monorepo</strong>.",
+                "description": "Building a <strong>next-gen</strong> email security platform with multiple products using <strong>Angular</strong> and <strong>Micro front-end with Nx Monorepo</strong>.",
                 "action": "Projects & Achievements",
                 "projects": {
 

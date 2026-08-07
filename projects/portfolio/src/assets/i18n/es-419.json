@@ -64,7 +64,7 @@
         "sub_title": "Arquitectura de front ends escalables para grandes productos empresariales—micro frontends, SSR/SSG y entrega lista para SEO.",
         "coding": {
             "title": "Construyo plataformas empresariales",
-            "description": "Diseño y construyo front ends empresariales <strong>Sólidos</strong>, <strong>Escalables</strong> y <strong>Responsive</strong> con arquitectura clara y una UX fluida.",
+            "description": "Front ends empresariales <strong>sólidos</strong>, <strong>escalables</strong> y <strong>responsive</strong>.",
             "description2": "",
             "action": "Ver mis habilidades",
             "action2": "Volver",
@@ -105,7 +105,16 @@
     },
     "exp": {
         "title": "Mi trabajo y experiencia",
-        "sub_title": "A lo largo de mi carrera, he contribuido al éxito de empresas destacadas, donde desempeñé un papel clave en el desarrollo de soluciones de vanguardia que elevaron el engagement y optimizaron el rendimiento.",
+        "sub_title": "Construyendo productos Angular para equipos globales desde 2015.",
+        "at_company": "en {{company}}",
+        "future": {
+            "label": "Futuro",
+            "roles": {
+                "0": "¿Principal Software Engineer?",
+                "1": "¿Front-end architect?",
+                "2": "¿AI-Enabled Fullstack Engineer?"
+            }
+        },
         "companies": {
             "0": {
                 "company": "Mphasis Ltd",
@@ -136,7 +145,7 @@
                 "from": "2024",
                 "to": "Presente",
                 "url": "https://www.mimecast.com/",
-                "description": "Construyendo un producto de seguridad de correo de <strong>nueva generación</strong> con <strong>Angular</strong> y <strong>Micro frontend con Nx Monorepo</strong>.",
+                "description": "Construyendo una plataforma de seguridad de correo de <strong>nueva generación</strong> con múltiples productos usando <strong>Angular</strong> y <strong>Micro frontend con Nx Monorepo</strong>.",
                 "action": "Proyectos y logros",
                 "projects": {}
             }

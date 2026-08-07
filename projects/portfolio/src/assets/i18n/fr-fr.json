@@ -62,7 +62,7 @@
     "sub_title": "Architecture de front ends évolutifs pour de grands produits d'entreprise—micro-frontends, SSR/SSG et livraison prête pour le SEO.",
     "coding": {
       "title": "Je construis des plateformes d'entreprise",
-      "description": "Je conçois et construis des front ends d'entreprise <strong>Solides</strong>, <strong>Évolutifs</strong> et <strong>Responsive</strong> avec une architecture claire et une UX fluide.",
+      "description": "Des front ends d'entreprise <strong>solides</strong>, <strong>évolutifs</strong> et <strong>responsive</strong>.",
       "description2": "",
       "action": "Voir mes compétences",
       "action2": "Dos",
@@ -103,7 +103,16 @@
   },
   "exp": {
     "title": "Mon travail et mon expérience",
-    "sub_title": "Tout au long de ma carrière, j'ai contribué au succès d'entreprises de premier plan, où j'ai joué un rôle central dans le développement de solutions de pointe qui ont accru l'engagement des utilisateurs et optimisé les performances.",
+    "sub_title": "Je construis des produits Angular pour des équipes internationales depuis 2015.",
+    "at_company": "chez {{company}}",
+    "future": {
+      "label": "Futur",
+      "roles": {
+        "0": "Principal Software Engineer ?",
+        "1": "Front-end architect ?",
+        "2": "AI-Enabled Fullstack Engineer ?"
+      }
+    },
     "companies": {
       "0": {
         "company": "Mphasis Ltd",
@@ -134,7 +143,7 @@
         "from": "2024",
         "to": "Présent",
         "url": "https://www.mimecast.com/",
-        "description": "Créer un produit de sécurité de messagerie de nouvelle génération avec <strong>Angular</strong> et <strong>Micro front-end avec Nx Monorepo</strong>.",
+        "description": "Créer une plateforme de sécurité de messagerie de <strong>nouvelle génération</strong> avec plusieurs produits en utilisant <strong>Angular</strong> et <strong>Micro front-end avec Nx Monorepo</strong>.",
         "action": "Projects & Achievements",
         "projects": {}
       }

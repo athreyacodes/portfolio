@@ -3,84 +3,66 @@
     <div class="banner-title accent-text">
       {{'exp.title' | translate}}
     </div>
-    <div class="banner-sub-title accent-text">
-      {{'exp.sub_title' | translate}}
-    </div>
   </div>
 
-  <div id="laptopLayoutExpList" class="exp-list">
-    <ng-container *ngTemplateOutlet="showCompanies"></ng-container>
-  </div>
+  <ol class="exp-timeline">
+    <ng-container *ngTemplateOutlet="CompanyTempl; context: {
+      data: 'exp.companies.0' | translate,
+      cardClass: 'inverse'
+    }"></ng-container>
+    <ng-container *ngTemplateOutlet="CompanyTempl; context: {
+      data: 'exp.companies.1' | translate,
+      cardClass: 'inverse'
+    }"></ng-container>
+    <ng-container *ngTemplateOutlet="CompanyTempl; context: {
+      data: 'exp.companies.2' | translate,
+      cardClass: ''
+    }"></ng-container>
 
-  <div id="tabLayoutExpList" class="exp-list">
-    <ng-container *ngTemplateOutlet="showCompanies"></ng-container>
-  </div>
-
-  <div id="mobileLayoutExpList" class="exp-list">
-    <ng-container *ngTemplateOutlet="showCompanies"></ng-container>
-  </div>
+    <li class="exp-stop">
+      <div class="exp-stop__meta">
+        <span class="exp-stop__years">{{ 'exp.future.label' | translate }}</span>
+        <span class="exp-stop__marker exp-stop__marker--future" aria-hidden="true"></span>
+      </div>
+      <div class="card box-shadow-high inverse">
+        <div class="card-img" aria-hidden="true"></div>
+        <div class="exp-identity">
+          <div
+            class="card-title exp-future-role"
+            [class.is-flipping]="isFutureFlipping">
+            {{ currentFutureRoleKey | translate }}
+          </div>
+          <div class="exp-company exp-company--placeholder" aria-hidden="true">&nbsp;</div>
+        </div>
+        <div class="card-description"></div>
+      </div>
+    </li>
+  </ol>
 </div>
 
-
-<ng-template #showCompanies>
-  @if (!isDarkTheme) {
-      <ng-container *ngTemplateOutlet="CompanyTempl;context:{ data: 'exp.companies.0' | translate, cardClass: 'inverse', buttonClass: 'primary-btn'}"></ng-container>
-      <ng-container *ngTemplateOutlet="CompanyTempl;context:{ data: 'exp.companies.1' | translate, buttonClass: 'accent-btn'}"></ng-container>
-      <ng-container *ngTemplateOutlet="CompanyTempl;context:{ data: 'exp.companies.2' | translate, cardClass: 'inverse', buttonClass: 'primary-btn'}"></ng-container>
-    } @else {
-      <ng-container *ngTemplateOutlet="CompanyTempl;context:{ data: 'exp.companies.0' | translate, buttonClass: 'accent-btn'}"></ng-container>
-      <ng-container *ngTemplateOutlet="CompanyTempl;context:{ data: 'exp.companies.1' | translate, buttonClass: 'accent-btn'}"></ng-container>
-      <ng-container *ngTemplateOutlet="CompanyTempl;context:{ data: 'exp.companies.2' | translate, buttonClass: 'accent-btn'}"></ng-container>
-    }
-</ng-template>
-
-
-<ng-template #CompanyTempl let-data="data" let-cardClass="cardClass" let-buttonClass="buttonClass">
-  <div class="card box-shadow-high" [class]="cardClass">
-    <div class="card-description mt-0" [innerHTML]="[data.from, data.to].join(' - ')"></div>
-    <div class="card-title">{{data.designation}}</div>
-    <div class="card-img">
-      <img [src]="basePath + data.logo">
+<ng-template #CompanyTempl let-data="data" let-cardClass="cardClass">
+  <li class="exp-stop">
+    <div class="exp-stop__meta">
+      <span class="exp-stop__years">{{ data.from }} – {{ data.to }}</span>
+      <span class="exp-stop__marker" [class.exp-stop__marker--current]="!cardClass" aria-hidden="true"></span>
     </div>
-    <div class="card-description company-link">{{data.company}}
-      <a [href]="data.url" target="_blank" class="c-pointer" [matTooltip]="'global.open_link_company' | translate" [matTooltipClass]="'text-12'">
-        <mat-icon>open_in_new</mat-icon>
-      </a>
+    <div class="card box-shadow-high" [ngClass]="cardClass">
+      <div class="card-img">
+        <img [src]="companyLogoSrc(data)" [alt]="data.company">
+      </div>
+      <div class="exp-identity">
+        <div class="card-title">{{ data.designation }}</div>
+        <div class="exp-company">
+          <span>{{ 'exp.at_company' | translate:{ company: data.company } }}</span>
+          <a [href]="data.url" target="_blank" rel="noopener noreferrer" class="c-pointer"
+            [matTooltip]="'global.open_link_company' | translate" [matTooltipClass]="'text-12'">
+            <mat-icon>open_in_new</mat-icon>
+          </a>
+        </div>
+      </div>
+      <div class="card-description">
+        <div class="card-description__text" [innerHTML]="data.description"></div>
+      </div>
     </div>
-    <div class="card-description" [innerHTML]="data.description"></div>
-    <!-- <div class="action-btn-container" id="baseExpBtns">
-    <button class="box-shadow-hover" [class]="buttonClass" (click)="GoToDetails(data)">
-      {{data.action}}
-    </button>
-  </div> -->
-</div>
-</ng-template>
-
-<ng-template #DetailsTempl>
-  <div class="exp-details box-shadow-high">
-    <!-- <button class="primary-btn box-shadow-hover" (click)="GoToList()">
-    <mat-icon>arrow_back</mat-icon>
-  </button> -->
-  <div class="card box-shadow-high">
-    <div class="card-description mt-0" [innerHTML]="[Details.from, Details.to].join(' - ')"></div>
-    <div class="card-title">{{Details.designation}}</div>
-    <div class="card-img">
-      <img [src]="Details.logo">
-    </div>
-    <div class="card-description company-link">{{Details.company}}
-      <a [href]="Details.url" target="_blank" class="c-pointer" [matTooltip]="'global.open_link_company' | translate" [matTooltipClass]="'text-12'">
-        <mat-icon>open_in_new</mat-icon>
-      </a>
-    </div>
-    <!-- <div class="card-description" [innerHTML]="Details.description"></div> -->
-    <!-- <div class="action-btn-container">
-    <button class="default-btn box-shadow-hover" (click)="GoToList()">
-      <mat-icon>arrow_back</mat-icon>
-    </button>
-  </div> -->
-</div>
-<div class="project-block">
-
-</div>
-</div>
+  </li>
 </ng-template>
