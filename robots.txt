@@ -1,0 +1,7 @@
+User-agent: *
+Disallow: /*.pdf$
+Disallow: /*.pdf
+Disallow: /assets/files
+Disallow: /assets/images/logo
+Disallow: /assets/images/illustrations
+Disallow: /assets/images/background

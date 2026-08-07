@@ -1,0 +1,52 @@
+<div class="carousel-container">
+  <div class="carousel-content" >
+    <div class="skill-img">
+      <img [src]="imagePath + ['', 'proud.svg', 'leader.svg', 'team-player.svg'][Content]">
+    </div>
+    <div class="skill-content">
+      @if (Content === 1) {
+        <div [innerHTML]="'skills.coding.details.first.content1' | translate : { e: ExperienceInYears} "></div>
+        <div [innerHTML]="'skills.coding.details.first.content2' | translate"></div>
+      }
+      @if (Content === 2) {
+        <div [innerHTML]="'skills.coding.details.second.content1' | translate"></div>
+        <div [innerHTML]="'skills.coding.details.second.content2' | translate"></div>
+      }
+      @if (Content === 3) {
+        <div [innerHTML]="'skills.coding.details.third.content1' | translate"></div>
+        <div [innerHTML]="'skills.coding.details.third.content2' | translate"></div>
+      }
+    </div>
+
+  </div>
+
+  <div class="carousel-control">
+    <div class="timer-control">
+      @if (!TimerInProgress) {
+        <button class="default-btn" (click)="Start()" [matTooltip]="'global.enable_auto_play' | translate" [matTooltipClass]="'text-12'">
+          <mat-icon>play_arrow</mat-icon>
+        </button>
+      }
+      @if (TimerInProgress) {
+        <button class="default-btn" (click)="Stop()" [matTooltip]="'global.disable_auto_play' | translate" [matTooltipClass]="'text-12'">
+          <mat-icon>pause</mat-icon>
+        </button>
+      }
+    </div>
+
+    <div>
+      <button class="primary-btn box-shadow-medium" [class.active]="Content === 1" (click)="GoTo(1)">{{'skills.coding.details.first.title' | translate}}</button>
+      <mat-progress-bar mode="determinate" [value]="Progress" [class.op-0]="(Content !== 1)"></mat-progress-bar>
+    </div>
+
+    <div>
+      <button class="primary-btn box-shadow-medium" [class.active]="Content === 2" (click)="GoTo(2)">{{'skills.coding.details.second.title' | translate}}</button>
+      <mat-progress-bar mode="determinate" [value]="Progress" [class.op-0]="(Content !== 2)"></mat-progress-bar>
+    </div>
+
+    <div>
+      <button class="primary-btn box-shadow-medium" [class.active]="Content === 3" (click)="GoTo(3)">{{'skills.coding.details.third.title' | translate}}</button>
+      <mat-progress-bar mode="determinate" [value]="Progress" [class.op-0]="(Content !== 3)"></mat-progress-bar>
+    </div>
+  </div>
+</div>

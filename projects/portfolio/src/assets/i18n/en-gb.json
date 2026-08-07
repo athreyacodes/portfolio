@@ -1,0 +1,151 @@
+{
+    "language": {
+        "code": "en-gb",
+        "name": "English"
+    },
+    "theme": {
+        "light": {
+            "label": "Light",
+            "long_label": "Light Mode"
+        },
+        "dark": {
+            "label": "Dark",
+            "long_label": "Dark Mode"
+        }
+    },
+    "banner": {
+        "title": "WEB DEVELOPER",
+        "subtitle": "Highly skilled in <strong>Angular</strong>, HTML, CSS and Javascript",
+        "exp": "<strong>{{n}}</strong> years of experience",
+        "pre_name": "Hello, I'm",
+        "pre_role": "I'm a",
+        "work_btn": "See my Skills and Work",
+        "exp_btn": "Experience",
+        "about_btn": "About me",
+        "get_in_touch": "Get in touch",
+        "download_cv": "Download CV",
+        "icon": {
+            "mail": "Contact Me",
+            "linkedin": "My LinkedIn",
+            "github": "My Github"
+        }
+    },
+    "contact_info": {
+        "display_name": "ATHREYA",
+        "fullname": "ATHREYA M R",
+        "firstname": "ATHREYA",
+        "lastname": "M R",
+        "email": "athreyamr10@gmail.com",
+        "location": "Bangalore, IN",
+        "linkedin": "https://www.linkedin.com/in/athreyamr/",
+        "github": "https://github.com/athreyacodes"
+    },
+    "global": {
+        "copied": "'{{e}}' is copied to clipboard.",
+        "click_to_copy": "Click to copy.",
+        "language_updated": "Language changed to {{l}}",
+        "theme_updated": "Theme updated",
+        "enable_auto_play": "Enable Auto Play",
+        "disable_auto_play": "Disable Auto Play",
+        "open_link_company": "Open this company link in a new tab",
+        "go_to_top": "Go to top",
+        "close": "Close"
+    },
+    "header": {
+        "nav_items": {
+            "banner": "Home",
+            "skills": "My Skills and Work",
+            "experience": "Experience",
+            "about": "About me"
+        }
+    },
+    "skills": {
+        "title": "My Skills",
+        "sub_title": "I created this portfolio website to showcase my current skills and capability on web development.",
+        "coding": {
+            "title": "I develop websites",
+            "description": "I like to develop <strong>Solid</strong>, <strong>Scalable</strong> and <strong>Responsive</strong> frontend products with seamless user experiences.",
+            "description2": "",
+            "action": "See my skills",
+            "action2": "Back",            
+            "details" : {
+                "first": {
+                    "title": "1. Result-Driven",
+                    "content1" : "<strong>Results-driven</strong> Front-End Developer with <strong>{{e}}</strong> years of hands-on experience specializing in the <strong>Angular framework</strong>",
+                    "content2" : "Proficient in <strong>HTML, CSS, and JavaScript</strong>, with a keen eye for design and a passion for creating intuitive, responsive interfaces."
+                },
+                "second": {
+                    "title": "2. Leadership",
+                    "content1" : "Adept at <strong>Leadership</strong>, I have successfully guided and mentored front-end teams, fostering efficiency and innovation.",
+                    "content2" : "Consistently delivered projects on time and within scope, exceeding client expectations."
+                },
+                "third": {
+                    "title": "3. Team player",
+                    "content1" : "<strong>Collaborative team player</strong>, skilled in communicating complex technical concepts to non-technical stakeholders.",
+                    "content2" : "Successfully contributed to enhancing user experiences, resulting in improved customer satisfaction."
+                }
+            }
+        },
+        "theme": {
+            "title": "Design, on point!",
+            "description": "I think <strong>Personalization</strong> is a key aspect in making customers feel homely.",
+            "description2": "Try changing the theme"
+        },
+        "multilingual": {
+            "title": "Reaching across the globe!",
+            "description": "Supporting different languages will expand your business across the globe. I can make that happen.",
+            "description2": "Try changing the language"
+        },
+        "work": {
+            "title": "Performance focused",
+            "description": "Advanced concepts like <strong>Micro front-end</strong> and <strong>Google analytics</strong> will help in maintaining huge apps.",
+            "description2": "",
+            "action": "See my experience"
+        }
+    },
+    "exp": {
+        "title": "My Work and Experience",
+        "sub_title": "Throughout my career, I've contributed to the success of prominent companies, where I played a pivotal role in developing cutting-edge solutions that elevated user engagement and optimized performance.",
+        "companies": {
+            "0": {
+                "company": "Mphasis Ltd",
+                "logo": "assets/images/logo/mphasis.png",
+                "designation": "Software Engineer",
+                "from": "2015",
+                "to": "2019",
+                "url": "https://www.mphasis.com/",
+                "description": "Worked as a Software Engineer for <strong>4</strong> years in Angular Web Development for <strong>FedEx</strong>, a major client of Mphasis.",
+                "action": "Projects & Achievements",
+                "projects": {
+
+                }
+            },
+            "1": {
+                "company": "Enate Technologies Ltd",
+                "logo": "assets/images/logo/enate.svg",
+                "designation": "Product Engineer",
+                "from": "2019",
+                "to": "2024",
+                "url": "https://www.enate.io/",
+                "description": "<strong>Leading</strong> a front-end team in building a roboust product with <strong>Micro front-end</strong>, Email Services and other complex requirements.",
+                "action": "Projects & Achievements",
+                "projects": {
+
+                }
+            },
+            "2": {
+                "company": "Mimecast",
+                "logo": "assets/images/logo/mimecast.png",
+                "designation": "Senior Software Engineer",
+                "from": "2024",
+                "to": "Present",
+                "url": "https://www.mimecast.com/",
+                "description": "Building a <strong>next-gen</strong> email security product with <strong>Angular</strong> and <strong>Micro front-end with Nx Monorepo</strong>.",
+                "action": "Projects & Achievements",
+                "projects": {
+
+                }
+            }
+        }
+    }
+}

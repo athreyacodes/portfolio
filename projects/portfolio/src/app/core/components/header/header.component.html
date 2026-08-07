@@ -1,0 +1,28 @@
+<section class="header-container">
+  <div class="header-left-content">
+  </div>
+  <div class="header-right-content">
+    <button mat-fab color="accent" id="FloatingBtn" (click)="ToggleOptions()">
+      <mat-icon>menu</mat-icon>
+    </button>
+  </div>
+</section>
+
+<section #NavCrumbsEl class="nav-crumbs">
+  @for (item of NavItems; track item) {
+    <div
+      [class.active]="item.Active"
+      class="nav-item accent-text c-pointer"
+      [matTooltip]="item.localePath | translate"
+      [matTooltipClass]="'text-12'"
+      [matTooltipPosition]="'left'"
+      (click)="GoTo(item.PageType)">
+      <mat-icon class="large">{{item.Active ? item.Icon : 'stop'}}</mat-icon>
+    </div>
+  }
+</section>
+
+<section id="MenuOptions" [class.show]="ShowOptions" [class.load]="LoadOptions">
+  <app-menu-options (selected)="OptionSelected($event)"></app-menu-options>
+
+</section>

@@ -1,0 +1,10 @@
+@use '../../../../assets/css/variables.scss' as *;
+
+.options-container {
+    background-color: $background-color;
+    border-radius: $border-radius;
+}
+
+.list-item {
+    color: $accent-text !important;
+}

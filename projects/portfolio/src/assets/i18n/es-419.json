@@ -1,0 +1,43 @@
+{
+    "language": {
+        "code": "es-419",
+        "name": "Español"
+    },
+    "banner" : {
+        "title": "DESARROLLADOR WEB",
+        "subtitle": "Altamente capacitado en <strong>Angular</strong>, HTML, CSS y Javascript",
+        "exp": "<strong>{{n}}</strong> años de experiencia",
+        "work_btn": "Habilidades",
+        "exp_btn": "Experiencia",
+        "about_btn": "Acerca de mí",
+        "download_cv": "Descargar currículum"
+
+    },
+    "contact_info": {
+        "display_name": "ATHREYA",
+        "fullname": "ATHREYA M R",
+        "firstname": "ATHREYA",
+        "lastname": "M R",
+        "email": "athreyamr10@gmail.com",
+        "location": "Bangalore, IN"
+    },
+    "global": {
+        "copied": "'{{e}}' se copia al portapapeles.",
+        "click_to_copy": "Haga clic para copiar."
+    },
+    "header": {
+        "nav_items": {
+            "banner": "Hogar",
+            "skills": "Habilidades",
+            "experience": "Experiencia",
+            "about": "Acerca de mí"
+        }
+    },
+    "skills": {
+        "multilingual":{
+            "title": "Plurilingüe",
+            "description": "La compatibilidad con diferentes idiomas expandirá su negocio en todo el mundo. Puedo hacer que eso suceda.",
+            "prompt": "Prueba a cambiar el idioma"
+        }
+    }
+}

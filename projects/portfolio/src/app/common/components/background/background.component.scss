@@ -1,0 +1,35 @@
+@use '../../../../assets/css/variables.scss' as *;
+
+.container{
+    width: 100%;
+    height: 100%;
+    min-width: 500px;
+    min-height: 500px;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    position: fixed;
+  }
+  .container{
+    background-color: transparent;
+    background: linear-gradient(to bottom, $background-light 0%,$background-color 100%);
+    box-shadow: inset 0 0 0 1000px $background-overlay;
+  }
+  #cloud-intro{
+    position: relative;
+    height: 100%;
+    background: // url('/assets/images/background/cloud1.png') 0 0,
+                // url('/assets/images/background/cloud2.png') 0 300px,
+                url('/assets/images/background/cloud3.png') 100px 250px;
+    animation: wind 100s linear infinite;
+    background-repeat: repeat-x;
+  }
+  @keyframes wind{
+    0% {
+      background-position: 0 20px, 0 30px, 100px 25px;
+    }
+    100% {
+      background-position: 1000px 20px, 1200px 30px, 1100px 25px;
+    }
+  
+  }

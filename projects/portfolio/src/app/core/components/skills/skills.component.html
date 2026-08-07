@@ -1,0 +1,130 @@
+<div class="skill-container">
+  <div class="skill-header">
+    <div class="banner-title accent-text">
+      {{'skills.title' | translate}}
+    </div>
+    <div class="banner-sub-title accent-text">
+      {{'skills.sub_title' | translate}}
+    </div>
+  </div>
+
+  <div id="laptopLayoutSkillList" class="skill-list">
+    <ng-container *ngTemplateOutlet="BaseSkillTempl"></ng-container>
+    <ng-container *ngTemplateOutlet="ThemeTempl"></ng-container>
+    <ng-container *ngTemplateOutlet="MultiSkillTempl"></ng-container>
+    <ng-container *ngTemplateOutlet="WorkTempl"></ng-container>
+  </div>
+
+  <div id="tabLayoutSkillList" class="skill-list">
+    <ng-container *ngTemplateOutlet="BaseSkillTempl"></ng-container>
+    <ng-container *ngTemplateOutlet="WorkTempl"></ng-container>
+    <ng-container *ngTemplateOutlet="ThemeTempl"></ng-container>
+    <ng-container *ngTemplateOutlet="MultiSkillTempl"></ng-container>
+  </div>
+
+  <div id="mobileLayoutSkillList" class="skill-list">
+    <ng-container *ngTemplateOutlet="BaseSkillCardContent"></ng-container>
+    <ng-container *ngTemplateOutlet="ThemeTempl"></ng-container>
+    <ng-container *ngTemplateOutlet="MultiSkillTempl"></ng-container>
+    <ng-container *ngTemplateOutlet="WorkTempl"></ng-container>
+  </div>
+</div>
+
+
+<ng-template #BaseSkillTempl>
+  <div class="card-container" [class.show-details]="MoreSkillsMode">
+    <ng-container *ngTemplateOutlet="BaseSkillCardContent"></ng-container>
+    <div class="card-details">
+      <app-skill-carousel class="h-100"></app-skill-carousel>
+    </div>
+  </div>
+  @if (MoreSkillsMode) {
+    <div class="hidden-card">
+      <ng-container *ngTemplateOutlet="BaseSkillCardContent"></ng-container>
+    </div>
+  }
+</ng-template>
+<ng-template #BaseSkillCardContent>
+  <div class="card box-shadow-high">
+    <div class="card-title">{{'skills.coding.title' | translate}}</div>
+    <div class="card-img">
+      <img [src]="imagePath + 'responsive.svg'">
+    </div>
+    <div class="card-description" [innerHTML]="'skills.coding.description' | translate "></div>
+    <!-- <div class="card-description" [innerHTML]="'skills.coding.description2' | translate "></div> -->
+    <div class="action-btn-container" id="baseSkillBtns">
+      @if (!MoreSkillsMode) {
+        <button class="accent-btn box-shadow-hover" (click)="MoreAboutSkills(true)">
+          {{'skills.coding.action' | translate}}
+        </button>
+      }
+      @if (MoreSkillsMode) {
+        <button class="accent-btn box-shadow-hover" (click)="MoreAboutSkills(false)">
+          <mat-icon>arrow_back</mat-icon>
+          {{'skills.coding.action2' | translate}}
+        </button>
+      }
+    </div>
+  </div>
+</ng-template>
+
+
+<ng-template #ThemeTempl>
+  <div class="card box-shadow-high inverse" [class.hide-move-animate]="MoreSkillsMode">
+    <div class="card-title">{{'skills.theme.title' | translate}}</div>
+    <div class="card-img">
+      <img [src]="imagePath + 'theme3.svg'">
+    </div>
+
+    <div class="card-description" [innerHTML]="'skills.theme.description' | translate"></div>
+    <div class="card-description mt-0" [innerHTML]="'skills.theme.description2' | translate "></div>
+
+    <div class="btn-group">
+      @for (t of themes; track t) {
+        <button
+          class=" box-shadow-hover"
+          [class.active]="SelectedTheme === t?.id"
+        (click)="changeTheme($safeNavigationMigration(t?.id))">{{t.name | translate}}</button>
+      }
+    </div>
+
+  </div>
+</ng-template>
+
+<ng-template #MultiSkillTempl>
+  <div class="card box-shadow-high" [class.hide-move-animate]="MoreSkillsMode">
+    <div class="card-title">{{'skills.multilingual.title' | translate}}</div>
+    <div class="card-img">
+      <img [src]="imagePath + 'multilingual.svg'">
+    </div>
+
+    <div class="card-description" [innerHTML]="'skills.multilingual.description' | translate"></div>
+    <div class="card-description mt-0" [innerHTML]="'skills.multilingual.description2' | translate "></div>
+
+    <div class="btn-group">
+      @for (l of languageList; track l) {
+        <button
+          class=" box-shadow-hover"
+          [class.active]="SelectedLanguage?.code === l?.code"
+        (click)="changeLanguage(l)">{{l.name}}</button>
+      }
+    </div>
+
+  </div>
+</ng-template>
+
+<ng-template #WorkTempl>
+  <div class="card box-shadow-high inverse" [class.hide-move-animate]="MoreSkillsMode">
+    <div class="card-title">{{'skills.work.title' | translate}}</div>
+    <div class="card-img">
+      <img [src]="imagePath + 'micro-fe.svg'">
+    </div>
+    <div class="card-description" [innerHTML]="'skills.work.description' | translate "></div>
+    <!-- <div class="card-description" [innerHTML]="'skills.work.description2' | translate "></div> -->
+    <div class="action-btn-container" id="multiSkillBtns">
+      <button class="primary-btn box-shadow-hover" (click)="GoToExperience()">
+        {{'skills.work.action' | translate}}
+      </button>
+    </div>
+  </div>
+</ng-template>
