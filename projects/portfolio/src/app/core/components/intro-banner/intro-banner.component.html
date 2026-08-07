@@ -157,10 +157,13 @@
     </div>
     <div class="banner-title">{{ 'banner.title' | translate }}</div>
     <div class="banner-sub-title">
-      <div [innerHTML]="'banner.subtitle' | translate"></div>
+      <div [innerHTML]="'banner.subtitle' | translate: { n: ExperienceInYears }"></div>
     </div>
     <div class="banner-sub-title">
-      <div [innerHTML]="'banner.exp' | translate: { n: ExperienceInYears}" class="sub-title-exp"></div>
+      <div [innerHTML]="'banner.subtitle2' | translate"></div>
+    </div>
+    <div class="banner-sub-title">
+      <div [innerHTML]="'banner.subtitle3' | translate"></div>
     </div>
   </div>
 </ng-template>

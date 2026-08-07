@@ -12,11 +12,12 @@
     }
   },
   "banner": {
-    "title": "DÉVELOPPEUR WEB",
-    "subtitle": "Très compétent en <strong>Angular</strong>, HTML, CSS et Javascript",
-    "exp": "<strong>{{n}}</strong> des années d'expérience",
-    "pre_name": "Bonjour je suis",
-    "pre_role": "je suis un",
+    "title": "Architecte Front-end",
+    "subtitle": "Avec <strong>{{n}}+ ans</strong> d'expertise en Angular et micro-frontends,",
+    "subtitle2": "Je conçois et construis des produits et plateformes <strong>entreprise à grande échelle</strong>.",
+    "subtitle3": "J'explore actuellement le <strong>développement AI-First</strong> pour construire des applications full stack de bout en bout.",
+    "pre_name": "Bonjour, je suis",
+    "pre_role": "Je suis",
     "work_btn": "Voir mes compétences et mon travail",
     "exp_btn": "Expérience",
     "about_btn": "Sur moi",
@@ -33,7 +34,7 @@
     "fullname": "ATHREYA M R",
     "firstname": "ATHREYA",
     "lastname": "M R",
-    "email": "athreyamr10@gmail.com",
+    "email": "athreyacodes@gmail.com",
     "location": "Bangalore, IN",
     "linkedin": "https://www.linkedin.com/in/athreyamr/",
     "github": "https://github.com/athreyacodes"

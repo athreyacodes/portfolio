@@ -4,9 +4,12 @@
         "name": "Español"
     },
     "banner" : {
-        "title": "DESARROLLADOR WEB",
-        "subtitle": "Altamente capacitado en <strong>Angular</strong>, HTML, CSS y Javascript",
-        "exp": "<strong>{{n}}</strong> años de experiencia",
+        "title": "Arquitecto Front-end",
+        "subtitle": "Con <strong>más de {{n}} años</strong> de experiencia en Angular y micro frontends,",
+        "subtitle2": "Diseño y construyo productos y plataformas <strong>empresariales a gran escala</strong>.",
+        "subtitle3": "Actualmente exploro el <strong>desarrollo AI-First</strong> para crear aplicaciones full stack de extremo a extremo.",
+        "pre_name": "Hola, soy",
+        "pre_role": "Soy",
         "work_btn": "Habilidades",
         "exp_btn": "Experiencia",
         "about_btn": "Acerca de mí",
@@ -18,7 +21,7 @@
         "fullname": "ATHREYA M R",
         "firstname": "ATHREYA",
         "lastname": "M R",
-        "email": "athreyamr10@gmail.com",
+        "email": "athreyacodes@gmail.com",
         "location": "Bangalore, IN"
     },
     "global": {
