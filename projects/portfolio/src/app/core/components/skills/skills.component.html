@@ -106,7 +106,9 @@
         <button
           class=" box-shadow-hover"
           [class.active]="SelectedLanguage?.code === l?.code"
-        (click)="changeLanguage(l)">{{l.name}}</button>
+          [matTooltip]="l.tooltip"
+          [matTooltipClass]="'text-12'"
+          (click)="changeLanguage(l)">{{l.name}}</button>
       }
     </div>
 
