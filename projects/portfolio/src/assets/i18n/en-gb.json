@@ -16,7 +16,7 @@
     "banner": {
         "title": "Front-end Architect",
         "subtitle": "11+ years of expertise | Angular | MFE | Enterprise apps",
-        "subtitle2": "Currently diving into AI-enabled fullstack development",
+        "subtitle2": "Now exploring AI-enabled fullstack!",
         "pre_name": "Hello, I'm",
         "pre_role": "I'm a",
         "work_btn": "See my Skills and Work",
@@ -64,25 +64,25 @@
         "sub_title": "Architecting scalable front ends for large enterprise products—micro frontends, SSR/SSG, and SEO-ready delivery.",
         "coding": {
             "title": "I build enterprise platforms",
-            "description": "<strong>Solid</strong>, <strong>scalable</strong>, <strong>responsive</strong> enterprise front ends.",
+            "description": "<strong>Solid</strong>, <strong>scalable</strong>, <strong>responsive</strong> enterprise front-end platforms.",
             "description2": "",
             "action": "See my skills",
             "action2": "Back",
             "details" : {
                 "first": {
                     "title": "1. Architecture",
-                    "content1" : "Front-end architect with <strong>{{e}}</strong> years building <strong>large enterprise apps</strong> on <strong>Angular</strong>",
-                    "content2" : "Platforms that stay maintainable as teams and domains grow."
+                    "content1" : "Front-end architect with <strong>{{e}}</strong> years building and evolving <strong>large enterprise apps</strong> on <strong>Angular</strong>—design systems, micro frontends, and shared platform foundations.",
+                    "content2" : "I design platforms that stay clear, consistent, and maintainable as teams scale and product domains multiply."
                 },
                 "second": {
                     "title": "2. SEO & SSG",
-                    "content1" : "Hands-on with <strong>SSR/SSG</strong> and <strong>SEO</strong>-ready delivery.",
+                    "content1" : "Hands-on with <strong>SSR/SSG</strong> architectures that ship crawlable, <strong>SEO</strong>-ready pages, fast first paint, and reliable production performance.",
                     "content2" : "This portfolio is an example of that approach in practice."
                 },
                 "third": {
                     "title": "3. AI-enabled fullstack",
-                    "content1" : "Currently diving into <strong>AI-enabled fullstack</strong> development.",
-                    "content2" : "Pairing strong front-end architecture with modern AI-assisted product delivery."
+                    "content1" : "Currently diving into <strong>AI-enabled fullstack</strong> development—connecting front ends, APIs, and AI capabilities into coherent product experiences.",
+                    "content2" : "Pairing strong front-end architecture with modern AI-assisted delivery so products ship faster without losing structure or quality."
                 }
             }
         },

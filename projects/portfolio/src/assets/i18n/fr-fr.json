@@ -14,7 +14,7 @@
   "banner": {
     "title": "Architecte Front-end",
     "subtitle": "11+ ans d'expertise | Angular | MFE | Apps entreprise",
-    "subtitle2": "Actuellement plongé dans le développement fullstack alimenté par l'IA",
+    "subtitle2": "En train d'explorer le fullstack assisté par l'IA !",
     "pre_name": "Bonjour, je suis",
     "pre_role": "Je suis",
     "work_btn": "Voir mes compétences et mon travail",
@@ -62,25 +62,25 @@
     "sub_title": "Architecture de front ends évolutifs pour de grands produits d'entreprise—micro-frontends, SSR/SSG et livraison prête pour le SEO.",
     "coding": {
       "title": "Je construis des plateformes d'entreprise",
-      "description": "Des front ends d'entreprise <strong>solides</strong>, <strong>évolutifs</strong> et <strong>responsive</strong>.",
+      "description": "Des plateformes front-end d'entreprise <strong>solides</strong>, <strong>évolutives</strong> et <strong>responsive</strong>.",
       "description2": "",
       "action": "Voir mes compétences",
       "action2": "Dos",
       "details": {
         "first": {
           "title": "1. Architecture",
-          "content1": "Architecte front-end avec <strong>{{e}}</strong> années à construire de <strong>grandes applications d'entreprise</strong> sur <strong>Angular</strong>",
-          "content2": "Des plateformes qui restent maintenables à mesure que les équipes et les domaines grandissent."
+          "content1": "Architecte front-end avec <strong>{{e}}</strong> années à construire et faire évoluer de <strong>grandes applications d'entreprise</strong> sur <strong>Angular</strong>—design systems, micro-frontends et fondations de plateforme partagées.",
+          "content2": "Je conçois des plateformes qui restent claires, cohérentes et maintenables à mesure que les équipes grandissent et que les domaines produit se multiplient."
         },
         "second": {
           "title": "2. SEO & SSG",
-          "content1": "Expérience concrète avec le <strong>SSR/SSG</strong> et une livraison prête pour le <strong>SEO</strong>.",
+          "content1": "Expérience concrète des architectures <strong>SSR/SSG</strong> qui livrent des pages crawlables, prêtes pour le <strong>SEO</strong>, avec un premier rendu rapide et des performances de production fiables.",
           "content2": "Ce portfolio est un exemple de cette approche en pratique."
         },
         "third": {
           "title": "3. Fullstack assisté par l'IA",
-          "content1": "Je me plonge actuellement dans le développement <strong>fullstack assisté par l'IA</strong>.",
-          "content2": "Associer une architecture front-end solide à une livraison produit moderne assistée par l'IA."
+          "content1": "Je me plonge actuellement dans le développement <strong>fullstack assisté par l'IA</strong>—relier front ends, APIs et capacités d'IA en expériences produit cohérentes.",
+          "content2": "Associer une architecture front-end solide à une livraison moderne assistée par l'IA pour livrer plus vite sans perdre structure ni qualité."
         }
       }
     },

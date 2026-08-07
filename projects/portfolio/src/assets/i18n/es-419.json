@@ -16,7 +16,7 @@
     "banner": {
         "title": "Arquitecto Front-end",
         "subtitle": "11+ años de experiencia | Angular | MFE | Apps empresariales",
-        "subtitle2": "Actualmente explorando el desarrollo fullstack impulsado por IA",
+        "subtitle2": "¡Ahora explorando fullstack impulsado por IA!",
         "pre_name": "Hola, soy",
         "pre_role": "Soy",
         "work_btn": "Ver mis habilidades y trabajo",
@@ -64,25 +64,25 @@
         "sub_title": "Arquitectura de front ends escalables para grandes productos empresariales—micro frontends, SSR/SSG y entrega lista para SEO.",
         "coding": {
             "title": "Construyo plataformas empresariales",
-            "description": "Front ends empresariales <strong>sólidos</strong>, <strong>escalables</strong> y <strong>responsive</strong>.",
+            "description": "Plataformas front-end empresariales <strong>sólidas</strong>, <strong>escalables</strong> y <strong>responsive</strong>.",
             "description2": "",
             "action": "Ver mis habilidades",
             "action2": "Volver",
             "details": {
                 "first": {
                     "title": "1. Arquitectura",
-                    "content1": "Arquitecto front-end con <strong>{{e}}</strong> años construyendo <strong>grandes apps empresariales</strong> en <strong>Angular</strong>",
-                    "content2": "Plataformas que se mantienen a medida que crecen los equipos y los dominios."
+                    "content1": "Arquitecto front-end con <strong>{{e}}</strong> años construyendo y evolucionando <strong>grandes apps empresariales</strong> en <strong>Angular</strong>: design systems, micro frontends y bases de plataforma compartidas.",
+                    "content2": "Diseño plataformas que se mantienen claras, consistentes y mantenibles a medida que escalan los equipos y se multiplican los dominios de producto."
                 },
                 "second": {
                     "title": "2. SEO y SSG",
-                    "content1": "Experiencia práctica con <strong>SSR/SSG</strong> y entrega lista para <strong>SEO</strong>.",
+                    "content1": "Experiencia práctica con arquitecturas <strong>SSR/SSG</strong> que entregan páginas rastreables y listas para <strong>SEO</strong>, con un primer pintado rápido y un rendimiento de producción fiable.",
                     "content2": "Este portfolio es un ejemplo de ese enfoque en la práctica."
                 },
                 "third": {
                     "title": "3. Fullstack con IA",
-                    "content1": "Actualmente explorando el desarrollo <strong>fullstack impulsado por IA</strong>.",
-                    "content2": "Combinando una sólida arquitectura front-end con la entrega moderna asistida por IA."
+                    "content1": "Actualmente explorando el desarrollo <strong>fullstack impulsado por IA</strong>: conectando front ends, APIs y capacidades de IA en experiencias de producto coherentes.",
+                    "content2": "Combinando una sólida arquitectura front-end con una entrega moderna asistida por IA para que los productos avancen más rápido sin perder estructura ni calidad."
                 }
             }
         },
