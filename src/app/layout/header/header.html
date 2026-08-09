@@ -1,0 +1,41 @@
+@let text = copy();
+
+<header class="site-header">
+  <button
+    #trigger
+    type="button"
+    class="menu-trigger"
+    [attr.aria-label]="text.a11y.openMenu"
+    [attr.aria-expanded]="menuOpen()"
+    (click)="openMenu()"
+  >
+    <app-icon name="menu" />
+  </button>
+</header>
+
+<nav class="nav-crumbs" [attr.aria-label]="text.a11y.primaryNav">
+  <ul role="list">
+    @for (item of navItems(); track item.id) {
+      @let isActive = active() === item.id;
+      <li>
+        <a
+          class="nav-crumb"
+          [class.is-active]="isActive"
+          [href]="'#' + item.id"
+          [attr.aria-current]="isActive ? 'true' : null"
+          [attr.aria-label]="item.label"
+          [attr.data-tooltip]="item.label"
+          (click)="onNavClick($event, item.id)"
+        >
+          <app-icon [name]="isActive ? item.icon : 'dot'" [size]="isActive ? 1.75 : 0.9" />
+        </a>
+      </li>
+    }
+  </ul>
+</nav>
+
+@defer (when menuOpen()) {
+  @if (menuOpen()) {
+    <app-menu (closed)="closeMenu()" />
+  }
+}

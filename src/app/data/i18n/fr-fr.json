@@ -1,0 +1,160 @@
+{
+  "language": {
+    "code": "fr-fr",
+    "htmlLang": "fr",
+    "name": "Français",
+    "short": "FR"
+  },
+  "theme": {
+    "light": { "label": "Clair", "longLabel": "Mode clair" },
+    "dark": { "label": "Sombre", "longLabel": "Mode sombre" }
+  },
+  "banner": {
+    "title": "Architecte Front-end",
+    "subtitle": "{years}+ ans d'expertise | Angular | MFE | Apps entreprise",
+    "subtitle2": "En train d'explorer le fullstack assisté par l'IA !",
+    "preName": "Bonjour, je suis",
+    "preRole": "Je suis",
+    "workBtn": "Voir mes compétences et mon travail",
+    "expBtn": "Expérience",
+    "downloadCv": "Télécharger le CV",
+    "icon": {
+      "linkedin": "Mon LinkedIn",
+      "github": "Mon GitHub"
+    }
+  },
+  "contactInfo": {
+    "displayName": "ATHREYA",
+    "fullname": "ATHREYA M R",
+    "email": "athreyacodes@gmail.com",
+    "location": "Bangalore, IN",
+    "linkedin": "https://www.linkedin.com/in/athreyamr/",
+    "github": "https://github.com/athreyacodes"
+  },
+  "global": {
+    "copied": "'{email}' est copié dans le presse-papiers.",
+    "copyFailed": "Copie impossible. E-mail : {email}",
+    "clickToCopy": "Cliquez pour copier.",
+    "languageUpdated": "Langue changée en {language}",
+    "themeUpdated": "Thème changé en {theme}",
+    "enableAutoPlay": "Activer la lecture automatique",
+    "disableAutoPlay": "Désactiver la lecture automatique",
+    "openLinkCompany": "Ouvrir le lien de cette entreprise dans un nouvel onglet",
+    "goToTop": "Aller en haut",
+    "close": "Fermer"
+  },
+  "a11y": {
+    "skipToContent": "Aller au contenu principal",
+    "openMenu": "Ouvrir le menu de navigation",
+    "closeMenu": "Fermer le menu de navigation",
+    "primaryNav": "Navigation par sections",
+    "menuLandmark": "Options du site",
+    "profileAlt": "Portrait d'Athreya M R",
+    "notifications": "Notifications",
+    "carouselTabs": "Domaines de compétence",
+    "openInNewTab": "s'ouvre dans un nouvel onglet"
+  },
+  "header": {
+    "navItems": {
+      "banner": "Accueil",
+      "skills": "Mes compétences et mon travail",
+      "experience": "Expérience"
+    }
+  },
+  "skills": {
+    "title": "Mes compétences",
+    "subTitle": "Architecture de front ends évolutifs pour de grands produits d'entreprise — micro-frontends, SSR/SSG et livraison prête pour le SEO.",
+    "coding": {
+      "title": "Je construis des plateformes d'entreprise",
+      "imageAlt": "Illustration d'un développeur présentant fièrement une application terminée",
+      "description": "Des plateformes front-end d'entreprise <strong>solides</strong>, <strong>évolutives</strong> et <strong>responsive</strong>.",
+      "action": "Voir mes compétences",
+      "action2": "Retour",
+      "details": {
+        "first": {
+          "title": "1. Architecture",
+          "imageAlt": "Illustration d'un programmeur à son poste de travail",
+          "content1": "Architecte front-end avec <strong>{years}</strong> années à construire et faire évoluer de <strong>grandes applications d'entreprise</strong> sur <strong>Angular</strong> — design systems, micro-frontends et fondations de plateforme partagées.",
+          "content2": "Je conçois des plateformes qui restent claires, cohérentes et maintenables à mesure que les équipes grandissent et que les domaines produit se multiplient."
+        },
+        "second": {
+          "title": "2. SEO & SSG",
+          "imageAlt": "Illustration d'une page de résultats de recherche",
+          "content1": "Expérience concrète des architectures <strong>SSR/SSG</strong> qui livrent des pages crawlables, prêtes pour le <strong>SEO</strong>, avec un premier rendu rapide et des performances de production fiables.",
+          "content2": "Ce portfolio est un exemple de cette approche en pratique."
+        },
+        "third": {
+          "title": "3. Fullstack assisté par l'IA",
+          "imageAlt": "Illustration représentant l'intelligence artificielle",
+          "content1": "Je me plonge actuellement dans le développement <strong>fullstack assisté par l'IA</strong> — relier front ends, APIs et capacités d'IA en expériences produit cohérentes.",
+          "content2": "Associer une architecture front-end solide à une livraison moderne assistée par l'IA pour livrer plus vite sans perdre structure ni qualité."
+        }
+      }
+    },
+    "theme": {
+      "title": "Le design, au rendez-vous !",
+      "imageAlt": "Illustration d'une palette de couleurs et d'un sélecteur de thème",
+      "description": "Je pense que la <strong>personnalisation</strong> est un aspect clé pour que les clients se sentent chez eux.",
+      "description2": "Essayez de changer le thème"
+    },
+    "multilingual": {
+      "title": "Atteindre le monde entier !",
+      "imageAlt": "Illustration d'un globe avec des bulles de plusieurs langues",
+      "description": "Je rends les apps multilingues simples.",
+      "description2": "Essayez de changer la langue"
+    },
+    "work": {
+      "title": "Conçu pour l'échelle",
+      "imageAlt": "Illustration de blocs modulaires de micro-frontends",
+      "description": "Les <strong>micro-frontends</strong> et les fondations de plateforme gardent les apps d'entreprise modulaires et maintenables.",
+      "action": "Voir mon expérience"
+    }
+  },
+  "exp": {
+    "title": "Mon travail et mon expérience",
+    "subTitle": "Je construis des produits Angular pour des équipes internationales depuis 2015.",
+    "atCompany": "chez {company}",
+    "future": {
+      "label": "Futur",
+      "roles": [
+        "Principal Software Engineer ?",
+        "Front-end architect ?",
+        "AI-Enabled Fullstack Engineer ?"
+      ]
+    },
+    "companies": [
+      {
+        "company": "Mphasis Ltd",
+        "logoId": "mphasis",
+        "designation": "Ingénieur logiciel",
+        "from": "2015",
+        "to": "2019",
+        "url": "https://www.mphasis.com/",
+        "description": "J'ai travaillé comme ingénieur logiciel pendant <strong>4</strong> ans en développement web Angular pour <strong>FedEx</strong>, un client majeur de Mphasis."
+      },
+      {
+        "company": "Enate Technologies Ltd",
+        "logoId": "enate",
+        "designation": "Ingénieur produit",
+        "from": "2019",
+        "to": "2024",
+        "url": "https://www.enate.io/",
+        "description": "<strong>À la tête</strong> d'une équipe front-end pour construire un produit robuste avec des <strong>micro-frontends</strong>, des services de messagerie et d'autres exigences complexes."
+      },
+      {
+        "company": "Mimecast",
+        "logoId": "mimecast",
+        "designation": "Ingénieur logiciel senior",
+        "from": "2024",
+        "to": "Présent",
+        "url": "https://www.mimecast.com/",
+        "description": "Création d'une plateforme de sécurité de messagerie de <strong>nouvelle génération</strong> avec plusieurs produits en utilisant <strong>Angular</strong> et des <strong>micro-frontends avec un monorepo Nx</strong>."
+      }
+    ]
+  },
+  "notFound": {
+    "title": "Page introuvable",
+    "description": "La page que vous cherchez n'existe pas ou a été déplacée.",
+    "action": "Retour à l'accueil"
+  }
+}

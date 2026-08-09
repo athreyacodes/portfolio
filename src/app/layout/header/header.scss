@@ -1,0 +1,118 @@
+.site-header {
+  position: fixed;
+  inset-block-start: 0;
+  inset-inline: 0;
+  z-index: 40;
+  display: flex;
+  justify-content: flex-end;
+  padding: 1.5rem;
+  pointer-events: none;
+}
+
+.menu-trigger {
+  display: grid;
+  place-items: center;
+  inline-size: 3.5rem;
+  block-size: 3.5rem;
+  border: 0;
+  border-radius: 50%;
+  background: var(--accent);
+  color: var(--accent-contrast);
+  cursor: pointer;
+  pointer-events: auto;
+  box-shadow: var(--shadow-medium);
+  transition: box-shadow var(--transition), transform var(--transition);
+}
+
+.menu-trigger:hover {
+  box-shadow: var(--shadow-high);
+  transform: translateY(-1px);
+}
+
+.menu-trigger:focus-visible {
+  outline: 2px solid var(--focus-ring);
+  outline-offset: 3px;
+}
+
+.nav-crumbs {
+  position: fixed;
+  inset-block-start: 50%;
+  inset-inline-end: 0.75rem;
+  z-index: 30;
+  transform: translateY(-50%);
+}
+
+.nav-crumbs ul {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.75rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nav-crumb {
+  display: grid;
+  place-items: center;
+  inline-size: 2.25rem;
+  block-size: 2.25rem;
+  border-radius: 50%;
+  color: var(--accent);
+  opacity: 0.55;
+  transition: opacity var(--transition), color var(--transition);
+}
+
+.nav-crumb:hover,
+.nav-crumb.is-active {
+  opacity: 1;
+}
+
+.nav-crumb:focus-visible {
+  outline: 2px solid var(--focus-ring);
+  outline-offset: 2px;
+  opacity: 1;
+}
+
+/* Tooltip is CSS-only: no JS, no overlay container, nothing to hydrate. */
+.nav-crumb::after {
+  content: attr(data-tooltip);
+  position: absolute;
+  inset-inline-end: 100%;
+  margin-inline-end: 0.5rem;
+  padding: 0.25rem 0.625rem;
+  border-radius: var(--radius-sm);
+  background: var(--tooltip-bg);
+  color: var(--tooltip-text);
+  font-size: 0.75rem;
+  white-space: nowrap;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity var(--transition);
+}
+
+.nav-crumb:hover::after,
+.nav-crumb:focus-visible::after {
+  opacity: 1;
+  visibility: visible;
+}
+
+.nav-crumbs li {
+  position: relative;
+  display: flex;
+}
+
+@media (max-width: 550px) {
+  .site-header {
+    padding: 1rem;
+  }
+
+  .menu-trigger {
+    inline-size: 3rem;
+    block-size: 3rem;
+  }
+
+  .nav-crumbs {
+    inset-inline-end: 0.25rem;
+  }
+}

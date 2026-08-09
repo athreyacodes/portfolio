@@ -1,0 +1,30 @@
+/**
+ * Self-hosted Montserrat (latin subset), only the weights the UI uses.
+ * latin-ext is omitted until copy needs those glyphs (~95kB saved).
+ * Source: @fontsource/montserrat (SIL Open Font License).
+ */
+$latin: 'U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD';
+
+@each $weight in 400, 500, 600 {
+  @font-face {
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-display: swap;
+    font-weight: $weight;
+    src: url('/fonts/montserrat-latin-#{$weight}-normal.woff2') format('woff2');
+    unicode-range: #{$latin};
+  }
+}
+
+/**
+ * Metric-matched fallback so the swap from system font to Montserrat does not
+ * shift layout (keeps CLS at 0 while the webfont loads).
+ */
+@font-face {
+  font-family: 'Montserrat Fallback';
+  src: local('Arial');
+  size-adjust: 113%;
+  ascent-override: 85%;
+  descent-override: 22%;
+  line-gap-override: 0%;
+}

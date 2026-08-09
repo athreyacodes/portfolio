@@ -1,0 +1,30 @@
+@let text = copy();
+
+<app-header />
+
+<main id="main">
+  <section id="home" aria-labelledby="home-heading">
+    <app-intro />
+  </section>
+
+  <!--
+    Incremental hydration: both sections are prerendered into the HTML, so
+    crawlers and no-JS visitors see them, but their JavaScript is only fetched
+    once the visitor scrolls near them.
+  -->
+  <section id="skills" aria-labelledby="skills-heading">
+    @defer (hydrate on viewport) {
+      <app-skills />
+    }
+  </section>
+
+  <section id="experience" aria-labelledby="experience-heading">
+    @defer (hydrate on viewport) {
+      <app-experience />
+    }
+  </section>
+</main>
+
+<footer class="site-footer">
+  <p>&copy; {{ year }} {{ text.contactInfo.fullname }}</p>
+</footer>

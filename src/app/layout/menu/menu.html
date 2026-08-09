@@ -1,0 +1,67 @@
+@let text = copy();
+
+<div class="scrim" (click)="close()"></div>
+
+<div
+  #panel
+  class="panel"
+  role="dialog"
+  aria-modal="true"
+  [attr.aria-label]="text.a11y.menuLandmark"
+  (keydown)="onKeydown($event)"
+>
+  <ul class="options" role="list">
+    <li>
+      <a [href]="cvUrl" [attr.download]="cvFilename" (click)="close()">
+        <app-icon name="download" />
+        <span>{{ text.banner.downloadCv }}</span>
+      </a>
+    </li>
+    <li>
+      <button type="button" (click)="goTo('skills')">
+        <app-icon name="skills" />
+        <span>{{ text.skills.title }}</span>
+      </button>
+    </li>
+    <li>
+      <button type="button" (click)="goTo('experience')">
+        <app-icon name="experience" />
+        <span>{{ text.banner.expBtn }}</span>
+      </button>
+    </li>
+
+    @for (locale of otherLocales(); track locale.code) {
+      <li>
+        <button type="button" [attr.lang]="locale.code" (click)="selectLocale(locale.code)">
+          <app-icon name="translate" />
+          <span>{{ locale.name }}</span>
+        </button>
+      </li>
+    }
+
+    @for (mode of otherThemes(); track mode) {
+      <li>
+        <button type="button" (click)="selectTheme(mode)">
+          <app-icon [name]="mode" />
+          <span>{{ themeLabel(mode) }}</span>
+        </button>
+      </li>
+    }
+
+    @if (scrolled()) {
+      <li>
+        <button type="button" (click)="goTo('home')">
+          <app-icon name="arrowUp" />
+          <span>{{ text.global.goToTop }}</span>
+        </button>
+      </li>
+    }
+
+    <li>
+      <button type="button" (click)="close()">
+        <app-icon name="close" />
+        <span>{{ text.global.close }}</span>
+      </button>
+    </li>
+  </ul>
+</div>

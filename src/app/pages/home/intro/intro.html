@@ -1,0 +1,62 @@
+@let text = copy();
+
+<div class="intro">
+  <div class="intro-identity">
+    <app-profile-photo />
+
+    <p class="pre-title">{{ text.banner.preName }}</p>
+    <h1 class="display-title" id="home-heading">{{ text.contactInfo.fullname }}</h1>
+
+    <p class="intro-meta">
+      <button type="button" class="email-button" (click)="copyEmail()">
+        <app-icon name="copy" [size]="1" />
+        <span>{{ text.contactInfo.email }}</span>
+        <span class="visually-hidden">— {{ text.global.clickToCopy }}</span>
+      </button>
+    </p>
+    <p class="intro-meta">{{ text.contactInfo.location }}</p>
+
+    <ul class="social-links" role="list">
+      <li>
+        <a
+          class="btn-icon"
+          [href]="text.contactInfo.linkedin"
+          target="_blank"
+          rel="noopener noreferrer"
+          [attr.aria-label]="text.banner.icon.linkedin + ' (' + text.a11y.openInNewTab + ')'"
+        >
+          <app-icon name="linkedin" />
+        </a>
+      </li>
+      <li>
+        <a
+          class="btn-icon"
+          [href]="text.contactInfo.github"
+          target="_blank"
+          rel="noopener noreferrer"
+          [attr.aria-label]="text.banner.icon.github + ' (' + text.a11y.openInNewTab + ')'"
+        >
+          <app-icon name="github" />
+        </a>
+      </li>
+    </ul>
+  </div>
+
+  <div class="intro-role">
+    <p class="pre-title">{{ text.banner.preRole }}</p>
+    <p class="display-title">{{ text.banner.title }}</p>
+    <p class="intro-meta">{{ subtitle() }}</p>
+    <p class="intro-meta">{{ text.banner.subtitle2 }}</p>
+
+    <div class="intro-actions">
+      <button type="button" class="btn-primary" (click)="goToSkills()">
+        <app-icon name="skills" [size]="1.25" />
+        <span>{{ text.banner.workBtn }}</span>
+      </button>
+      <a class="btn-accent" [href]="cvUrl" [attr.download]="cvFilename">
+        <app-icon name="download" [size]="1.25" />
+        <span>{{ text.banner.downloadCv }}</span>
+      </a>
+    </div>
+  </div>
+</div>

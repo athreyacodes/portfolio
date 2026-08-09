@@ -1,0 +1,166 @@
+.experience {
+  max-inline-size: 72rem;
+  margin-inline: auto;
+  padding: 5rem 1.5rem;
+}
+
+.experience-header {
+  margin-block-end: 2.5rem;
+  text-align: center;
+}
+
+.experience-header h2 {
+  margin: 0 0 0.75rem;
+  color: var(--accent);
+  font-size: clamp(1.75rem, 4vw, 2.5rem);
+  font-weight: 600;
+  letter-spacing: -0.02em;
+}
+
+.experience-header p {
+  margin: 0;
+  color: var(--text-muted);
+}
+
+.timeline {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 1.5rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.stop {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.stop-meta {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.stop-years {
+  color: var(--text-muted);
+  font-size: 0.8125rem;
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+.stop-marker {
+  flex: 1;
+  block-size: 2px;
+  background: var(--divider);
+}
+
+.stop-marker.is-current {
+  background: var(--accent);
+}
+
+.stop-marker.is-future {
+  background: repeating-linear-gradient(
+    to right,
+    var(--divider) 0 6px,
+    transparent 6px 12px
+  );
+}
+
+.card {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  gap: 0.625rem;
+  padding: 1.5rem;
+  border-radius: var(--radius-lg);
+  background: var(--card-solid);
+  color: var(--card-solid-text);
+  box-shadow: var(--shadow-high);
+}
+
+.card.is-inverse {
+  background: var(--card-soft);
+  color: var(--card-soft-text);
+}
+
+picture {
+  align-self: flex-start;
+  max-inline-size: 100%;
+}
+
+.card-logo {
+  inline-size: auto;
+  block-size: 1.75rem;
+  max-inline-size: 100%;
+  object-fit: contain;
+}
+
+.card-title {
+  margin: 0;
+  font-size: 1.0625rem;
+  font-weight: 600;
+}
+
+.card-company {
+  display: flex;
+  align-items: center;
+  gap: 0.375rem;
+  margin: 0;
+  font-size: 0.875rem;
+  opacity: 0.85;
+}
+
+.card-company a {
+  display: inline-flex;
+  color: inherit;
+}
+
+.card-company a:focus-visible {
+  outline: 2px solid var(--focus-ring);
+  outline-offset: 2px;
+  border-radius: var(--radius-sm);
+}
+
+.card-description {
+  margin: 0;
+  font-size: 0.9375rem;
+  line-height: 1.6;
+}
+
+.card-future {
+  justify-content: center;
+  min-block-size: 8rem;
+}
+
+.role {
+  transition: opacity 320ms ease, transform 320ms ease;
+}
+
+.role.is-flipping {
+  opacity: 0;
+  transform: translateY(-0.5rem);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .role {
+    transition: none;
+  }
+}
+
+@media (max-width: 1100px) {
+  .timeline {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 700px) {
+  .experience {
+    padding-inline: 1rem;
+  }
+
+  .timeline {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}

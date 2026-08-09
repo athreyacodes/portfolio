@@ -1,0 +1,36 @@
+{
+  "siteUrl": "https://athreya.codes",
+  "siteName": "Athreya M R",
+  "home": {
+    "title": "Athreya M R | Front-end Architect",
+    "description": "Front-end Architect with {years}+ years of experience building solid, scalable enterprise Angular apps — micro frontends, Nx monorepos, and SEO-ready SSR/SSG sites.",
+    "ogTitle": "Athreya M R | Front-end Architect",
+    "ogDescription": "Front-end Architect specializing in Angular, micro frontends, Nx monorepos, and SSR/SSG web applications.",
+    "ogImage": "/images/og-card.jpg",
+    "ogImageWidth": 1200,
+    "ogImageHeight": 630,
+    "ogType": "profile",
+    "twitterCard": "summary_large_image",
+    "twitterTitle": "Athreya M R | Front-end Architect",
+    "twitterDescription": "Front-end Architect specializing in Angular, micro frontends, Nx monorepos, and SSR/SSG web applications.",
+    "twitterImage": "/images/og-card.jpg",
+    "imageAlt": "Athreya M R — Front-end Architect",
+    "robots": "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1"
+  },
+  "notFound": {
+    "title": "Page not found | Athreya M R",
+    "description": "The page you are looking for does not exist or has moved.",
+    "ogTitle": "Page not found",
+    "ogDescription": "The page you are looking for does not exist or has moved.",
+    "ogImage": "/images/og-card.jpg",
+    "ogImageWidth": 1200,
+    "ogImageHeight": 630,
+    "ogType": "website",
+    "twitterCard": "summary_large_image",
+    "twitterTitle": "Page not found",
+    "twitterDescription": "The page you are looking for does not exist or has moved.",
+    "twitterImage": "/images/og-card.jpg",
+    "imageAlt": "Athreya M R — Front-end Architect",
+    "robots": "noindex, follow"
+  }
+}
