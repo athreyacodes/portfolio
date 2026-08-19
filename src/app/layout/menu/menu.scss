@@ -1,0 +1,88 @@
+:host {
+  position: fixed;
+  inset: 0;
+  z-index: 50;
+}
+
+.scrim {
+  position: absolute;
+  inset: 0;
+  background: var(--scrim);
+  animation: fade-in 160ms ease-out;
+}
+
+.panel {
+  position: absolute;
+  inset-block-start: 5.5rem;
+  inset-inline-end: 1.5rem;
+  inline-size: min(18rem, calc(100vw - 3rem));
+  max-block-size: calc(100vh - 7rem);
+  overflow-y: auto;
+  border-radius: var(--radius-lg);
+  background: var(--surface);
+  box-shadow: var(--shadow-high);
+  animation: slide-in 180ms ease-out;
+}
+
+.options {
+  margin: 0;
+  padding: 0.5rem;
+  list-style: none;
+}
+
+.options li + li {
+  border-block-start: 1px solid var(--divider);
+}
+
+.options button,
+.options a {
+  display: flex;
+  align-items: center;
+  gap: 0.875rem;
+  inline-size: 100%;
+  padding: 0.875rem 1rem;
+  border: 0;
+  border-radius: var(--radius-md);
+  background: none;
+  color: var(--text);
+  font: inherit;
+  font-size: 0.9375rem;
+  text-align: start;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.options button:hover,
+.options a:hover {
+  background: var(--surface-hover);
+}
+
+.options button:focus-visible,
+.options a:focus-visible {
+  outline: 2px solid var(--focus-ring);
+  outline-offset: -2px;
+}
+
+.options app-icon {
+  color: var(--accent);
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+}
+
+@keyframes slide-in {
+  from {
+    opacity: 0;
+    transform: translateY(-0.5rem);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .scrim,
+  .panel {
+    animation: none;
+  }
+}

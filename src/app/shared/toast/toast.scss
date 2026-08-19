@@ -1,0 +1,36 @@
+.toast-region {
+  position: fixed;
+  inset-block-end: 1.25rem;
+  inset-inline: 0;
+  z-index: 60;
+  display: flex;
+  justify-content: center;
+  padding-inline: 1rem;
+  pointer-events: none;
+}
+
+.toast {
+  margin: 0;
+  max-width: min(30rem, 100%);
+  padding: 0.75rem 1.25rem;
+  border-radius: var(--radius-pill);
+  background: var(--toast-bg);
+  color: var(--toast-text);
+  font-size: 0.875rem;
+  text-align: center;
+  box-shadow: var(--shadow-high);
+  animation: toast-in 200ms ease-out;
+}
+
+@keyframes toast-in {
+  from {
+    opacity: 0;
+    transform: translateY(0.75rem);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .toast {
+    animation: none;
+  }
+}

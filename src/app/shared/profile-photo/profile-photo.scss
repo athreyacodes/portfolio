@@ -1,0 +1,22 @@
+:host {
+  display: block;
+  inline-size: 15rem;
+  max-inline-size: 100%;
+}
+
+img {
+  display: block;
+  inline-size: 100%;
+  block-size: auto;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 4px solid var(--surface);
+  box-shadow: var(--shadow-high);
+}
+
+@media (max-width: 820px) {
+  :host {
+    inline-size: 10rem;
+  }
+}

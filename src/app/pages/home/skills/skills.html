@@ -1,0 +1,87 @@
+@let text = copy();
+@let open = detailsOpen();
+
+<div class="skills">
+  <div class="skills-header">
+    <h2 id="skills-heading">{{ text.skills.title }}</h2>
+    <p>{{ text.skills.subTitle }}</p>
+  </div>
+
+  <div class="skills-grid" [class.details-open]="open">
+    <article class="card card-coding" [class.is-expanded]="open">
+      <h3 class="card-title">{{ text.skills.coding.title }}</h3>
+
+      @if (!open) {
+        <app-illustration class="card-img" name="proud" [alt]="text.skills.coding.imageAlt" [width]="200" [height]="160" />
+        <p class="card-description" [innerHTML]="text.skills.coding.description"></p>
+        <div class="card-actions">
+          <button type="button" class="btn-accent" (click)="toggleDetails(true)">
+            {{ text.skills.coding.action }}
+          </button>
+        </div>
+      } @else {
+        <app-skill-carousel />
+        <div class="card-actions">
+          <button type="button" class="btn-accent" (click)="toggleDetails(false)">
+            <app-icon name="arrowBack" [size]="1.125" />
+            <span>{{ text.skills.coding.action2 }}</span>
+          </button>
+        </div>
+      }
+    </article>
+
+    @if (!open) {
+      <article class="card card-theme is-inverse">
+        <h3 class="card-title">{{ text.skills.theme.title }}</h3>
+        <app-illustration class="card-img" name="theme3" [alt]="text.skills.theme.imageAlt" [width]="200" [height]="160" />
+        <p class="card-description" [innerHTML]="text.skills.theme.description"></p>
+        <p class="card-description" [innerHTML]="text.skills.theme.description2"></p>
+        <div class="choice-group" role="group" [attr.aria-label]="text.skills.theme.description2">
+          @for (mode of themes; track mode) {
+            <button
+              type="button"
+              class="choice"
+              [class.is-active]="activeTheme() === mode"
+              [attr.aria-pressed]="activeTheme() === mode"
+              (click)="selectTheme(mode)"
+            >
+              {{ themeLabel(mode) }}
+            </button>
+          }
+        </div>
+      </article>
+
+      <article class="card card-multilingual">
+        <h3 class="card-title">{{ text.skills.multilingual.title }}</h3>
+        <app-illustration class="card-img" name="multilingual" [alt]="text.skills.multilingual.imageAlt" [width]="200" [height]="160" />
+        <p class="card-description" [innerHTML]="text.skills.multilingual.description"></p>
+        <p class="card-description" [innerHTML]="text.skills.multilingual.description2"></p>
+        <div class="choice-group" role="group" [attr.aria-label]="text.skills.multilingual.description2">
+          @for (locale of locales; track locale.code) {
+            <button
+              type="button"
+              class="choice"
+              [attr.lang]="locale.code"
+              [class.is-active]="activeLocale() === locale.code"
+              [attr.aria-pressed]="activeLocale() === locale.code"
+              (click)="selectLocale(locale.code)"
+            >
+              {{ locale.name }}
+            </button>
+          }
+        </div>
+      </article>
+
+      <article class="card card-work is-inverse">
+        <h3 class="card-title">{{ text.skills.work.title }}</h3>
+        <app-illustration class="card-img" name="micro-fe" [alt]="text.skills.work.imageAlt" [width]="200" [height]="160" />
+        <p class="card-description" [innerHTML]="text.skills.work.description"></p>
+        <div class="card-actions">
+          <button type="button" class="btn-primary" (click)="goToExperience()">
+            {{ text.skills.work.action }}
+          </button>
+        </div>
+      </article>
+    }
+  </div>
+</div>

@@ -1,0 +1,160 @@
+{
+  "language": {
+    "code": "en-gb",
+    "htmlLang": "en",
+    "name": "English",
+    "short": "EN"
+  },
+  "theme": {
+    "light": { "label": "Light", "longLabel": "Light Mode" },
+    "dark": { "label": "Dark", "longLabel": "Dark Mode" }
+  },
+  "banner": {
+    "title": "Front-end Architect",
+    "subtitle": "{years}+ years of expertise | Angular | MFE | Enterprise apps",
+    "subtitle2": "Now exploring AI-enabled fullstack!",
+    "preName": "Hello, I'm",
+    "preRole": "I'm a",
+    "workBtn": "See my Skills and Work",
+    "expBtn": "Experience",
+    "downloadCv": "Download CV",
+    "icon": {
+      "linkedin": "My LinkedIn",
+      "github": "My Github"
+    }
+  },
+  "contactInfo": {
+    "displayName": "ATHREYA",
+    "fullname": "ATHREYA M R",
+    "email": "athreyacodes@gmail.com",
+    "location": "Bangalore, IN",
+    "linkedin": "https://www.linkedin.com/in/athreyamr/",
+    "github": "https://github.com/athreyacodes"
+  },
+  "global": {
+    "copied": "'{email}' is copied to clipboard.",
+    "copyFailed": "Could not copy. Email: {email}",
+    "clickToCopy": "Click to copy.",
+    "languageUpdated": "Language changed to {language}",
+    "themeUpdated": "Theme changed to {theme}",
+    "enableAutoPlay": "Enable auto play",
+    "disableAutoPlay": "Disable auto play",
+    "openLinkCompany": "Open this company link in a new tab",
+    "goToTop": "Go to top",
+    "close": "Close"
+  },
+  "a11y": {
+    "skipToContent": "Skip to main content",
+    "openMenu": "Open navigation menu",
+    "closeMenu": "Close navigation menu",
+    "primaryNav": "Section navigation",
+    "menuLandmark": "Site options",
+    "profileAlt": "Portrait of Athreya M R",
+    "notifications": "Notifications",
+    "carouselTabs": "Skill areas",
+    "openInNewTab": "opens in a new tab"
+  },
+  "header": {
+    "navItems": {
+      "banner": "Home",
+      "skills": "My Skills and Work",
+      "experience": "Experience"
+    }
+  },
+  "skills": {
+    "title": "My Skills",
+    "subTitle": "Architecting scalable front ends for large enterprise products — micro frontends, SSR/SSG, and SEO-ready delivery.",
+    "coding": {
+      "title": "I build enterprise platforms",
+      "imageAlt": "Illustration of a developer proudly presenting a finished application",
+      "description": "<strong>Solid</strong>, <strong>scalable</strong>, <strong>responsive</strong> enterprise front-end platforms.",
+      "action": "See my skills",
+      "action2": "Back",
+      "details": {
+        "first": {
+          "title": "1. Architecture",
+          "imageAlt": "Illustration of a programmer at a workstation",
+          "content1": "Front-end architect with <strong>{years}</strong> years building and evolving <strong>large enterprise apps</strong> on <strong>Angular</strong> — design systems, micro frontends, and shared platform foundations.",
+          "content2": "I design platforms that stay clear, consistent, and maintainable as teams scale and product domains multiply."
+        },
+        "second": {
+          "title": "2. SEO & SSG",
+          "imageAlt": "Illustration of a search engine results page",
+          "content1": "Hands-on with <strong>SSR/SSG</strong> architectures that ship crawlable, <strong>SEO</strong>-ready pages, fast first paint, and reliable production performance.",
+          "content2": "This portfolio is an example of that approach in practice."
+        },
+        "third": {
+          "title": "3. AI-enabled fullstack",
+          "imageAlt": "Illustration representing artificial intelligence",
+          "content1": "Currently diving into <strong>AI-enabled fullstack</strong> development — connecting front ends, APIs, and AI capabilities into coherent product experiences.",
+          "content2": "Pairing strong front-end architecture with modern AI-assisted delivery so products ship faster without losing structure or quality."
+        }
+      }
+    },
+    "theme": {
+      "title": "Design, on point!",
+      "imageAlt": "Illustration of a colour palette and theme switcher",
+      "description": "I think <strong>Personalization</strong> is a key aspect in making customers feel homely.",
+      "description2": "Try changing the theme"
+    },
+    "multilingual": {
+      "title": "Reaching across the globe!",
+      "imageAlt": "Illustration of a globe with multiple language bubbles",
+      "description": "I make multilingual apps simple.",
+      "description2": "Try changing the language"
+    },
+    "work": {
+      "title": "Built for scale",
+      "imageAlt": "Illustration of modular micro frontend building blocks",
+      "description": "<strong>Micro frontends</strong> and platform foundations keep enterprise apps modular and maintainable.",
+      "action": "See my experience"
+    }
+  },
+  "exp": {
+    "title": "My Work and Experience",
+    "subTitle": "Building Angular products for global teams since 2015.",
+    "atCompany": "at {company}",
+    "future": {
+      "label": "Future",
+      "roles": [
+        "Principal Software Engineer?",
+        "Front-end architect?",
+        "AI-Enabled Fullstack Engineer?"
+      ]
+    },
+    "companies": [
+      {
+        "company": "Mphasis Ltd",
+        "logoId": "mphasis",
+        "designation": "Software Engineer",
+        "from": "2015",
+        "to": "2019",
+        "url": "https://www.mphasis.com/",
+        "description": "Worked as a Software Engineer for <strong>4</strong> years in Angular web development for <strong>FedEx</strong>, a major client of Mphasis."
+      },
+      {
+        "company": "Enate Technologies Ltd",
+        "logoId": "enate",
+        "designation": "Product Engineer",
+        "from": "2019",
+        "to": "2024",
+        "url": "https://www.enate.io/",
+        "description": "<strong>Leading</strong> a front-end team in building a robust product with <strong>micro frontends</strong>, email services and other complex requirements."
+      },
+      {
+        "company": "Mimecast",
+        "logoId": "mimecast",
+        "designation": "Senior Software Engineer",
+        "from": "2024",
+        "to": "Present",
+        "url": "https://www.mimecast.com/",
+        "description": "Building a <strong>next-gen</strong> email security platform with multiple products using <strong>Angular</strong> and <strong>micro frontends with an Nx monorepo</strong>."
+      }
+    ]
+  },
+  "notFound": {
+    "title": "Page not found",
+    "description": "The page you are looking for does not exist or has moved.",
+    "action": "Back to home"
+  }
+}

@@ -1,0 +1,7 @@
+User-agent: *
+Allow: /
+
+# The CV is linked from the page but should not surface as its own search result.
+Disallow: /files/
+
+Sitemap: https://athreya.codes/sitemap.xml

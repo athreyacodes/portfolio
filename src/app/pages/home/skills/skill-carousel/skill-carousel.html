@@ -1,0 +1,54 @@
+@let text = copy();
+@let current = slides()[index()];
+
+<div class="carousel">
+  <div
+    class="slide"
+    role="tabpanel"
+    [id]="'skill-panel-' + current.key"
+    [attr.aria-labelledby]="'skill-tab-' + current.key"
+    tabindex="0"
+  >
+    <app-illustration class="slide-img" [name]="current.image" [alt]="current.imageAlt" [width]="220" [height]="180" />
+    <div class="slide-text">
+      <p [innerHTML]="current.content1"></p>
+      <p [innerHTML]="current.content2"></p>
+    </div>
+  </div>
+
+  <div class="controls">
+    <button
+      type="button"
+      class="btn-ghost autoplay"
+      [attr.aria-label]="playing() ? text.global.disableAutoPlay : text.global.enableAutoPlay"
+      [attr.aria-pressed]="playing()"
+      (click)="toggleAutoplay()"
+    >
+      <app-icon [name]="playing() ? 'pause' : 'play'" [size]="1.25" />
+    </button>
+
+    <div class="tabs" role="tablist" [attr.aria-label]="text.a11y.carouselTabs" (keydown)="onKeydown($event)">
+      @for (slide of slides(); track slide.key; let i = $index) {
+        @let selected = index() === i;
+        <div class="tab-wrap">
+          <button
+            type="button"
+            role="tab"
+            class="tab"
+            [id]="'skill-tab-' + slide.key"
+            [class.is-active]="selected"
+            [attr.aria-selected]="selected"
+            [attr.aria-controls]="'skill-panel-' + slide.key"
+            [attr.tabindex]="selected ? 0 : -1"
+            (click)="goTo(i)"
+          >
+            {{ slide.title }}
+          </button>
+          <div class="progress" [class.is-visible]="selected && playing()" aria-hidden="true">
+            <span [style.inline-size.%]="progress()"></span>
+          </div>
+        </div>
+      }
+    </div>
+  </div>
+</div>

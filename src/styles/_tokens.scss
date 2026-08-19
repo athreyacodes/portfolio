@@ -1,0 +1,84 @@
+/**
+ * Semantic tokens only. Components never hardcode a colour, so a theme is a
+ * single class swap on <html> with no per-component overrides.
+ */
+:root {
+  --background: #eeeeee;
+  --background-light: #d2dfdf;
+  --background-clouds-opacity: 0.5;
+
+  --surface: #ffffff;
+  --surface-hover: rgb(21 96 100 / 8%);
+  --surface-muted: rgb(21 96 100 / 12%);
+
+  --card-solid: #156064;
+  --card-solid-text: #f4f8f8;
+  --card-soft: rgb(21 96 100 / 14%);
+  --card-soft-text: #12494c;
+
+  --text: #12494c;
+  /* Darkened from #3f6f72, which only reached 4.3:1 over the cloud texture. */
+  --text-muted: #356063;
+  --divider: #d0dada;
+
+  --accent: #156064;
+  --accent-contrast: #ffffff;
+  --primary: #156064;
+  --primary-contrast: #f4f8f8;
+
+  --scrim: rgb(0 0 0 / 40%);
+  --tooltip-bg: #12494c;
+  --tooltip-text: #ffffff;
+  --toast-bg: #12494c;
+  --toast-text: #ffffff;
+  --focus-ring: #12494c;
+
+  --scrollbar-track: #d7dede;
+  --scrollbar-thumb: #6c8a8b;
+  --scrollbar-thumb-hover: #12494c;
+
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 20px;
+  --radius-pill: 999px;
+
+  --shadow-medium: 0 3px 6px rgb(0 0 0 / 16%), 0 3px 6px rgb(0 0 0 / 23%);
+  --shadow-high: 0 12px 28px rgb(0 0 0 / 22%), 0 8px 10px rgb(0 0 0 / 18%);
+
+  --transition: 0.3s ease;
+  --transition-quick: 0.2s ease;
+}
+
+.theme-dark {
+  --background: #121212;
+  --background-light: #151a1a;
+  --background-clouds-opacity: 0.15;
+
+  --surface: #1b2222;
+  --surface-hover: rgb(210 223 223 / 8%);
+  --surface-muted: rgb(210 223 223 / 12%);
+
+  --card-solid: #0d3a3c;
+  --card-solid-text: #d2dfdf;
+  --card-soft: rgb(127 179 181 / 12%);
+  --card-soft-text: #d2dfdf;
+
+  --text: #d2dfdf;
+  --text-muted: #9fb3b4;
+  --divider: #2a3434;
+
+  --accent: #7fb3b5;
+  --accent-contrast: #06282a;
+  --primary: #7fb3b5;
+  --primary-contrast: #06282a;
+
+  --tooltip-bg: #d2dfdf;
+  --tooltip-text: #0b2f31;
+  --toast-bg: #d2dfdf;
+  --toast-text: #0b2f31;
+  --focus-ring: #9dc0c1;
+
+  --scrollbar-track: #1c2222;
+  --scrollbar-thumb: #46595a;
+  --scrollbar-thumb-hover: #6f8a8b;
+}

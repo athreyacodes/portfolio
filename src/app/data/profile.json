@@ -1,0 +1,35 @@
+{
+  "name": "Athreya M R",
+  "givenName": "Athreya",
+  "familyName": "M R",
+  "jobTitle": "Front-end Architect",
+  "email": "athreyacodes@gmail.com",
+  "image": "/images/dp-og.jpg",
+  "experienceStartYear": 2015,
+  "location": {
+    "city": "Bangalore",
+    "region": "Karnataka",
+    "country": "IN"
+  },
+  "sameAs": [
+    "https://www.linkedin.com/in/athreyamr/",
+    "https://github.com/athreyacodes"
+  ],
+  "knowsAbout": [
+    "Angular",
+    "Micro Frontends",
+    "Nx Monorepos",
+    "TypeScript",
+    "Server-Side Rendering",
+    "Static Site Generation",
+    "Web Performance",
+    "Web Accessibility",
+    "Design Systems",
+    "Technical SEO"
+  ],
+  "employers": [
+    { "name": "Mimecast", "url": "https://www.mimecast.com/", "current": true },
+    { "name": "Enate Technologies Ltd", "url": "https://www.enate.io/", "current": false },
+    { "name": "Mphasis Ltd", "url": "https://www.mphasis.com/", "current": false }
+  ]
+}

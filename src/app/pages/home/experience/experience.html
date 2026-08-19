@@ -1,0 +1,60 @@
+@let text = copy();
+
+<div class="experience">
+  <div class="experience-header">
+    <h2 id="experience-heading">{{ text.exp.title }}</h2>
+    <p>{{ text.exp.subTitle }}</p>
+  </div>
+
+  <ol class="timeline" role="list">
+    @for (company of companies(); track company.company; let last = $last) {
+      <li class="stop">
+        <div class="stop-meta">
+          <span class="stop-years">{{ company.from }} – {{ company.to }}</span>
+          <span class="stop-marker" [class.is-current]="last" aria-hidden="true"></span>
+        </div>
+
+        <article class="card" [class.is-inverse]="!last">
+          <picture>
+            @if (company.logo.avif) {
+              <source type="image/avif" [srcset]="company.logo.avif" />
+              <source type="image/webp" [srcset]="company.logo.webp" />
+            }
+            <img
+              class="card-logo"
+              [src]="company.logo.src"
+              [alt]="company.company"
+              [width]="company.logo.width"
+              [height]="company.logo.height"
+              loading="lazy"
+              decoding="async"
+            />
+          </picture>
+          <h3 class="card-title">{{ company.designation }}</h3>
+          <p class="card-company">
+            <span>{{ company.atCompany }}</span>
+            <a
+              [href]="company.url"
+              target="_blank"
+              rel="noopener noreferrer"
+              [attr.aria-label]="text.global.openLinkCompany"
+            >
+              <app-icon name="openInNew" [size]="1.125" />
+            </a>
+          </p>
+          <p class="card-description" [innerHTML]="company.description"></p>
+        </article>
+      </li>
+    }
+
+    <li class="stop">
+      <div class="stop-meta">
+        <span class="stop-years">{{ text.exp.future.label }}</span>
+        <span class="stop-marker is-future" aria-hidden="true"></span>
+      </div>
+      <article class="card is-inverse card-future">
+        <h3 class="card-title role" [class.is-flipping]="flipping()">{{ currentRole() }}</h3>
+      </article>
+    </li>
+  </ol>
+</div>

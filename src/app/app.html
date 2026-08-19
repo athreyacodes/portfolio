@@ -1,0 +1,10 @@
+<a class="skip-link" href="#main">{{ copy().a11y.skipToContent }}</a>
+
+<!-- Purely decorative CSS, so its JavaScript never needs to reach the client. -->
+@defer (hydrate never) {
+  <app-background />
+}
+
+<router-outlet />
+
+<app-toast />
