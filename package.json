@@ -8,7 +8,8 @@
     "build": "ng build",
     "postbuild": "node scripts/postbuild.mjs",
     "watch": "ng build --watch --configuration development",
-    "preview": "npx http-server dist/portfolio/browser -p 5203 -c-1"
+    "preview": "npx http-server dist/portfolio/browser -p 5203 -c-1",
+    "deploy:tag": "gh workflow run deploy-tag.yml -f"
   },
   "dependencies": {
     "@angular/common": "^22.1.0",
