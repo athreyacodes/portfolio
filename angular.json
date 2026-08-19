@@ -92,7 +92,7 @@
           },
           "defaultConfiguration": "development",
           "options": {
-            "port": 5202
+            "port": 4200
           }
         }
       }
