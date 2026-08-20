@@ -13,7 +13,9 @@
 
       @if (!open) {
         <app-illustration class="card-img" name="proud" [alt]="text.skills.coding.imageAlt" [width]="200" [height]="160" />
-        <p class="card-description" [innerHTML]="text.skills.coding.description"></p>
+        <div class="card-body">
+          <p class="card-description" [innerHTML]="text.skills.coding.description"></p>
+        </div>
         <div class="card-actions">
           <button type="button" class="btn-accent" (click)="toggleDetails(true)">
             {{ text.skills.coding.action }}
@@ -34,48 +36,58 @@
       <article class="card card-theme is-inverse">
         <h3 class="card-title">{{ text.skills.theme.title }}</h3>
         <app-illustration class="card-img" name="theme3" [alt]="text.skills.theme.imageAlt" [width]="200" [height]="160" />
-        <p class="card-description" [innerHTML]="text.skills.theme.description"></p>
-        <p class="card-description" [innerHTML]="text.skills.theme.description2"></p>
-        <div class="choice-group" role="group" [attr.aria-label]="text.skills.theme.description2">
-          @for (mode of themes; track mode) {
-            <button
-              type="button"
-              class="choice"
-              [class.is-active]="activeTheme() === mode"
-              [attr.aria-pressed]="activeTheme() === mode"
-              (click)="selectTheme(mode)"
-            >
-              {{ themeLabel(mode) }}
-            </button>
-          }
+        <div class="card-body">
+          <p class="card-description" [innerHTML]="text.skills.theme.description"></p>
+          <p class="card-description" [innerHTML]="text.skills.theme.description2"></p>
+        </div>
+        <div class="card-actions">
+          <div class="btn-toggle-group" role="group" [attr.aria-label]="text.skills.theme.description2">
+            @for (mode of themes; track mode) {
+              <button
+                type="button"
+                class="btn-toggle"
+                [class.is-active]="activeTheme() === mode"
+                [attr.aria-pressed]="activeTheme() === mode"
+                (click)="selectTheme(mode)"
+              >
+                {{ themeLabel(mode) }}
+              </button>
+            }
+          </div>
         </div>
       </article>
 
       <article class="card card-multilingual">
         <h3 class="card-title">{{ text.skills.multilingual.title }}</h3>
         <app-illustration class="card-img" name="multilingual" [alt]="text.skills.multilingual.imageAlt" [width]="200" [height]="160" />
-        <p class="card-description" [innerHTML]="text.skills.multilingual.description"></p>
-        <p class="card-description" [innerHTML]="text.skills.multilingual.description2"></p>
-        <div class="choice-group" role="group" [attr.aria-label]="text.skills.multilingual.description2">
-          @for (locale of locales; track locale.code) {
-            <button
-              type="button"
-              class="choice"
-              [attr.lang]="locale.code"
-              [class.is-active]="activeLocale() === locale.code"
-              [attr.aria-pressed]="activeLocale() === locale.code"
-              (click)="selectLocale(locale.code)"
-            >
-              {{ locale.name }}
-            </button>
-          }
+        <div class="card-body">
+          <p class="card-description" [innerHTML]="text.skills.multilingual.description"></p>
+          <p class="card-description" [innerHTML]="text.skills.multilingual.description2"></p>
+        </div>
+        <div class="card-actions">
+          <div class="btn-toggle-group" role="group" [attr.aria-label]="text.skills.multilingual.description2">
+            @for (locale of locales; track locale.code) {
+              <button
+                type="button"
+                class="btn-toggle"
+                [attr.lang]="locale.code"
+                [class.is-active]="activeLocale() === locale.code"
+                [attr.aria-pressed]="activeLocale() === locale.code"
+                (click)="selectLocale(locale.code)"
+              >
+                {{ locale.name }}
+              </button>
+            }
+          </div>
         </div>
       </article>
 
       <article class="card card-work is-inverse">
         <h3 class="card-title">{{ text.skills.work.title }}</h3>
         <app-illustration class="card-img" name="micro-fe" [alt]="text.skills.work.imageAlt" [width]="200" [height]="160" />
-        <p class="card-description" [innerHTML]="text.skills.work.description"></p>
+        <div class="card-body">
+          <p class="card-description" [innerHTML]="text.skills.work.description"></p>
+        </div>
         <div class="card-actions">
           <button type="button" class="btn-primary" (click)="goToExperience()">
             {{ text.skills.work.action }}

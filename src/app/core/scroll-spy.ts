@@ -78,10 +78,18 @@ export class ScrollSpyService {
       return;
     }
 
-    this.document.getElementById(id)?.scrollIntoView({
-      behavior: this.scrollBehavior(),
-      block: 'start'
-    });
+    const target =
+      id === 'skills'
+        ? (this.document.getElementById('skills-heading') ?? this.document.getElementById(id))
+        : this.document.getElementById(id);
+
+    if (!target) {
+      return;
+    }
+
+    const offsetPx = id === 'skills' ? 32 : 24;
+    const top = Math.max(0, target.getBoundingClientRect().top + window.scrollY - offsetPx);
+    window.scrollTo({ top, behavior: this.scrollBehavior() });
   }
 
   private scrollBehavior(): ScrollBehavior {

@@ -1,5 +1,5 @@
 .skills {
-  max-inline-size: 72rem;
+  max-inline-size: 80rem;
   margin-inline: auto;
   padding: 5rem 1.5rem;
 }
@@ -15,6 +15,7 @@
   font-size: clamp(1.75rem, 4vw, 2.5rem);
   font-weight: 600;
   letter-spacing: -0.02em;
+  scroll-margin-top: 2rem;
 }
 
 .skills-header p {
@@ -27,15 +28,17 @@
 .skills-grid {
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: 1.5rem;
+  grid-template-rows: auto auto 1fr auto;
+  gap: 1.75rem;
   align-items: stretch;
 }
 
 .card {
-  display: flex;
-  flex-direction: column;
-  gap: 0.75rem;
-  padding: 1.5rem;
+  display: grid;
+  grid-template-rows: subgrid;
+  grid-row: span 4;
+  gap: 0.85rem;
+  padding: 2rem 1.75rem;
   border-radius: var(--radius-lg);
   background: var(--card-solid);
   color: var(--card-solid-text);
@@ -49,16 +52,22 @@
 
 .card-title {
   margin: 0;
-  font-size: 1.125rem;
+  font-size: 1.2rem;
   font-weight: 600;
   line-height: 1.3;
 }
 
 .card-img {
-  align-self: center;
+  align-self: stretch;
   inline-size: 100%;
-  max-inline-size: 12.5rem;
-  block-size: auto;
+  block-size: 12.5rem;
+}
+
+.card-body {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  min-block-size: 0;
 }
 
 .card-description {
@@ -70,50 +79,35 @@
 .card-actions {
   display: flex;
   justify-content: center;
-  margin-block-start: auto;
-  padding-block-start: 0.75rem;
+  align-items: stretch;
+  padding-block-start: 0.5rem;
 }
 
-.choice-group {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.5rem;
-  margin-block-start: auto;
-  padding-block-start: 0.75rem;
+.card-actions .btn-toggle-group {
+  inline-size: 100%;
 }
 
-.choice {
-  /* Auto min-width keeps the longest label from being clipped; the group wraps
-     instead of overflowing the card. */
-  flex: 1 1 auto;
-  padding: 0.4375rem 0.75rem;
-  border: 1px solid currentcolor;
-  border-radius: var(--radius-sm);
-  background: none;
-  color: inherit;
-  font: inherit;
-  font-size: 0.8125rem;
-  cursor: pointer;
-  transition: background var(--transition), color var(--transition);
+.card:not(.is-inverse) .btn-toggle:not(.is-active) {
+  background-color: color-mix(in srgb, var(--card-solid-text) 14%, transparent);
+  border-color: transparent;
+  color: var(--card-solid-text);
 }
 
-.choice:hover {
-  background: color-mix(in srgb, currentcolor 12%, transparent);
-}
-
-.choice.is-active {
-  background: var(--accent);
-  border-color: var(--accent);
-  color: var(--accent-contrast);
-}
-
-.choice:focus-visible {
-  outline: 2px solid var(--focus-ring);
-  outline-offset: 2px;
+.card:not(.is-inverse) .btn-toggle.is-active {
+  background-color: var(--surface);
+  border-color: var(--surface);
+  color: var(--accent);
 }
 
 .skills-grid.details-open {
   grid-template-columns: minmax(0, 1fr);
+  grid-template-rows: none;
+}
+
+.skills-grid.details-open .card {
+  display: flex;
+  flex-direction: column;
+  grid-row: auto;
 }
 
 .card-coding.is-expanded {
@@ -138,6 +132,18 @@
 
   .skills-grid {
     grid-template-columns: minmax(0, 1fr);
+    grid-template-rows: none;
+  }
+
+  .card {
+    display: flex;
+    flex-direction: column;
+    grid-row: auto;
+  }
+
+  .card-img {
+    align-self: center;
+    max-inline-size: 16rem;
   }
 
   .card-work {

@@ -4,13 +4,12 @@ import { isPlatformBrowser } from '@angular/common';
 import enGb from '../data/i18n/en-gb.json';
 
 export type Copy = typeof enGb;
-export type LocaleCode = 'en-gb' | 'es-419' | 'fr-fr';
+export type LocaleCode = 'en-gb' | 'fr-fr';
 
 export const DEFAULT_LOCALE: LocaleCode = 'en-gb';
 
 export const LOCALES: ReadonlyArray<{ code: LocaleCode; short: string; name: string }> = [
   { code: 'en-gb', short: 'EN', name: 'English' },
-  { code: 'es-419', short: 'ES', name: 'Español' },
   { code: 'fr-fr', short: 'FR', name: 'Français' }
 ];
 
@@ -21,7 +20,6 @@ const STORAGE_KEY = 'portfolio.locale';
  * crawlers; other locales are code-split and fetched only when selected.
  */
 const LOADERS: Record<Exclude<LocaleCode, 'en-gb'>, () => Promise<{ default: Copy }>> = {
-  'es-419': () => import('../data/i18n/es-419.json'),
   'fr-fr': () => import('../data/i18n/fr-fr.json')
 };
 

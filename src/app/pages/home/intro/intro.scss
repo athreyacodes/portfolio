@@ -1,29 +1,65 @@
 .intro {
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 3rem;
-  align-items: center;
+  grid-template-columns: minmax(16rem, 2fr) minmax(0, 3fr);
+  column-gap: 0.75rem;
+  align-items: stretch;
   min-block-size: 100svh;
-  padding: 6rem 1.5rem 4rem;
-  max-inline-size: 72rem;
+  padding: 2.5rem 2.5rem 2rem;
+  max-inline-size: 90rem;
   margin-inline: auto;
 }
 
-.intro-identity {
+.intro-identity,
+.intro-role {
+  position: relative;
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
-  gap: 0.5rem;
+  justify-content: flex-start;
+  gap: 1.1rem;
+  min-block-size: calc(100svh - 4.5rem);
+  /* Clear the overlapping photo; action row stays absolute at the bottom. */
+  padding-block: calc(1.25rem + clamp(11.25rem, min(33vh, 28vw), 20rem) + 1.25rem) 9.25rem;
+}
+
+.intro-identity {
+  align-items: flex-end;
+  padding-inline: 1.5rem 2rem;
+  text-align: end;
+  color: var(--card-solid-text);
+  background: var(--card-solid);
+  border-radius: 25px;
+  box-shadow: 0 19px 38px rgb(0 0 0 / 30%), 0 15px 12px rgb(0 0 0 / 22%);
 }
 
 .intro-role {
-  display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
+  align-items: flex-start;
+  padding-inline: 2rem 1rem;
 }
 
-app-profile-photo {
-  margin-block-end: 1rem;
+.intro-identity app-profile-photo {
+  position: absolute;
+  z-index: 1;
+  inset-block-start: 1.25rem;
+  inset-inline-end: 0;
+  transform: translateX(18%);
+  margin: 0;
+}
+
+.intro-identity .pre-title,
+.intro-identity .intro-meta {
+  color: color-mix(in srgb, var(--card-solid-text) 82%, transparent);
+}
+
+.intro-identity .display-title {
+  color: var(--card-solid-text);
+}
+
+.intro-identity .btn-icon {
+  color: var(--card-solid-text);
+}
+
+.intro-identity .btn-icon:hover {
+  background-color: color-mix(in srgb, var(--card-solid-text) 14%, transparent);
 }
 
 .pre-title {
@@ -62,7 +98,7 @@ app-profile-photo {
 }
 
 .email-button:hover {
-  color: var(--accent);
+  color: var(--accent-contrast);
 }
 
 .email-button:focus-visible {
@@ -70,35 +106,83 @@ app-profile-photo {
   outline-offset: 2px;
 }
 
-.social-links {
+.social-links,
+.intro-actions {
+  position: absolute;
+  inset-block-end: 5rem;
   display: flex;
+  align-items: center;
   gap: 0.75rem;
-  margin: 1rem 0 0;
+  margin: 0;
+  min-block-size: 3.25rem;
+}
+
+.social-links {
+  inset-inline-end: 1.5rem;
   padding: 0;
   list-style: none;
 }
 
 .intro-actions {
-  display: flex;
+  inset-inline-start: 2rem;
   flex-wrap: wrap;
-  gap: 0.75rem;
-  margin-block-start: 1.5rem;
 }
 
 @media (max-width: 820px) {
   .intro {
     grid-template-columns: minmax(0, 1fr);
     gap: 2.5rem;
-    padding-block-start: 5rem;
+    padding: 5rem 1.5rem 4rem;
+    text-align: center;
+  }
+
+  .intro-identity,
+  .intro-role {
+    align-items: center;
+    min-block-size: auto;
+    padding: 0;
     text-align: center;
   }
 
   .intro-identity {
-    align-items: center;
+    background: none;
+    box-shadow: none;
+    color: inherit;
+  }
+
+  .intro-identity .pre-title,
+  .intro-identity .intro-meta {
+    color: var(--text-muted);
+  }
+
+  .intro-identity .display-title {
+    color: var(--accent);
+  }
+
+  .intro-identity .btn-icon {
+    color: var(--accent);
+  }
+
+  .intro-identity .btn-icon:hover {
+    background-color: var(--surface-hover);
+  }
+
+  .intro-identity app-profile-photo {
+    position: relative;
+    inset: auto;
+    transform: none;
+    margin-block-end: 1rem;
+  }
+
+  .email-button:hover {
+    color: var(--accent);
   }
 
   .social-links,
   .intro-actions {
+    position: relative;
+    inset: auto;
     justify-content: center;
+    margin-block-start: 1.5rem;
   }
 }

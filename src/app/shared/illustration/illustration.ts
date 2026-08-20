@@ -29,7 +29,9 @@ import { ThemeService } from '../../core/theme';
   `,
   styles: `
     :host {
-      display: block;
+      display: grid;
+      place-items: center;
+      min-block-size: 0;
     }
 
     picture {
@@ -37,8 +39,11 @@ import { ThemeService } from '../../core/theme';
     }
 
     img {
-      inline-size: 100%;
+      max-inline-size: 100%;
+      max-block-size: 100%;
+      inline-size: auto;
       block-size: auto;
+      object-fit: contain;
     }
   `
 })

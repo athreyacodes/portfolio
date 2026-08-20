@@ -57,14 +57,50 @@
     transform var(--transition-quick);
 }
 
+.btn-toggle-group {
+  display: flex;
+  inline-size: 100%;
+}
+
+.btn-toggle {
+  @extend %btn-base;
+
+  flex: 1 1 0;
+  min-inline-size: 0;
+  padding-inline: 1rem;
+  border-radius: 0;
+  background-color: var(--surface);
+  border-color: var(--surface);
+  color: var(--accent);
+  box-shadow: var(--shadow-medium);
+}
+
+.btn-toggle:first-child {
+  border-start-start-radius: var(--radius-md);
+  border-end-start-radius: var(--radius-md);
+}
+
+.btn-toggle:last-child {
+  border-start-end-radius: var(--radius-md);
+  border-end-end-radius: var(--radius-md);
+}
+
+.btn-toggle.is-active {
+  background-color: var(--primary);
+  border-color: var(--primary);
+  color: var(--primary-contrast);
+}
+
 .btn-primary:hover,
 .btn-accent:hover,
-.btn-icon:hover {
+.btn-icon:hover,
+.btn-toggle:hover {
   transform: translateY(-2px);
 }
 
 .btn-primary:hover,
-.btn-accent:hover {
+.btn-accent:hover,
+.btn-toggle:hover {
   box-shadow: var(--shadow-high);
 }
 
@@ -76,7 +112,8 @@
 @media (max-width: 820px) {
   .btn-primary,
   .btn-accent,
-  .btn-ghost {
+  .btn-ghost,
+  .btn-toggle {
     padding: 0.75rem 1.125rem;
     font-size: 0.875rem;
   }
