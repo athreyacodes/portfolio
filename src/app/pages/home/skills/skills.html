@@ -7,7 +7,7 @@
       <p>{{ text.skills.subTitle }}</p>
     </div>
 
-    <div class="skills-grid">
+    <div class="skills-grid" appCardDeck>
       <article class="card card-primary">
         <h3 class="card-title">{{ text.skills.coding.title }}</h3>
         <app-illustration class="card-img" name="proud" [alt]="text.skills.coding.imageAlt" [width]="200" [height]="160" />
@@ -35,7 +35,7 @@
       <p>{{ text.skills.craft.subTitle }}</p>
     </div>
 
-    <div class="skills-grid has-actions">
+    <div class="skills-grid has-actions" appCardDeck>
       <article class="card card-primary">
         <h3 class="card-title">{{ text.skills.craft.lead.title }}</h3>
         <app-illustration class="card-img" name="product" [alt]="text.skills.craft.lead.imageAlt" [width]="200" [height]="160" />

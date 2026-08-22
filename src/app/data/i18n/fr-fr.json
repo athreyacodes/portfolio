@@ -42,7 +42,8 @@
     "disableAutoPlay": "Désactiver la lecture automatique",
     "openLinkCompany": "Ouvrir le lien de cette entreprise dans un nouvel onglet",
     "goToTop": "Aller en haut",
-    "close": "Fermer"
+    "close": "Fermer",
+    "swipeHint": "< glisser >"
   },
   "a11y": {
     "skipToContent": "Aller au contenu principal",

@@ -5,6 +5,7 @@ import { I18nService, LOCALES, LocaleCode, interpolate } from '../../../core/i18
 import { ScrollSpyService } from '../../../core/scroll-spy';
 import { ThemeMode, ThemeService } from '../../../core/theme';
 import { ToastService } from '../../../core/toast';
+import { CardDeck } from '../../../shared/card-deck/card-deck';
 import { Illustration } from '../../../shared/illustration/illustration';
 
 const THEME_MODES: readonly ThemeMode[] = ['light', 'dark'];
@@ -18,7 +19,7 @@ const SKILL_CARDS = [
 @Component({
   selector: 'app-skills',
   changeDetection: ChangeDetectionStrategy.OnPush,
-  imports: [Illustration],
+  imports: [CardDeck, Illustration],
   templateUrl: './skills.html',
   styleUrl: './skills.scss'
 })

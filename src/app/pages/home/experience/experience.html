@@ -6,7 +6,14 @@
     <p>{{ text.exp.subTitle }}</p>
   </div>
 
-  <ol class="timeline" role="list">
+  <p class="deck-years" aria-hidden="true">
+    @for (company of companies(); track company.company; let i = $index) {
+      <span [class.is-active]="deckIndex() === i">{{ company.from }} – {{ company.to }}</span>
+    }
+    <span [class.is-active]="deckIndex() === companies().length">{{ text.exp.future.label }}</span>
+  </p>
+
+  <ol class="timeline" role="list" appCardDeck (deckIndexChange)="deckIndex.set($event)">
     @for (company of companies(); track company.company; let last = $last) {
       <li class="stop">
         <div class="stop-meta">

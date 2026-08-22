@@ -42,7 +42,8 @@
     "disableAutoPlay": "Disable auto play",
     "openLinkCompany": "Open this company link in a new tab",
     "goToTop": "Go to top",
-    "close": "Close"
+    "close": "Close",
+    "swipeHint": "< swipe >"
   },
   "a11y": {
     "skipToContent": "Skip to main content",

@@ -11,6 +11,7 @@ import { isPlatformBrowser } from '@angular/common';
 
 import { I18nService, interpolate } from '../../../core/i18n';
 import { ThemeMode, ThemeService } from '../../../core/theme';
+import { CardDeck } from '../../../shared/card-deck/card-deck';
 import { Icon } from '../../../shared/icon/icon';
 import { whileVisible } from '../../../core/visibility';
 
@@ -43,7 +44,7 @@ const FLIP_MS = 320;
 @Component({
   selector: 'app-experience',
   changeDetection: ChangeDetectionStrategy.OnPush,
-  imports: [Icon],
+  imports: [CardDeck, Icon],
   templateUrl: './experience.html',
   styleUrl: './experience.scss'
 })
@@ -58,6 +59,7 @@ export class Experience {
   protected readonly copy = this.i18n.copy;
   protected readonly roleIndex = signal(0);
   protected readonly flipping = signal(false);
+  protected readonly deckIndex = signal(0);
 
   protected readonly companies = computed(() =>
     this.copy().exp.companies.map((company) => ({
