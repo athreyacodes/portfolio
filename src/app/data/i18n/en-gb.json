@@ -69,14 +69,14 @@
     "coding": {
       "title": "I build platforms",
       "imageAlt": "Illustration of a developer proudly presenting a finished application",
-      "description": "<strong>Solid</strong>, <strong>scalable</strong>, <strong>responsive</strong> enterprise front-end platforms — design systems and shared foundations that stay clear as products and teams grow.",
+      "description": "<strong>Solid</strong>, <strong>scalable</strong> enterprise front-end platforms — shared foundations that stay clear as products and teams grow.",
       "action": "See my skills",
       "action2": "Back",
       "details": {
         "first": {
           "title": "1. Architecture",
           "imageAlt": "Illustration of a programmer at a workstation",
-          "content1": "<strong>{years}+</strong> years on <strong>Angular</strong> platforms — design systems, <strong>Module Federation</strong>, and <strong>Nx</strong> monorepos.",
+          "content1": "<strong>{years}+</strong> years on <strong>Angular</strong> platforms — <strong>Module Federation</strong> and <strong>Nx</strong> monorepos.",
           "content2": "Built to stay maintainable as teams scale."
         },
         "second": {
@@ -99,7 +99,7 @@
       "lead": {
         "title": "I shape products",
         "imageAlt": "Illustration of modular product building blocks",
-        "description": "I design the experience people actually use — clear <strong>UX</strong>, and <strong>analytics</strong> so we can see what works."
+        "description": "I design the experience people actually use — clear <strong>UX</strong>, <strong>responsive</strong> layouts, and <strong>analytics</strong> so we can see what works."
       }
     },
     "theme": {

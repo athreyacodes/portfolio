@@ -69,14 +69,14 @@
     "coding": {
       "title": "Je construis des plateformes",
       "imageAlt": "Illustration d'un développeur présentant fièrement une application terminée",
-      "description": "Des plateformes front-end d'entreprise <strong>solides</strong>, <strong>évolutives</strong> et <strong>responsive</strong> — design systems et fondations partagées qui restent claires quand produits et équipes grandissent.",
+      "description": "Des plateformes front-end d'entreprise <strong>solides</strong> et <strong>évolutives</strong> — des fondations partagées qui restent claires quand produits et équipes grandissent.",
       "action": "Voir mes compétences",
       "action2": "Retour",
       "details": {
         "first": {
           "title": "1. Architecture",
           "imageAlt": "Illustration d'un programmeur à son poste de travail",
-          "content1": "<strong>{years}+</strong> années sur <strong>Angular</strong> — design systems, <strong>Module Federation</strong> et monorepos <strong>Nx</strong>.",
+          "content1": "<strong>{years}+</strong> années sur <strong>Angular</strong> — <strong>Module Federation</strong> et monorepos <strong>Nx</strong>.",
           "content2": "Maintenable même quand les équipes grandissent."
         },
         "second": {
@@ -99,7 +99,7 @@
       "lead": {
         "title": "Je façonne le produit",
         "imageAlt": "Illustration de blocs de produit modulaires",
-        "description": "Je conçois l'expérience que les gens utilisent vraiment — une <strong>UX</strong> claire, et de l'<strong>analytics</strong> pour voir ce qui marche."
+        "description": "Je conçois l'expérience que les gens utilisent vraiment — une <strong>UX</strong> claire, des mises en page <strong>responsive</strong>, et de l'<strong>analytics</strong> pour voir ce qui marche."
       }
     },
     "theme": {
