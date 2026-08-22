@@ -1,3 +1,9 @@
+# Search engines and AI answer crawlers are welcome (Googlebot, Bingbot,
+# OAI-SearchBot, ChatGPT-User, PerplexityBot, Claude-SearchBot, GPTBot,
+# ClaudeBot, Google-Extended). Tighten training-only bots in their own
+# User-agent group — do not flip this block to Disallow: /.
+# Curated bio for assistants: https://athreya.codes/llms.txt
+
 User-agent: *
 Allow: /
 

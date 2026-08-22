@@ -25,7 +25,7 @@ jobs:
         run: npm ci
 
       - name: Build App
-        run: npm run build
+        run: PREVIEW=1 npm run build
 
       - name: Deploy to Firebase Hosting Preview
         uses: FirebaseExtended/action-hosting-deploy@v0

@@ -6,7 +6,7 @@ import seoData from '../data/seo.json';
 import { getExperienceYears } from './experience';
 import { interpolate } from './i18n';
 
-export type SeoKey = Exclude<keyof typeof seoData, 'siteUrl' | 'siteName'>;
+export type SeoKey = Exclude<keyof typeof seoData, 'siteUrl' | 'siteName' | 'dateModified'>;
 
 const SITE_URL = seoData.siteUrl.replace(/\/$/, '');
 
@@ -38,6 +38,11 @@ export class SeoService {
     this.meta.updateTag({ property: 'og:type', content: config.ogType });
     this.meta.updateTag({ property: 'og:url', content: pageUrl });
     this.meta.updateTag({ property: 'og:locale', content: 'en_GB' });
+
+    if (config.ogType === 'profile') {
+      this.meta.updateTag({ property: 'profile:first_name', content: profile.givenName });
+      this.meta.updateTag({ property: 'profile:last_name', content: profile.familyName });
+    }
 
     this.meta.updateTag({ name: 'twitter:card', content: config.twitterCard });
     this.meta.updateTag({ name: 'twitter:title', content: config.twitterTitle });
@@ -72,7 +77,8 @@ export class SeoService {
           email: `mailto:${profile.email}`,
           image: {
             '@type': 'ImageObject',
-            url: this.absolute(profile.image)
+            url: this.absolute(profile.image),
+            caption: profile.name
           },
           address: {
             '@type': 'PostalAddress',
@@ -80,7 +86,17 @@ export class SeoService {
             addressRegion: profile.location.region,
             addressCountry: profile.location.country
           },
+          knowsLanguage: profile.knowsLanguage,
           knowsAbout: profile.knowsAbout,
+          hasOccupation: {
+            '@type': 'Occupation',
+            name: profile.jobTitle,
+            occupationLocation: {
+              '@type': 'City',
+              name: profile.location.city,
+              addressCountry: profile.location.country
+            }
+          },
           worksFor: profile.employers
             .filter((employer) => employer.current)
             .map((employer) => ({
@@ -88,13 +104,19 @@ export class SeoService {
               name: employer.name,
               url: employer.url
             })),
-          alumniOf: profile.employers
-            .filter((employer) => !employer.current)
-            .map((employer) => ({
+          memberOf: profile.employers.map((employer) => ({
+            '@type': 'OrganizationRole',
+            roleName: employer.jobTitle,
+            startDate: employer.startDate,
+            ...('endDate' in employer && employer.endDate
+              ? { endDate: employer.endDate }
+              : {}),
+            memberOf: {
               '@type': 'Organization',
               name: employer.name,
               url: employer.url
-            })),
+            }
+          })),
           sameAs: profile.sameAs
         },
         {
@@ -114,7 +136,8 @@ export class SeoService {
           isPartOf: { '@id': websiteId },
           about: { '@id': personId },
           mainEntity: { '@id': personId },
-          inLanguage: 'en-GB'
+          inLanguage: 'en-GB',
+          dateModified: seoData.dateModified
         }
       ]
     };

@@ -76,7 +76,7 @@ export class Skills {
     this.toast.show(interpolate(this.copy().global.languageUpdated, { language: name }));
   }
 
-  protected goToExperience(): void {
-    this.scrollSpy.scrollTo('experience');
+  protected onExperienceClick(event: MouseEvent): void {
+    this.scrollSpy.handleNavClick(event, 'experience');
   }
 }

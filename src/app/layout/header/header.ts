@@ -63,15 +63,7 @@ export class Header {
     this.trigger().nativeElement.focus();
   }
 
-  /**
-   * The crumbs are real anchors so they deep-link and work without JS; the
-   * handler only upgrades them to a smooth in-page scroll.
-   */
   protected onNavClick(event: MouseEvent, id: SectionId): void {
-    if (event.button !== 0 || event.metaKey || event.ctrlKey || event.shiftKey) {
-      return;
-    }
-    event.preventDefault();
-    this.scrollSpy.scrollTo(id);
+    this.scrollSpy.handleNavClick(event, id);
   }
 }

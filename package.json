@@ -9,6 +9,7 @@
     "postbuild": "node scripts/postbuild.mjs",
     "watch": "ng build --watch --configuration development",
     "preview": "npx http-server dist/portfolio/browser -p 5203 -c-1",
+    "indexnow": "node scripts/indexnow.mjs",
     "deploy:tag": "gh workflow run deploy-tag.yml -f"
   },
   "dependencies": {

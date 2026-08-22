@@ -6,6 +6,24 @@
     "ignore": ["firebase.json", "**/.*", "**/node_modules/**"],
     "headers": [
       {
+        "source": "/404",
+        "headers": [
+          {
+            "key": "X-Robots-Tag",
+            "value": "noindex, follow"
+          }
+        ]
+      },
+      {
+        "source": "/404.html",
+        "headers": [
+          {
+            "key": "X-Robots-Tag",
+            "value": "noindex, follow"
+          }
+        ]
+      },
+      {
         "source": "**/*.@(js|css|woff2|avif|webp|jpg|jpeg|png|svg|ico)",
         "headers": [
           {

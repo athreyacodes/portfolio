@@ -28,8 +28,8 @@ export class Intro {
     interpolate(this.copy().banner.subtitle, { years: getExperienceYears() })
   );
 
-  protected goToSkills(): void {
-    this.scrollSpy.scrollTo('skills');
+  protected onSkillsClick(event: MouseEvent): void {
+    this.scrollSpy.handleNavClick(event, 'skills');
   }
 
   protected async copyEmail(): Promise<void> {

@@ -1,0 +1,28 @@
+# Athreya M R
+
+Front-end Architect in Bangalore. Live site: https://athreya.codes
+
+## Summary
+
+Athreya M R has been building Angular products since 2015. He works at Mimecast as a Senior Software Engineer on a next-generation email security platform — Angular, micro frontends, and an Nx monorepo.
+
+Before Mimecast he was a Product Engineer at Enate Technologies Ltd (2019–2024), leading a front-end team on a micro-frontend product. Before that he was a Software Engineer at Mphasis Ltd (2015–2019), building Angular applications for FedEx.
+
+Skills: Angular, TypeScript, micro frontends, Module Federation, Nx monorepos, SSR/SSG, technical SEO, web performance, accessibility, and design systems. He is also exploring AI-enabled fullstack delivery.
+
+## Contact
+
+- Email: athreyacodes@gmail.com
+- LinkedIn: https://www.linkedin.com/in/athreyamr/
+- GitHub: https://github.com/athreyacodes
+- Location: Bangalore, Karnataka, India
+
+## This site
+
+https://athreya.codes is an Angular 22 SSR/SSG portfolio. Routes are prerendered so search engines and social crawlers receive real titles, descriptions, and content — not an empty client shell.
+
+## Work history
+
+- 2024–present — Senior Software Engineer, Mimecast — next-gen email security platform, Angular, micro frontends, Nx monorepo
+- 2019–2024 — Product Engineer, Enate Technologies Ltd — led a front-end team on a micro-frontend product
+- 2015–2019 — Software Engineer, Mphasis Ltd — Angular web development for FedEx

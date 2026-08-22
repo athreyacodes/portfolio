@@ -31,3 +31,7 @@ jobs:
           firebaseServiceAccount: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_PORTFOLIO_F2684 }}
           projectId: portfolio-f2684
           channelId: live
+
+      - name: Notify IndexNow
+        continue-on-error: true
+        run: npm run indexnow

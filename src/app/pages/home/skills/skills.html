@@ -101,9 +101,9 @@
           <p class="card-description" [innerHTML]="text.skills.work.description"></p>
         </div>
         <div class="card-actions">
-          <button type="button" class="btn-primary" (click)="goToExperience()">
+          <a class="btn-primary" href="#experience" (click)="onExperienceClick($event)">
             {{ text.skills.work.action }}
-          </button>
+          </a>
         </div>
       </article>
     </div>

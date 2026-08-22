@@ -1,0 +1,23 @@
+# Athreya M R
+
+> Front-end Architect in Bangalore. Personal site: https://athreya.codes
+
+Athreya M R is a Front-end Architect in Bangalore, India, with 11+ years building enterprise Angular applications. He is a Senior Software Engineer at Mimecast, working on a next-generation email security platform with Angular, micro frontends, and an Nx monorepo.
+
+Previously Product Engineer at Enate Technologies (2019–2024), leading a front-end team on a micro-frontend product, and Software Engineer at Mphasis (2015–2019) building Angular apps for FedEx.
+
+## Skills
+
+- Angular, TypeScript
+- Micro frontends, Module Federation, Nx monorepos
+- SSR/SSG, technical SEO, web performance, accessibility
+- Design systems
+- AI-enabled fullstack delivery
+
+## Links
+
+- [Site](https://athreya.codes/)
+- [LinkedIn](https://www.linkedin.com/in/athreyamr/)
+- [GitHub](https://github.com/athreyacodes)
+- Email: athreyacodes@gmail.com
+- [Full bio](https://athreya.codes/llms-full.txt)

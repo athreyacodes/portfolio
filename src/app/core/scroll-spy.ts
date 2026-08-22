@@ -73,6 +73,18 @@ export class ScrollSpyService {
     };
   }
 
+  /**
+   * Real hash links stay crawlable; this only upgrades a primary click to a
+   * smooth in-page scroll. Modified clicks (new tab, etc.) keep the default.
+   */
+  handleNavClick(event: MouseEvent, id: SectionId): void {
+    if (event.button !== 0 || event.metaKey || event.ctrlKey || event.shiftKey) {
+      return;
+    }
+    event.preventDefault();
+    this.scrollTo(id);
+  }
+
   scrollTo(id: SectionId): void {
     if (!this.isBrowser) {
       return;

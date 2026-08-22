@@ -15,6 +15,7 @@
     "https://www.linkedin.com/in/athreyamr/",
     "https://github.com/athreyacodes"
   ],
+  "knowsLanguage": ["en"],
   "knowsAbout": [
     "Angular",
     "Micro Frontends",
@@ -28,8 +29,28 @@
     "Technical SEO"
   ],
   "employers": [
-    { "name": "Mimecast", "url": "https://www.mimecast.com/", "current": true },
-    { "name": "Enate Technologies Ltd", "url": "https://www.enate.io/", "current": false },
-    { "name": "Mphasis Ltd", "url": "https://www.mphasis.com/", "current": false }
+    {
+      "name": "Mimecast",
+      "url": "https://www.mimecast.com/",
+      "jobTitle": "Senior Software Engineer",
+      "startDate": "2024-08",
+      "current": true
+    },
+    {
+      "name": "Enate Technologies Ltd",
+      "url": "https://www.enate.io/",
+      "jobTitle": "Product Engineer",
+      "startDate": "2019-05",
+      "endDate": "2024-08",
+      "current": false
+    },
+    {
+      "name": "Mphasis Ltd",
+      "url": "https://www.mphasis.com/",
+      "jobTitle": "Software Engineer",
+      "startDate": "2015-06",
+      "endDate": "2019-05",
+      "current": false
+    }
   ]
 }

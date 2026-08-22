@@ -22,7 +22,7 @@
           class="btn-icon"
           [href]="text.contactInfo.linkedin"
           target="_blank"
-          rel="noopener noreferrer"
+          rel="me noopener noreferrer"
           [attr.aria-label]="text.banner.icon.linkedin + ' (' + text.a11y.openInNewTab + ')'"
         >
           <app-icon name="linkedin" />
@@ -33,7 +33,7 @@
           class="btn-icon"
           [href]="text.contactInfo.github"
           target="_blank"
-          rel="noopener noreferrer"
+          rel="me noopener noreferrer"
           [attr.aria-label]="text.banner.icon.github + ' (' + text.a11y.openInNewTab + ')'"
         >
           <app-icon name="github" />
@@ -47,12 +47,13 @@
     <p class="display-title">{{ text.banner.title }}</p>
     <p class="intro-meta">{{ subtitle() }}</p>
     <p class="intro-meta">{{ text.banner.subtitle2 }}</p>
+    <p class="intro-bio">{{ text.banner.bio }}</p>
 
     <div class="intro-actions">
-      <button type="button" class="btn-primary" (click)="goToSkills()">
+      <a class="btn-primary" href="#skills" (click)="onSkillsClick($event)">
         <app-icon name="skills" [size]="1.25" />
         <span>{{ text.banner.workBtn }}</span>
-      </button>
+      </a>
       <a class="btn-accent" [href]="cvUrl" [attr.download]="cvFilename">
         <app-icon name="download" [size]="1.25" />
         <span>{{ text.banner.downloadCv }}</span>
