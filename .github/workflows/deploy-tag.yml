@@ -4,7 +4,7 @@ on:
   workflow_dispatch:
     inputs:
       version:
-        description: Git tag to build and deploy (for example v1.0.0 or v2.0.0)
+        description: Git tag to build and deploy (for example v2.0.0 or v2.1.0)
         required: true
         type: string
 
