@@ -11,10 +11,19 @@
     Incremental hydration: both sections are prerendered into the HTML, so
     crawlers and no-JS visitors see them, but their JavaScript is only fetched
     once the visitor scrolls near them.
+
+    Section ids stay on these wrappers (not inside @defer) so scroll-spy and
+    the side crumbs can always find How I architect / How I build.
   -->
   <section id="skills" aria-labelledby="skills-heading">
     @defer (hydrate on viewport) {
-      <app-skills />
+      <app-skills band="architecture" />
+    }
+  </section>
+
+  <section id="craft" aria-labelledby="craft-heading">
+    @defer (hydrate on viewport) {
+      <app-skills band="craft" />
     }
   </section>
 

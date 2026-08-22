@@ -28,57 +28,29 @@
 .skills-grid {
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
-  grid-template-rows: auto auto 1fr auto;
+  grid-template-rows: auto auto 1fr;
   gap: 1.75rem;
   align-items: stretch;
 }
 
-.card-coding {
-  grid-column: 1;
-  grid-row: 1 / -1;
-}
-
-.satellites {
-  display: grid;
-  grid-column: 2 / -1;
-  grid-row: 1 / -1;
-  grid-template-columns: subgrid;
-  grid-template-rows: subgrid;
-}
-
-.deck {
-  display: grid;
-  grid-column: 1 / -1;
-  grid-row: 1 / -1;
-  grid-template-columns: subgrid;
-  grid-template-rows: subgrid;
-  gap: 1.75rem;
-  transition: opacity var(--transition), visibility var(--transition),
-    transform var(--transition);
-}
-
-.deck.is-away {
-  z-index: 0;
-  opacity: 0;
-  visibility: hidden;
-  pointer-events: none;
-  transform: translateY(0.6rem);
-}
-
-.deck:not(.is-away) {
-  z-index: 1;
+.skills-grid.has-actions {
+  grid-template-rows: auto auto 1fr auto;
 }
 
 .card {
   display: grid;
   grid-template-rows: subgrid;
-  grid-row: span 4;
+  grid-row: span 3;
   gap: 0.85rem;
   padding: 2rem 1.75rem;
   border-radius: var(--radius-lg);
   background: var(--card-solid);
   color: var(--card-solid-text);
   box-shadow: var(--shadow-high);
+}
+
+.skills-grid.has-actions .card {
+  grid-row: span 4;
 }
 
 .card.is-inverse {
@@ -107,6 +79,15 @@
   padding-block-start: 1rem;
 }
 
+.band-architecture .card-primary .card-body,
+.band-craft .card-body {
+  padding-block-start: 1.85rem;
+}
+
+.band-craft .card-primary .card-body {
+  padding-block-start: 2.5rem;
+}
+
 .card-description {
   margin: 0;
   font-size: 0.9375rem;
@@ -117,7 +98,14 @@
   display: flex;
   justify-content: center;
   align-items: stretch;
+  min-block-size: 3.25rem;
   padding-block-start: 0.5rem;
+}
+
+.band-craft .card-actions {
+  min-block-size: 0;
+  padding-block-start: 0;
+  margin-block-start: -0.25rem;
 }
 
 .card-actions .btn-toggle-group {
@@ -136,40 +124,17 @@
   color: var(--accent);
 }
 
-@media (prefers-reduced-motion: reduce) {
-  .deck {
-    transition: none;
-    transform: none;
-  }
-}
-
 @media (max-width: 1100px) {
-  .skills-grid {
+  .skills-grid,
+  .skills-grid.has-actions {
     grid-template-columns: repeat(2, minmax(0, 1fr));
     grid-template-rows: none;
   }
 
-  .card-coding,
-  .satellites,
-  .deck,
   .card {
     display: flex;
     flex-direction: column;
-    grid-column: auto;
     grid-row: auto;
-  }
-
-  .satellites {
-    display: grid;
-    grid-column: 1 / -1;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-
-  .deck {
-    display: grid;
-    grid-column: 1 / -1;
-    grid-row: 1 / -1;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
   .card-work {
@@ -183,8 +148,7 @@
   }
 
   .skills-grid,
-  .satellites,
-  .deck {
+  .skills-grid.has-actions {
     grid-template-columns: minmax(0, 1fr);
   }
 

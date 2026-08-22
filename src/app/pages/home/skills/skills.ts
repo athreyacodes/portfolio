@@ -1,11 +1,10 @@
-import { ChangeDetectionStrategy, Component, computed, inject, signal } from '@angular/core';
+import { ChangeDetectionStrategy, Component, computed, inject, input } from '@angular/core';
 
 import { getExperienceYears } from '../../../core/experience';
 import { I18nService, LOCALES, LocaleCode, interpolate } from '../../../core/i18n';
 import { ScrollSpyService } from '../../../core/scroll-spy';
 import { ThemeMode, ThemeService } from '../../../core/theme';
 import { ToastService } from '../../../core/toast';
-import { Icon } from '../../../shared/icon/icon';
 import { Illustration } from '../../../shared/illustration/illustration';
 
 const THEME_MODES: readonly ThemeMode[] = ['light', 'dark'];
@@ -19,7 +18,7 @@ const SKILL_CARDS = [
 @Component({
   selector: 'app-skills',
   changeDetection: ChangeDetectionStrategy.OnPush,
-  imports: [Icon, Illustration],
+  imports: [Illustration],
   templateUrl: './skills.html',
   styleUrl: './skills.scss'
 })
@@ -29,12 +28,13 @@ export class Skills {
   private readonly scrollSpy = inject(ScrollSpyService);
   private readonly toast = inject(ToastService);
 
+  readonly band = input<'architecture' | 'craft'>('architecture');
+
   protected readonly copy = this.i18n.copy;
   protected readonly locales = LOCALES;
   protected readonly themes = THEME_MODES;
   protected readonly activeLocale = this.i18n.locale;
   protected readonly activeTheme = this.themeService.theme;
-  protected readonly skillsOpen = signal(false);
 
   protected readonly skillCards = computed(() => {
     const details = this.copy().skills.coding.details;
@@ -52,10 +52,6 @@ export class Skills {
       };
     });
   });
-
-  protected toggleSkills(): void {
-    this.skillsOpen.update((open) => !open);
-  }
 
   protected themeLabel(mode: ThemeMode): string {
     return this.copy().theme[mode].label;

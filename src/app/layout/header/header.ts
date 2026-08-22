@@ -43,6 +43,7 @@ export class Header {
     return [
       { id: 'home', icon: 'home', label: labels.banner },
       { id: 'skills', icon: 'skills', label: labels.skills },
+      { id: 'craft', icon: 'code', label: labels.craft },
       { id: 'experience', icon: 'experience', label: labels.experience }
     ];
   });

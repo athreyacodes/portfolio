@@ -15,7 +15,7 @@
     "subtitle2": "Now exploring AI-enabled fullstack!",
     "preName": "Hello, I'm",
     "preRole": "I'm a",
-    "workBtn": "See my Skills and Work",
+    "workBtn": "See how I work",
     "expBtn": "Experience",
     "downloadCv": "Download CV",
     "icon": {
@@ -57,17 +57,18 @@
   "header": {
     "navItems": {
       "banner": "Home",
-      "skills": "My Skills and Work",
+      "skills": "How I architect",
+      "craft": "How I build",
       "experience": "Experience"
     }
   },
   "skills": {
-    "title": "My Skills",
-    "subTitle": "Architecting scalable front ends for large enterprise products — micro frontends, SSR/SSG, and SEO-ready delivery.",
+    "title": "How I architect",
+    "subTitle": "Platform foundations for large enterprise products — micro frontends, SSR/SSG, and SEO-ready delivery.",
     "coding": {
       "title": "I build platforms",
       "imageAlt": "Illustration of a developer proudly presenting a finished application",
-      "description": "<strong>Solid</strong>, <strong>scalable</strong>, <strong>responsive</strong> enterprise front-end platforms.",
+      "description": "<strong>Solid</strong>, <strong>scalable</strong>, <strong>responsive</strong> enterprise front-end platforms — design systems and shared foundations that stay clear as products and teams grow.",
       "action": "See my skills",
       "action2": "Back",
       "details": {
@@ -91,6 +92,15 @@
         }
       }
     },
+    "craft": {
+      "title": "How I build",
+      "subTitle": "Personalization, language, and modular scale — the qualities that make a platform feel finished.",
+      "lead": {
+        "title": "I shape products",
+        "imageAlt": "Illustration of modular product building blocks",
+        "description": "I design the experience people actually use — clear <strong>UX</strong>, and <strong>analytics</strong> so we can see what works."
+      }
+    },
     "theme": {
       "title": "Design, on point!",
       "imageAlt": "Illustration of a colour palette and theme switcher",
@@ -106,7 +116,7 @@
     "work": {
       "title": "Built for scale",
       "imageAlt": "Illustration of modular micro frontend building blocks",
-      "description": "<strong>Micro frontends</strong> and platform foundations keep enterprise apps modular and maintainable.",
+      "description": "I build <strong>fast</strong>, lean apps — first paint, runtime cost, and a UI that stays quick as it grows.",
       "action": "See my experience"
     }
   },

@@ -15,7 +15,7 @@
     "subtitle2": "En train d'explorer le fullstack assisté par l'IA !",
     "preName": "Bonjour, je suis",
     "preRole": "Je suis",
-    "workBtn": "Voir mes compétences et mon travail",
+    "workBtn": "Voir comment je travaille",
     "expBtn": "Expérience",
     "downloadCv": "Télécharger le CV",
     "icon": {
@@ -57,17 +57,18 @@
   "header": {
     "navItems": {
       "banner": "Accueil",
-      "skills": "Mes compétences et mon travail",
+      "skills": "Comment j'architecte",
+      "craft": "Comment je construis",
       "experience": "Expérience"
     }
   },
   "skills": {
-    "title": "Mes compétences",
-    "subTitle": "Architecture de front ends évolutifs pour de grands produits d'entreprise — micro-frontends, SSR/SSG et livraison prête pour le SEO.",
+    "title": "Comment j'architecte",
+    "subTitle": "Fondations de plateforme pour de grands produits d'entreprise — micro-frontends, SSR/SSG et livraison prête pour le SEO.",
     "coding": {
       "title": "Je construis des plateformes",
       "imageAlt": "Illustration d'un développeur présentant fièrement une application terminée",
-      "description": "Des plateformes front-end d'entreprise <strong>solides</strong>, <strong>évolutives</strong> et <strong>responsive</strong>.",
+      "description": "Des plateformes front-end d'entreprise <strong>solides</strong>, <strong>évolutives</strong> et <strong>responsive</strong> — design systems et fondations partagées qui restent claires quand produits et équipes grandissent.",
       "action": "Voir mes compétences",
       "action2": "Retour",
       "details": {
@@ -91,6 +92,15 @@
         }
       }
     },
+    "craft": {
+      "title": "Comment je construis",
+      "subTitle": "Personnalisation, langue et échelle modulaire — ce qui fait qu'une plateforme semble aboutie.",
+      "lead": {
+        "title": "Je façonne le produit",
+        "imageAlt": "Illustration de blocs de produit modulaires",
+        "description": "Je conçois l'expérience que les gens utilisent vraiment — une <strong>UX</strong> claire, et de l'<strong>analytics</strong> pour voir ce qui marche."
+      }
+    },
     "theme": {
       "title": "Le design, au rendez-vous !",
       "imageAlt": "Illustration d'une palette de couleurs et d'un sélecteur de thème",
@@ -106,7 +116,7 @@
     "work": {
       "title": "Conçu pour l'échelle",
       "imageAlt": "Illustration de blocs modulaires de micro-frontends",
-      "description": "Les <strong>micro-frontends</strong> et les fondations de plateforme gardent les apps d'entreprise modulaires et maintenables.",
+      "description": "Des apps <strong>rapides</strong> et légères — premier rendu, coût runtime, et une UI qui reste vive en grandissant.",
       "action": "Voir mon expérience"
     }
   },

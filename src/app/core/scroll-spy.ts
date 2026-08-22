@@ -1,9 +1,14 @@
 import { DOCUMENT, Injectable, PLATFORM_ID, inject, signal } from '@angular/core';
 import { isPlatformBrowser } from '@angular/common';
 
-export type SectionId = 'home' | 'skills' | 'experience';
+export type SectionId = 'home' | 'skills' | 'craft' | 'experience';
 
-export const SECTION_IDS: readonly SectionId[] = ['home', 'skills', 'experience'];
+export const SECTION_IDS: readonly SectionId[] = ['home', 'skills', 'craft', 'experience'];
+
+const HEADING_IDS: Partial<Record<SectionId, string>> = {
+  skills: 'skills-heading',
+  craft: 'craft-heading'
+};
 
 /**
  * Tracks which section is in view. Uses IntersectionObserver rather than a
@@ -78,16 +83,16 @@ export class ScrollSpyService {
       return;
     }
 
-    const target =
-      id === 'skills'
-        ? (this.document.getElementById('skills-heading') ?? this.document.getElementById(id))
-        : this.document.getElementById(id);
+    const headingId = HEADING_IDS[id];
+    const target = headingId
+      ? (this.document.getElementById(headingId) ?? this.document.getElementById(id))
+      : this.document.getElementById(id);
 
     if (!target) {
       return;
     }
 
-    const offsetPx = id === 'skills' ? 32 : 24;
+    const offsetPx = headingId ? 32 : 24;
     const top = Math.max(0, target.getBoundingClientRect().top + window.scrollY - offsetPx);
     window.scrollTo({ top, behavior: this.scrollBehavior() });
   }
