@@ -18,7 +18,7 @@
   gap: 1.1rem;
   min-block-size: calc(100svh - 4.5rem);
   /* Clear the overlapping photo; action row stays absolute at the bottom. */
-  padding-block: calc(1.25rem + clamp(11.25rem, min(33vh, 28vw), 20rem) + 2.75rem) 10.5rem;
+  padding-block: calc(1.25rem + clamp(11.25rem, min(33vh, 28vw), 20rem) + 2.75rem) 9.25rem;
 }
 
 .intro-identity {
@@ -83,14 +83,6 @@
   color: var(--text-muted);
   font-size: 1rem;
   line-height: 1.6;
-}
-
-.intro-bio {
-  margin: 0.25rem 0 0;
-  max-inline-size: 36rem;
-  color: var(--text-muted);
-  font-size: 0.95rem;
-  line-height: 1.55;
 }
 
 .email-button {
@@ -184,10 +176,6 @@
 
   .email-button:hover {
     color: var(--accent);
-  }
-
-  .intro-bio {
-    text-align: center;
   }
 
   .social-links,
