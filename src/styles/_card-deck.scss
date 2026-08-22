@@ -8,11 +8,13 @@
     --deck-peek: 6px;
     --deck-scale-step: 0.04;
     --deck-stack-room: calc(3 * var(--deck-peek));
+    --deck-gutter: 0.75rem;
+    --deck-card-size: 24.5rem;
     position: relative;
     display: block;
     overflow-x: clip;
     overflow-y: visible;
-    max-inline-size: 24.5rem;
+    max-inline-size: calc(var(--deck-card-size) + 2 * var(--deck-gutter));
     min-block-size: 28rem;
     margin-inline: auto;
   }
@@ -21,10 +23,10 @@
   .card-deck > .stop {
     position: absolute;
     inset-block-start: 0;
-    inset-inline: 0;
+    inset-inline: var(--deck-gutter);
     inset-block-end: var(--deck-stack-room);
     z-index: 1;
-    inline-size: 100%;
+    inline-size: auto;
     block-size: auto;
     margin: 0;
     transform-origin: center bottom;
@@ -123,11 +125,17 @@
     display: block;
     margin: 0.85rem auto 0;
     max-inline-size: 24.5rem;
-    color: var(--text-muted);
+    color: color-mix(in srgb, var(--card-solid) 32%, transparent);
     font-size: 0.8125rem;
-    font-weight: 500;
+    font-weight: 400;
     letter-spacing: 0.08em;
     text-align: center;
+    opacity: 1;
+    transition: opacity 0.45s ease;
+  }
+
+  .deck-hint.is-faded {
+    opacity: 0;
   }
 }
 
@@ -153,5 +161,9 @@
 
   .card-deck.is-active [data-deck-state='front'].is-nudging {
     animation: none;
+  }
+
+  .deck-hint {
+    transition: none;
   }
 }

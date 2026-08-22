@@ -179,7 +179,6 @@
 
     display: block;
     position: relative;
-    max-inline-size: 24.5rem;
     inline-size: 100%;
     margin-inline: auto;
   }
@@ -188,7 +187,6 @@
   .skills-grid.has-actions.card-deck > .card {
     position: absolute;
     inset-block-start: 0;
-    inset-inline: 0;
     display: flex;
     flex-direction: column;
     grid-row: auto;

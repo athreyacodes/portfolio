@@ -261,6 +261,8 @@ export class CardDeck {
   }
 
   private async goNext(): Promise<void> {
+    this.dismissHint();
+
     if (this.index >= this.items.length - 1) {
       await this.resetDeck();
       return;
@@ -277,6 +279,7 @@ export class CardDeck {
       return;
     }
 
+    this.dismissHint();
     this.index -= 1;
     this.render();
     this.deckIndexChange.emit(this.index);
@@ -475,6 +478,10 @@ export class CardDeck {
     hint.setAttribute('aria-hidden', 'true');
     this.host.nativeElement.insertAdjacentElement('afterend', hint);
     this.hint = hint;
+  }
+
+  private dismissHint(): void {
+    this.hint?.classList.add('is-faded');
   }
 
   private watchVisibility(): void {

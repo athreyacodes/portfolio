@@ -230,7 +230,6 @@ picture {
 
     display: block;
     position: relative;
-    max-inline-size: 24.5rem;
     inline-size: 100%;
     margin-inline: auto;
   }
@@ -242,7 +241,6 @@ picture {
   .timeline.card-deck > .stop {
     position: absolute;
     inset-block-start: 0;
-    inset-inline: 0;
     inset-block-end: var(--deck-stack-room);
     display: flex;
     flex-direction: column;
