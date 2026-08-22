@@ -65,7 +65,7 @@
     "title": "My Skills",
     "subTitle": "Architecting scalable front ends for large enterprise products — micro frontends, SSR/SSG, and SEO-ready delivery.",
     "coding": {
-      "title": "I build enterprise platforms",
+      "title": "I build platforms",
       "imageAlt": "Illustration of a developer proudly presenting a finished application",
       "description": "<strong>Solid</strong>, <strong>scalable</strong>, <strong>responsive</strong> enterprise front-end platforms.",
       "action": "See my skills",
@@ -74,20 +74,20 @@
         "first": {
           "title": "1. Architecture",
           "imageAlt": "Illustration of a programmer at a workstation",
-          "content1": "Front-end architect with <strong>{years}</strong> years building and evolving <strong>large enterprise apps</strong> on <strong>Angular</strong> — design systems, micro frontends, and shared platform foundations.",
-          "content2": "I design platforms that stay clear, consistent, and maintainable as teams scale and product domains multiply."
+          "content1": "<strong>{years}+</strong> years on <strong>Angular</strong> platforms — design systems, <strong>Module Federation</strong>, and <strong>Nx</strong> monorepos.",
+          "content2": "Built to stay maintainable as teams scale."
         },
         "second": {
           "title": "2. SEO & SSG",
           "imageAlt": "Illustration of a search engine results page",
-          "content1": "Hands-on with <strong>SSR/SSG</strong> architectures that ship crawlable, <strong>SEO</strong>-ready pages, fast first paint, and reliable production performance.",
-          "content2": "This portfolio is an example of that approach in practice."
+          "content1": "<strong>SSR/SSG</strong> that ships crawlable, <strong>SEO</strong>-ready pages with a fast first paint.",
+          "content2": "This portfolio is that approach in practice."
         },
         "third": {
           "title": "3. AI-enabled fullstack",
           "imageAlt": "Illustration representing artificial intelligence",
-          "content1": "Currently diving into <strong>AI-enabled fullstack</strong> development — connecting front ends, APIs, and AI capabilities into coherent product experiences.",
-          "content2": "Pairing strong front-end architecture with modern AI-assisted delivery so products ship faster without losing structure or quality."
+          "content1": "Daily <strong>Cursor</strong> and agentic coding — at work and on personal projects.",
+          "content2": "Faster fullstack delivery without losing structure."
         }
       }
     },
@@ -98,7 +98,7 @@
       "description2": "Try changing the theme"
     },
     "multilingual": {
-      "title": "Reaching across the globe!",
+      "title": "Across the globe!",
       "imageAlt": "Illustration of a globe with multiple language bubbles",
       "description": "I make multilingual apps simple.",
       "description2": "Try changing the language"

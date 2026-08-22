@@ -91,6 +91,15 @@
   color: var(--primary-contrast);
 }
 
+.btn-toggle.is-active::before {
+  content: '';
+  inline-size: 0.4rem;
+  block-size: 0.4rem;
+  border-radius: 50%;
+  background: currentColor;
+  flex-shrink: 0;
+}
+
 .btn-primary:hover,
 .btn-accent:hover,
 .btn-icon:hover,

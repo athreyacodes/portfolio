@@ -33,6 +33,42 @@
   align-items: stretch;
 }
 
+.card-coding {
+  grid-column: 1;
+  grid-row: 1 / -1;
+}
+
+.satellites {
+  display: grid;
+  grid-column: 2 / -1;
+  grid-row: 1 / -1;
+  grid-template-columns: subgrid;
+  grid-template-rows: subgrid;
+}
+
+.deck {
+  display: grid;
+  grid-column: 1 / -1;
+  grid-row: 1 / -1;
+  grid-template-columns: subgrid;
+  grid-template-rows: subgrid;
+  gap: 1.75rem;
+  transition: opacity var(--transition), visibility var(--transition),
+    transform var(--transition);
+}
+
+.deck.is-away {
+  z-index: 0;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transform: translateY(0.6rem);
+}
+
+.deck:not(.is-away) {
+  z-index: 1;
+}
+
 .card {
   display: grid;
   grid-template-rows: subgrid;
@@ -60,7 +96,7 @@
 .card-img {
   align-self: stretch;
   inline-size: 100%;
-  block-size: 12.5rem;
+  block-size: 11.5rem;
 }
 
 .card-body {
@@ -68,6 +104,7 @@
   flex-direction: column;
   gap: 0.5rem;
   min-block-size: 0;
+  padding-block-start: 1rem;
 }
 
 .card-description {
@@ -99,40 +136,42 @@
   color: var(--accent);
 }
 
-/* Light mode: language inactive segment reads as surface, not primary fill. */
-html:not(.theme-dark) .card-multilingual .btn-toggle:not(.is-active) {
-  background-color: var(--surface);
-  border-color: var(--surface);
-  color: var(--accent);
-}
-
-html:not(.theme-dark) .card-multilingual .btn-toggle.is-active {
-  background-color: var(--primary);
-  border-color: var(--primary);
-  color: var(--primary-contrast);
-}
-
-.skills-grid.details-open {
-  grid-template-columns: minmax(0, 1fr);
-  grid-template-rows: none;
-}
-
-.skills-grid.details-open .card {
-  display: flex;
-  flex-direction: column;
-  grid-row: auto;
-}
-
-.card-coding.is-expanded {
-  min-block-size: 26rem;
+@media (prefers-reduced-motion: reduce) {
+  .deck {
+    transition: none;
+    transform: none;
+  }
 }
 
 @media (max-width: 1100px) {
   .skills-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-rows: none;
   }
 
-  /* Tablet reads better with the "see my experience" card next to the intro card. */
+  .card-coding,
+  .satellites,
+  .deck,
+  .card {
+    display: flex;
+    flex-direction: column;
+    grid-column: auto;
+    grid-row: auto;
+  }
+
+  .satellites {
+    display: grid;
+    grid-column: 1 / -1;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .deck {
+    display: grid;
+    grid-column: 1 / -1;
+    grid-row: 1 / -1;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
   .card-work {
     order: -1;
   }
@@ -143,15 +182,10 @@ html:not(.theme-dark) .card-multilingual .btn-toggle.is-active {
     padding-inline: 1rem;
   }
 
-  .skills-grid {
+  .skills-grid,
+  .satellites,
+  .deck {
     grid-template-columns: minmax(0, 1fr);
-    grid-template-rows: none;
-  }
-
-  .card {
-    display: flex;
-    flex-direction: column;
-    grid-row: auto;
   }
 
   .card-img {

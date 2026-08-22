@@ -65,7 +65,7 @@
     "title": "Mes compétences",
     "subTitle": "Architecture de front ends évolutifs pour de grands produits d'entreprise — micro-frontends, SSR/SSG et livraison prête pour le SEO.",
     "coding": {
-      "title": "Je construis des plateformes d'entreprise",
+      "title": "Je construis des plateformes",
       "imageAlt": "Illustration d'un développeur présentant fièrement une application terminée",
       "description": "Des plateformes front-end d'entreprise <strong>solides</strong>, <strong>évolutives</strong> et <strong>responsive</strong>.",
       "action": "Voir mes compétences",
@@ -74,20 +74,20 @@
         "first": {
           "title": "1. Architecture",
           "imageAlt": "Illustration d'un programmeur à son poste de travail",
-          "content1": "Architecte front-end avec <strong>{years}</strong> années à construire et faire évoluer de <strong>grandes applications d'entreprise</strong> sur <strong>Angular</strong> — design systems, micro-frontends et fondations de plateforme partagées.",
-          "content2": "Je conçois des plateformes qui restent claires, cohérentes et maintenables à mesure que les équipes grandissent et que les domaines produit se multiplient."
+          "content1": "<strong>{years}+</strong> années sur <strong>Angular</strong> — design systems, <strong>Module Federation</strong> et monorepos <strong>Nx</strong>.",
+          "content2": "Maintenable même quand les équipes grandissent."
         },
         "second": {
           "title": "2. SEO & SSG",
           "imageAlt": "Illustration d'une page de résultats de recherche",
-          "content1": "Expérience concrète des architectures <strong>SSR/SSG</strong> qui livrent des pages crawlables, prêtes pour le <strong>SEO</strong>, avec un premier rendu rapide et des performances de production fiables.",
-          "content2": "Ce portfolio est un exemple de cette approche en pratique."
+          "content1": "<strong>SSR/SSG</strong> pour des pages crawlables, prêtes pour le <strong>SEO</strong>, avec un premier rendu rapide.",
+          "content2": "Ce portfolio met cette approche en pratique."
         },
         "third": {
           "title": "3. Fullstack assisté par l'IA",
           "imageAlt": "Illustration représentant l'intelligence artificielle",
-          "content1": "Je me plonge actuellement dans le développement <strong>fullstack assisté par l'IA</strong> — relier front ends, APIs et capacités d'IA en expériences produit cohérentes.",
-          "content2": "Associer une architecture front-end solide à une livraison moderne assistée par l'IA pour livrer plus vite sans perdre structure ni qualité."
+          "content1": "<strong>Cursor</strong> et le coding agentique au quotidien — au travail et en perso.",
+          "content2": "Livrer plus vite sans perdre la structure."
         }
       }
     },
@@ -98,7 +98,7 @@
       "description2": "Essayez de changer le thème"
     },
     "multilingual": {
-      "title": "Atteindre le monde entier !",
+      "title": "À travers le monde !",
       "imageAlt": "Illustration d'un globe avec des bulles de plusieurs langues",
       "description": "Je rends les apps multilingues simples.",
       "description2": "Essayez de changer la langue"

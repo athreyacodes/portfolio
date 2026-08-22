@@ -1,19 +1,25 @@
 import { ChangeDetectionStrategy, Component, computed, inject, signal } from '@angular/core';
 
+import { getExperienceYears } from '../../../core/experience';
 import { I18nService, LOCALES, LocaleCode, interpolate } from '../../../core/i18n';
 import { ScrollSpyService } from '../../../core/scroll-spy';
 import { ThemeMode, ThemeService } from '../../../core/theme';
 import { ToastService } from '../../../core/toast';
 import { Icon } from '../../../shared/icon/icon';
 import { Illustration } from '../../../shared/illustration/illustration';
-import { SkillCarousel } from './skill-carousel/skill-carousel';
 
 const THEME_MODES: readonly ThemeMode[] = ['light', 'dark'];
+
+const SKILL_CARDS = [
+  { key: 'first', image: 'programmer' },
+  { key: 'second', image: 'seo' },
+  { key: 'third', image: 'ai' }
+] as const;
 
 @Component({
   selector: 'app-skills',
   changeDetection: ChangeDetectionStrategy.OnPush,
-  imports: [Icon, Illustration, SkillCarousel],
+  imports: [Icon, Illustration],
   templateUrl: './skills.html',
   styleUrl: './skills.scss'
 })
@@ -28,10 +34,27 @@ export class Skills {
   protected readonly themes = THEME_MODES;
   protected readonly activeLocale = this.i18n.locale;
   protected readonly activeTheme = this.themeService.theme;
-  protected readonly detailsOpen = signal(false);
+  protected readonly skillsOpen = signal(false);
 
-  protected toggleDetails(open: boolean): void {
-    this.detailsOpen.set(open);
+  protected readonly skillCards = computed(() => {
+    const details = this.copy().skills.coding.details;
+    const years = getExperienceYears();
+
+    return SKILL_CARDS.map(({ key, image }) => {
+      const slide = details[key];
+      return {
+        key,
+        image,
+        title: slide.title.replace(/^\d+\.\s*/, ''),
+        imageAlt: slide.imageAlt,
+        content1: interpolate(slide.content1, { years }),
+        content2: slide.content2
+      };
+    });
+  });
+
+  protected toggleSkills(): void {
+    this.skillsOpen.update((open) => !open);
   }
 
   protected themeLabel(mode: ThemeMode): string {
