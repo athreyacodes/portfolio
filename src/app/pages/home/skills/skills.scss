@@ -99,6 +99,19 @@
   color: var(--accent);
 }
 
+/* Light mode: language inactive segment reads as surface, not primary fill. */
+html:not(.theme-dark) .card-multilingual .btn-toggle:not(.is-active) {
+  background-color: var(--surface);
+  border-color: var(--surface);
+  color: var(--accent);
+}
+
+html:not(.theme-dark) .card-multilingual .btn-toggle.is-active {
+  background-color: var(--primary);
+  border-color: var(--primary);
+  color: var(--primary-contrast);
+}
+
 .skills-grid.details-open {
   grid-template-columns: minmax(0, 1fr);
   grid-template-rows: none;
