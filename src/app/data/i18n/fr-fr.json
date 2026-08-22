@@ -42,6 +42,8 @@
     "disableAutoPlay": "Désactiver la lecture automatique",
     "openLinkCompany": "Ouvrir le lien de cette entreprise dans un nouvel onglet",
     "goToTop": "Aller en haut",
+    "goToLinkedIn": "Aller sur mon LinkedIn",
+    "copyEmail": "Copier mon e-mail",
     "close": "Fermer",
     "swipeHint": "< glisser >"
   },
@@ -67,6 +69,7 @@
   "skills": {
     "title": "Comment j'architecte",
     "subTitle": "Fondations de plateforme pour de grands produits d'entreprise — micro-frontends, SSR/SSG et livraison prête pour le SEO.",
+    "buildAction": "Voir comment je construis",
     "coding": {
       "title": "Je construis des plateformes",
       "imageAlt": "Illustration d'un développeur présentant fièrement une application terminée",
@@ -119,7 +122,7 @@
       "title": "Conçu pour l'échelle",
       "imageAlt": "Illustration de blocs modulaires de micro-frontends",
       "description": "Des apps <strong>rapides</strong> et légères — premier rendu, coût runtime, et une UI qui reste vive en grandissant.",
-      "action": "Voir mon expérience"
+      "action": "Mon expérience"
     }
   },
   "exp": {
@@ -130,7 +133,7 @@
       "label": "Futur",
       "roles": [
         "Principal Software Engineer ?",
-        "Front-end architect ?",
+        "Staff Software Engineer ?",
         "AI-Enabled Fullstack Engineer ?"
       ]
     },

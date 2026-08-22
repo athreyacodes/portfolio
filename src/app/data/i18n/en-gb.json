@@ -42,6 +42,8 @@
     "disableAutoPlay": "Disable auto play",
     "openLinkCompany": "Open this company link in a new tab",
     "goToTop": "Go to top",
+    "goToLinkedIn": "Go to my LinkedIn",
+    "copyEmail": "Copy my email ID",
     "close": "Close",
     "swipeHint": "< swipe >"
   },
@@ -67,6 +69,7 @@
   "skills": {
     "title": "How I architect",
     "subTitle": "Platform foundations for large enterprise products — micro frontends, SSR/SSG, and SEO-ready delivery.",
+    "buildAction": "See how I build",
     "coding": {
       "title": "I build platforms",
       "imageAlt": "Illustration of a developer proudly presenting a finished application",
@@ -130,7 +133,7 @@
       "label": "Future",
       "roles": [
         "Principal Software Engineer?",
-        "Front-end architect?",
+        "Staff Software Engineer?",
         "AI-Enabled Fullstack Engineer?"
       ]
     },

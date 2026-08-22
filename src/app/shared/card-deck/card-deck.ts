@@ -20,6 +20,8 @@ const RESET_OUT_MS = 280;
 const RESET_IN_MS = 480;
 const STAGGER_MS = 55;
 const NUDGE_DELAY_MS = 550;
+const PEEK_PX = 6;
+const MAX_VISIBLE_STACK = 3;
 
 /**
  * Mobile-only Tinder-style stack. Desktop is untouched: the host keeps its
@@ -240,7 +242,10 @@ export class CardDeck {
     probe.remove();
 
     if (tallest > 0) {
-      host.style.minBlockSize = `${Math.ceil(tallest)}px`;
+      const stackRoom = PEEK_PX * MAX_VISIBLE_STACK;
+      host.style.setProperty('--deck-peek', `${PEEK_PX}px`);
+      host.style.setProperty('--deck-stack-room', `${stackRoom}px`);
+      host.style.minBlockSize = `${Math.ceil(tallest) + stackRoom}px`;
     }
   }
 

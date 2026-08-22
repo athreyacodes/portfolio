@@ -6,6 +6,7 @@ import { ScrollSpyService } from '../../../core/scroll-spy';
 import { ThemeMode, ThemeService } from '../../../core/theme';
 import { ToastService } from '../../../core/toast';
 import { CardDeck } from '../../../shared/card-deck/card-deck';
+import { Icon } from '../../../shared/icon/icon';
 import { Illustration } from '../../../shared/illustration/illustration';
 
 const THEME_MODES: readonly ThemeMode[] = ['light', 'dark'];
@@ -19,7 +20,7 @@ const SKILL_CARDS = [
 @Component({
   selector: 'app-skills',
   changeDetection: ChangeDetectionStrategy.OnPush,
-  imports: [CardDeck, Illustration],
+  imports: [CardDeck, Icon, Illustration],
   templateUrl: './skills.html',
   styleUrl: './skills.scss'
 })
@@ -75,6 +76,10 @@ export class Skills {
     const name = LOCALES.find((locale) => locale.code === code)?.name ?? code;
     await this.i18n.setLocale(code);
     this.toast.show(interpolate(this.copy().global.languageUpdated, { language: name }));
+  }
+
+  protected onCraftClick(event: MouseEvent): void {
+    this.scrollSpy.handleNavClick(event, 'craft');
   }
 
   protected onExperienceClick(event: MouseEvent): void {

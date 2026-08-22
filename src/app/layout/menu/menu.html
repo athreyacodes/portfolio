@@ -11,9 +11,38 @@
   (keydown)="onKeydown($event)"
 >
   <ul class="options" role="list">
+    @if (scrolled()) {
+      <li>
+        <button type="button" (click)="goToTop()">
+          <app-icon name="arrowUp" />
+          <span>{{ text.global.goToTop }}</span>
+        </button>
+      </li>
+    }
+
+    <li>
+      <a
+        [href]="text.contactInfo.linkedin"
+        target="_blank"
+        rel="me noopener noreferrer"
+        (click)="close()"
+      >
+        <app-icon name="linkedin" />
+        <span>{{ text.global.goToLinkedIn }}</span>
+        <span class="visually-hidden">({{ text.a11y.openInNewTab }})</span>
+      </a>
+    </li>
+
+    <li>
+      <button type="button" (click)="copyEmail()">
+        <app-icon name="copy" />
+        <span>{{ text.global.copyEmail }}</span>
+      </button>
+    </li>
+
     <li>
       <a [href]="cvUrl" [attr.download]="cvFilename" (click)="close()">
-        <app-icon name="download" />
+        <app-icon name="description" />
         <span>{{ text.banner.downloadCv }}</span>
       </a>
     </li>

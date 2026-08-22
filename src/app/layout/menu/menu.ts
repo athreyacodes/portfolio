@@ -10,6 +10,7 @@ import {
 } from '@angular/core';
 
 import { I18nService, LOCALES, LocaleCode, interpolate } from '../../core/i18n';
+import { ScrollSpyService } from '../../core/scroll-spy';
 import { ThemeMode, ThemeService } from '../../core/theme';
 import { ToastService } from '../../core/toast';
 import { CV_FILENAME, CV_URL } from '../../core/links';
@@ -26,12 +27,14 @@ export class Menu implements AfterViewInit {
   private readonly i18n = inject(I18nService);
   private readonly theme = inject(ThemeService);
   private readonly toast = inject(ToastService);
+  private readonly scrollSpy = inject(ScrollSpyService);
 
   readonly closed = output<void>();
 
   private readonly panel = viewChild.required<ElementRef<HTMLElement>>('panel');
 
   protected readonly copy = this.i18n.copy;
+  protected readonly scrolled = this.scrollSpy.scrolled;
   protected readonly cvUrl = CV_URL;
   protected readonly cvFilename = CV_FILENAME;
 
@@ -96,6 +99,25 @@ export class Menu implements AfterViewInit {
     this.theme.setTheme(mode);
     this.close();
     this.toast.show(interpolate(this.copy().global.themeUpdated, { theme: label }));
+  }
+
+  protected goToTop(): void {
+    this.close();
+    this.scrollSpy.scrollTo('home');
+  }
+
+  protected async copyEmail(): Promise<void> {
+    const text = this.copy();
+    const email = text.contactInfo.email;
+
+    try {
+      await navigator.clipboard.writeText(email);
+      this.toast.show(interpolate(text.global.copied, { email }));
+    } catch {
+      this.toast.show(interpolate(text.global.copyFailed, { email }));
+    }
+
+    this.close();
   }
 
   protected close(): void {

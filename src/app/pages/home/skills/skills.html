@@ -27,6 +27,13 @@
         </article>
       }
     </div>
+
+    <div class="skills-cta">
+      <a class="btn-primary" href="#craft" (click)="onCraftClick($event)">
+        <app-icon name="arrowDown" [size]="1.25" />
+        <span>{{ text.skills.buildAction }}</span>
+      </a>
+    </div>
   </div>
 } @else {
   <div class="skills band-craft">
@@ -102,7 +109,8 @@
         </div>
         <div class="card-actions">
           <a class="btn-primary" href="#experience" (click)="onExperienceClick($event)">
-            {{ text.skills.work.action }}
+            <app-icon name="arrowDown" [size]="1.25" />
+            <span>{{ text.skills.work.action }}</span>
           </a>
         </div>
       </article>
