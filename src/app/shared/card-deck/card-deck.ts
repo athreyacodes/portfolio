@@ -60,8 +60,8 @@ export class CardDeck {
   private startY = 0;
   private dx = 0;
   private axis: 'pending' | 'x' | 'y' = 'pending';
-  private didSwipe = false;
   private reducedMotion = false;
+  private ghostClick: { x: number; y: number; until: number } | undefined;
   private hint: HTMLParagraphElement | undefined;
   private nudgePlayed = false;
   private nudgeTimer: ReturnType<typeof setTimeout> | undefined;
@@ -120,7 +120,6 @@ export class CardDeck {
     this.startY = event.clientY;
     this.dx = 0;
     this.axis = 'pending';
-    this.didSwipe = false;
     this.host.nativeElement.setPointerCapture(event.pointerId);
   }
 
@@ -170,14 +169,12 @@ export class CardDeck {
     const threshold = Math.max(SWIPE_PX, width * 0.22);
 
     if (dx > threshold) {
-      this.didSwipe = true;
-      this.suppressGhostClick();
+      this.suppressGhostClick(event);
       void this.goNext();
       return;
     }
     if (dx < -threshold) {
-      this.didSwipe = true;
-      this.suppressGhostClick();
+      this.suppressGhostClick(event);
       this.goPrev();
       return;
     }
@@ -185,13 +182,12 @@ export class CardDeck {
     this.snapFront();
   }
 
-  protected onClick(event: Event): void {
-    if (!this.didSwipe) {
+  protected onClick(event: MouseEvent): void {
+    if (!this.isGhostClick(event)) {
       return;
     }
     event.preventDefault();
     event.stopPropagation();
-    this.didSwipe = false;
   }
 
   protected onKeydown(event: KeyboardEvent): void {
@@ -298,29 +294,48 @@ export class CardDeck {
     unlock();
   }
 
-  /** Swallow the leftover click only — never pointerdown, or the next swipe is ignored. */
-  private suppressGhostClick(): void {
+  /**
+   * Ignore only the leftover click from this swipe (same spot, next ~500ms).
+   * A new tap on French / theme must still work immediately.
+   */
+  private suppressGhostClick(event: PointerEvent): void {
     this.clickGuard?.();
+    this.ghostClick = {
+      x: event.clientX,
+      y: event.clientY,
+      until: performance.now() + 500
+    };
 
     const doc = this.host.nativeElement.ownerDocument;
-    const block = (event: Event) => {
-      event.preventDefault();
-      event.stopPropagation();
+    const block = (click: Event) => {
+      if (!(click instanceof MouseEvent) || !this.isGhostClick(click)) {
+        return;
+      }
+      click.preventDefault();
+      click.stopPropagation();
+      stop();
     };
 
     doc.addEventListener('click', block, true);
-    doc.addEventListener('focusin', block, true);
-
-    const timer = window.setTimeout(() => stop(), 1400);
+    const timer = window.setTimeout(() => stop(), 500);
     const stop = () => {
       clearTimeout(timer);
       doc.removeEventListener('click', block, true);
-      doc.removeEventListener('focusin', block, true);
+      this.ghostClick = undefined;
       if (this.clickGuard === stop) {
         this.clickGuard = undefined;
       }
     };
     this.clickGuard = stop;
+  }
+
+  private isGhostClick(event: MouseEvent): boolean {
+    const ghost = this.ghostClick;
+    if (!ghost || performance.now() > ghost.until) {
+      this.ghostClick = undefined;
+      return false;
+    }
+    return Math.hypot(event.clientX - ghost.x, event.clientY - ghost.y) < 28;
   }
 
   private lockScroll(): () => void {
