@@ -17,24 +17,6 @@
         <span>{{ text.banner.downloadCv }}</span>
       </a>
     </li>
-    <li>
-      <button type="button" (click)="goTo('skills')">
-        <app-icon name="skills" />
-        <span>{{ text.skills.title }}</span>
-      </button>
-    </li>
-    <li>
-      <button type="button" (click)="goTo('craft')">
-        <app-icon name="code" />
-        <span>{{ text.skills.craft.title }}</span>
-      </button>
-    </li>
-    <li>
-      <button type="button" (click)="goTo('experience')">
-        <app-icon name="experience" />
-        <span>{{ text.banner.expBtn }}</span>
-      </button>
-    </li>
 
     @for (locale of otherLocales(); track locale.code) {
       <li>
@@ -50,15 +32,6 @@
         <button type="button" (click)="selectTheme(mode)">
           <app-icon [name]="mode" />
           <span>{{ themeLabel(mode) }}</span>
-        </button>
-      </li>
-    }
-
-    @if (scrolled()) {
-      <li>
-        <button type="button" (click)="goTo('home')">
-          <app-icon name="arrowUp" />
-          <span>{{ text.global.goToTop }}</span>
         </button>
       </li>
     }

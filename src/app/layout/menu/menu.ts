@@ -10,7 +10,6 @@ import {
 } from '@angular/core';
 
 import { I18nService, LOCALES, LocaleCode, interpolate } from '../../core/i18n';
-import { ScrollSpyService, SectionId } from '../../core/scroll-spy';
 import { ThemeMode, ThemeService } from '../../core/theme';
 import { ToastService } from '../../core/toast';
 import { CV_FILENAME, CV_URL } from '../../core/links';
@@ -26,7 +25,6 @@ import { Icon } from '../../shared/icon/icon';
 export class Menu implements AfterViewInit {
   private readonly i18n = inject(I18nService);
   private readonly theme = inject(ThemeService);
-  private readonly scrollSpy = inject(ScrollSpyService);
   private readonly toast = inject(ToastService);
 
   readonly closed = output<void>();
@@ -34,7 +32,6 @@ export class Menu implements AfterViewInit {
   private readonly panel = viewChild.required<ElementRef<HTMLElement>>('panel');
 
   protected readonly copy = this.i18n.copy;
-  protected readonly scrolled = this.scrollSpy.scrolled;
   protected readonly cvUrl = CV_URL;
   protected readonly cvFilename = CV_FILENAME;
 
@@ -85,11 +82,6 @@ export class Menu implements AfterViewInit {
       event.preventDefault();
       first.focus();
     }
-  }
-
-  protected goTo(section: SectionId): void {
-    this.scrollSpy.scrollTo(section);
-    this.close();
   }
 
   protected async selectLocale(code: LocaleCode): Promise<void> {

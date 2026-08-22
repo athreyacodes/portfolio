@@ -46,7 +46,7 @@
   },
   "a11y": {
     "skipToContent": "Skip to main content",
-    "openMenu": "Open navigation menu",
+    "openMenu": "Open menu",
     "closeMenu": "Close navigation menu",
     "primaryNav": "Section navigation",
     "menuLandmark": "Site options",
