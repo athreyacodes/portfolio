@@ -105,7 +105,7 @@ export class ScrollSpyService {
     }
 
     const compact = window.matchMedia('(max-width: 820px)').matches;
-    const offsetPx = compact ? 64 : headingId ? 32 : 24;
+    const offsetPx = compact ? 16 : headingId ? 32 : 24;
     const top = Math.max(0, target.getBoundingClientRect().top + window.scrollY - offsetPx);
     window.scrollTo({ top, behavior: this.scrollBehavior() });
   }
