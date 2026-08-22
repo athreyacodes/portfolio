@@ -126,8 +126,9 @@
     pointer-events: none;
     background: linear-gradient(
       to top,
-      color-mix(in srgb, var(--background) 70%, transparent) 0%,
-      color-mix(in srgb, var(--background) 32%, transparent) 42%,
+      var(--background) 0%,
+      color-mix(in srgb, var(--background) 78%, transparent) 28%,
+      color-mix(in srgb, var(--background) 32%, transparent) 58%,
       transparent 100%
     );
     backdrop-filter: blur(16px) saturate(1.1);

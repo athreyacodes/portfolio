@@ -61,6 +61,20 @@
         var dark = stored ? stored === 'dark' : window.matchMedia('(prefers-color-scheme: dark)').matches;
         document.documentElement.classList.toggle('theme-dark', dark);
         document.documentElement.style.colorScheme = dark ? 'dark' : 'light';
+
+        var color = dark ? '#121212' : '#eeeeee';
+        var metas = document.querySelectorAll('meta[name="theme-color"]');
+        var meta = metas[0];
+        if (!meta) {
+          meta = document.createElement('meta');
+          meta.setAttribute('name', 'theme-color');
+          document.head.appendChild(meta);
+        }
+        meta.removeAttribute('media');
+        meta.setAttribute('content', color);
+        for (var i = 1; i < metas.length; i++) {
+          metas[i].remove();
+        }
       } catch (e) { }
     })();
   </script>

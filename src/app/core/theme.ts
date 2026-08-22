@@ -55,6 +55,31 @@ export class ThemeService {
     const root = this.document.documentElement;
     root.classList.toggle(DARK_CLASS, mode === 'dark');
     root.style.colorScheme = mode;
+    this.syncThemeColor();
+  }
+
+  /**
+   * iOS Safari tints the status bar and toolbar from `theme-color`. The static
+   * media queries follow the OS, so a manual site theme would otherwise leave
+   * the chrome on the wrong colour.
+   */
+  private syncThemeColor(): void {
+    const color = getComputedStyle(this.document.documentElement)
+      .getPropertyValue('--background')
+      .trim();
+
+    if (!color) {
+      return;
+    }
+
+    for (const meta of Array.from(this.document.querySelectorAll('meta[name="theme-color"]'))) {
+      meta.remove();
+    }
+
+    const meta = this.document.createElement('meta');
+    meta.setAttribute('name', 'theme-color');
+    meta.setAttribute('content', color);
+    this.document.head.appendChild(meta);
   }
 
   private readStoredTheme(): ThemeMode | null {
