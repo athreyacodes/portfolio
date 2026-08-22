@@ -230,6 +230,9 @@ picture {
 
     display: block;
     position: relative;
+    max-inline-size: 24.5rem;
+    inline-size: 100%;
+    margin-inline: auto;
   }
 
   .timeline.card-deck .card.is-inverse {
@@ -240,8 +243,10 @@ picture {
     position: absolute;
     inset-block-start: 0;
     inset-inline: 0;
+    inset-block-end: var(--deck-stack-room);
     display: flex;
     flex-direction: column;
+    block-size: auto;
   }
 
   .timeline.card-deck .card {
@@ -249,8 +254,8 @@ picture {
     flex-direction: column;
     flex: 1 1 auto;
     grid-row: auto;
-    min-block-size: 0;
-    block-size: 100%;
+    min-block-size: 22rem;
+    block-size: auto;
   }
 }
 

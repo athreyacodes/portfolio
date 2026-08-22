@@ -179,6 +179,9 @@
 
     display: block;
     position: relative;
+    max-inline-size: 24.5rem;
+    inline-size: 100%;
+    margin-inline: auto;
   }
 
   .skills-grid.card-deck > .card,

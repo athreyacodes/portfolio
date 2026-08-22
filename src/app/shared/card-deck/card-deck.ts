@@ -234,7 +234,12 @@ export class CardDeck {
     for (const el of this.items) {
       const clone = el.cloneNode(true) as HTMLElement;
       clone.removeAttribute('style');
-      clone.style.cssText = 'position:relative;inset:auto;block-size:auto;inline-size:100%';
+      clone.style.cssText =
+        'position:relative;inset:auto;block-size:auto;inline-size:100%;transform:none';
+      for (const node of clone.querySelectorAll<HTMLElement>('.card')) {
+        node.style.blockSize = 'auto';
+        node.style.height = 'auto';
+      }
       probe.replaceChildren(clone);
       tallest = Math.max(tallest, clone.getBoundingClientRect().height);
     }

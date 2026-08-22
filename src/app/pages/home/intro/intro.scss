@@ -150,7 +150,10 @@
   }
 
   .intro-identity {
+    max-inline-size: 24.5rem;
+    inline-size: 100%;
     margin-block-start: calc(var(--intro-photo-size) / 2);
+    margin-inline: auto;
     padding: calc(var(--intro-photo-size) / 2 + 1.15rem) 1.5rem 1.75rem;
     color: var(--card-solid-text);
     background: var(--card-solid);
