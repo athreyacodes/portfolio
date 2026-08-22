@@ -298,7 +298,7 @@ export class CardDeck {
     unlock();
   }
 
-  /** The last card loses pointer-events, so iOS/Android still fire a delayed click on the next section. */
+  /** Swallow the leftover click only — never pointerdown, or the next swipe is ignored. */
   private suppressGhostClick(): void {
     this.clickGuard?.();
 
@@ -309,16 +309,12 @@ export class CardDeck {
     };
 
     doc.addEventListener('click', block, true);
-    doc.addEventListener('pointerdown', block, true);
-    doc.addEventListener('touchend', block, true);
     doc.addEventListener('focusin', block, true);
 
     const timer = window.setTimeout(() => stop(), 1400);
     const stop = () => {
       clearTimeout(timer);
       doc.removeEventListener('click', block, true);
-      doc.removeEventListener('pointerdown', block, true);
-      doc.removeEventListener('touchend', block, true);
       doc.removeEventListener('focusin', block, true);
       if (this.clickGuard === stop) {
         this.clickGuard = undefined;
