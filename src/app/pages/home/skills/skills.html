@@ -7,33 +7,83 @@
       <p>{{ text.skills.subTitle }}</p>
     </div>
 
-    <div class="skills-grid" appCardDeck>
+    <div class="skills-grid has-actions" appCardDeck>
       <article class="card card-primary">
         <h3 class="card-title">{{ text.skills.coding.title }}</h3>
         <app-illustration class="card-img" name="proud" [alt]="text.skills.coding.imageAlt" [width]="200" [height]="160" />
         <div class="card-body">
           <p class="card-description" [innerHTML]="text.skills.coding.description"></p>
         </div>
+        <div class="card-actions"></div>
       </article>
 
       @for (card of skillCards(); track card.key) {
-        <article class="card is-inverse">
+        <article class="card is-inverse" [class.card-ai]="card.key === 'third'">
           <h3 class="card-title">{{ card.title }}</h3>
           <app-illustration class="card-img" [name]="card.image" [alt]="card.imageAlt" [width]="200" [height]="160" />
           <div class="card-body">
             <p class="card-description" [innerHTML]="card.content1"></p>
             <p class="card-description" [innerHTML]="card.content2"></p>
           </div>
+          <div class="card-actions">
+            @if (card.key === 'second') {
+              <button type="button" class="btn-primary" (click)="openSeoReport($event)">
+                <app-icon name="description" [size]="1.25" />
+                <span>{{ text.skills.seoReportAction }}</span>
+              </button>
+            } @else if (card.key === 'third') {
+              <a class="btn-primary" href="#craft" (click)="onCraftClick($event)">
+                <app-icon name="arrowDown" [size]="1.25" />
+                <span>{{ text.skills.buildAction }}</span>
+              </a>
+            }
+          </div>
         </article>
       }
     </div>
 
-    <div class="skills-cta">
-      <a class="btn-primary" href="#craft" (click)="onCraftClick($event)">
-        <app-icon name="arrowDown" [size]="1.25" />
-        <span>{{ text.skills.buildAction }}</span>
-      </a>
-    </div>
+    @if (seoReportOpen()) {
+      <div class="seo-report" (keydown)="onSeoReportKeydown($event)">
+        <div class="seo-report-scrim" (click)="closeSeoReport()"></div>
+        <div
+          #seoDialog
+          class="seo-report-panel"
+          role="dialog"
+          aria-modal="true"
+          [attr.aria-label]="text.a11y.seoReportDialog"
+        >
+          <header class="seo-report-header">
+            <h2 class="seo-report-title">{{ text.a11y.seoReportDialog }}</h2>
+            <div class="seo-report-actions">
+              <a
+                class="btn-primary"
+                [href]="seoReportUrl"
+                [attr.download]="seoReportFilename"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <app-icon name="download" [size]="1.25" />
+                <span>{{ text.skills.seoReportDownload }}</span>
+                <span class="visually-hidden">({{ text.a11y.openInNewTab }})</span>
+              </a>
+              <button
+                type="button"
+                class="seo-report-close"
+                [attr.aria-label]="text.a11y.closeDialog"
+                (click)="closeSeoReport()"
+              >
+                <app-icon name="close" [size]="1.25" />
+              </button>
+            </div>
+          </header>
+          <iframe
+            class="seo-report-frame"
+            [src]="seoReportSrc"
+            [title]="text.a11y.seoReportDialog"
+          ></iframe>
+        </div>
+      </div>
+    }
   </div>
 } @else {
   <div class="skills band-craft">

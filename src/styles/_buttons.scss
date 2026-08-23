@@ -113,6 +113,34 @@
   box-shadow: var(--shadow-high);
 }
 
+.btn-primary:disabled,
+.btn-accent:disabled,
+.btn-primary.is-disabled,
+.btn-accent.is-disabled {
+  opacity: 1;
+  box-shadow: none;
+  cursor: not-allowed;
+  transform: none;
+  background-color: color-mix(in srgb, var(--primary) 45%, var(--surface));
+  border-color: color-mix(in srgb, var(--primary) 45%, var(--surface));
+  color: color-mix(in srgb, var(--primary-contrast) 70%, var(--primary));
+}
+
+.btn-primary:disabled:hover,
+.btn-accent:disabled:hover,
+.btn-primary.is-disabled:hover,
+.btn-accent.is-disabled:hover {
+  box-shadow: none;
+  transform: none;
+}
+
+.card.is-inverse .btn-primary:disabled,
+.card.is-inverse .btn-primary.is-disabled {
+  background-color: color-mix(in srgb, var(--card-soft-text) 55%, transparent);
+  border-color: transparent;
+  color: var(--card-soft-text);
+}
+
 .btn-ghost:hover,
 .btn-icon:hover {
   background-color: var(--surface-hover);

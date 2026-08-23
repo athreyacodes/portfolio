@@ -56,7 +56,9 @@
     "profileAlt": "Portrait of Athreya M R",
     "notifications": "Notifications",
     "carouselTabs": "Skill areas",
-    "openInNewTab": "opens in a new tab"
+    "openInNewTab": "opens in a new tab",
+    "closeDialog": "Close dialog",
+    "seoReportDialog": "Lighthouse SEO report"
   },
   "header": {
     "navItems": {
@@ -70,6 +72,9 @@
     "title": "How I architect",
     "subTitle": "Platform foundations for large enterprise products — micro frontends, SSR/SSG, and SEO-ready delivery.",
     "buildAction": "See how I build",
+    "comingSoon": "Coming soon...",
+    "seoReportAction": "View SEO report",
+    "seoReportDownload": "Download report",
     "coding": {
       "title": "I build platforms",
       "imageAlt": "Illustration of a developer proudly presenting a finished application",
@@ -86,8 +91,8 @@
         "second": {
           "title": "2. SEO & SSG",
           "imageAlt": "Illustration of a search engine results page",
-          "content1": "<strong>SSR/SSG</strong> that ships crawlable, <strong>SEO</strong>-ready pages with a fast first paint.",
-          "content2": "This portfolio is that approach in practice."
+          "content1": "<strong>SSR/SSG</strong> for pages that load fast and show up clearly in search — built for <strong>SEO</strong>.",
+          "content2": "This site is built that way — see the report."
         },
         "third": {
           "title": "3. AI-enabled fullstack",
