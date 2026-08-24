@@ -29,12 +29,12 @@ Shared platform foundations for apps in this stack.
 - Repo: [github.com/athreyacodes/platform](https://github.com/athreyacodes/platform)
 - Hosted: 
 
-### Blogs
+### How
 
-Writing and notes.
+Notes on how Athreya codes.
 
-- Repo: [github.com/athreyacodes/blogs](https://github.com/athreyacodes/blogs)
-- Hosted: 
+- Repo: [github.com/athreyacodes/how](https://github.com/athreyacodes/how)
+- Hosted: [how.athreya.codes](https://how.athreya.codes) 
 
 ### Layers UI
 
