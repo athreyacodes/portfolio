@@ -23,6 +23,7 @@
 
 .intro-identity {
   align-items: flex-end;
+  overflow: visible;
   padding-inline: 1.5rem 2rem;
   text-align: end;
   color: var(--card-solid-text);
@@ -55,11 +56,51 @@
 }
 
 .intro-identity .btn-icon {
+  position: relative;
+  overflow: visible;
   color: var(--card-solid-text);
 }
 
 .intro-identity .btn-icon:hover {
   background-color: color-mix(in srgb, var(--card-solid-text) 14%, transparent);
+}
+
+.intro-identity .tooltip {
+  position: absolute;
+  top: calc(100% + 0.4rem);
+  left: 50%;
+  z-index: 2;
+  padding: 0.2rem 0.45rem;
+  border-radius: 0.25rem;
+  background: var(--card-solid-text);
+  color: var(--card-solid);
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  line-height: 1.2;
+  white-space: nowrap;
+  opacity: 0;
+  pointer-events: none;
+  transform: translateX(-50%) translateY(-0.15rem);
+  transition:
+    opacity 0.12s ease,
+    transform 0.12s ease;
+}
+
+.intro-identity .tooltip::after {
+  content: '';
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  border: 0.28rem solid transparent;
+  border-bottom-color: var(--card-solid-text);
+  transform: translateX(-50%);
+}
+
+.intro-identity .btn-icon:hover .tooltip,
+.intro-identity .btn-icon:focus-visible .tooltip {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
 }
 
 .pre-title {
@@ -119,6 +160,8 @@
 
 .social-links {
   inset-inline-end: 1.5rem;
+  z-index: 2;
+  overflow: visible;
   padding: 0;
   list-style: none;
 }
@@ -154,7 +197,8 @@
     inline-size: 100%;
     margin-block-start: calc(var(--intro-photo-size) / 2);
     margin-inline: auto;
-    padding: calc(var(--intro-photo-size) / 2 + 1.15rem) 1.5rem 1.75rem;
+    overflow: visible;
+    padding: calc(var(--intro-photo-size) / 2 + 1.15rem) 1.5rem 2.75rem;
     color: var(--card-solid-text);
     background: var(--card-solid);
     border-radius: 25px;

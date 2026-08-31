@@ -20,11 +20,24 @@
       <li>
         <a
           class="btn-icon"
+          [href]="text.contactInfo.how"
+          target="_blank"
+          rel="me noopener noreferrer"
+          [attr.aria-label]="text.banner.icon.how + ' (' + text.a11y.openInNewTab + ')'"
+        >
+          <span class="tooltip">{{ text.banner.icon.how }}</span>
+          <app-icon name="how" />
+        </a>
+      </li>
+      <li>
+        <a
+          class="btn-icon"
           [href]="text.contactInfo.linkedin"
           target="_blank"
           rel="me noopener noreferrer"
           [attr.aria-label]="text.banner.icon.linkedin + ' (' + text.a11y.openInNewTab + ')'"
         >
+          <span class="tooltip">{{ text.banner.icon.linkedin }}</span>
           <app-icon name="linkedin" />
         </a>
       </li>
@@ -36,6 +49,7 @@
           rel="me noopener noreferrer"
           [attr.aria-label]="text.banner.icon.github + ' (' + text.a11y.openInNewTab + ')'"
         >
+          <span class="tooltip">{{ text.banner.icon.github }}</span>
           <app-icon name="github" />
         </a>
       </li>
