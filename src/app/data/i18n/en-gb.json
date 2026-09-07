@@ -20,7 +20,6 @@
     "expBtn": "Experience",
     "downloadCv": "Download CV",
     "icon": {
-      "how": "How",
       "linkedin": "My LinkedIn",
       "github": "My Github"
     }
@@ -30,7 +29,6 @@
     "fullname": "ATHREYA M R",
     "email": "athreyacodes@gmail.com",
     "location": "Bangalore, IN",
-    "how": "https://how.athreya.codes",
     "linkedin": "https://www.linkedin.com/in/athreyamr/",
     "github": "https://github.com/athreyacodes"
   },
