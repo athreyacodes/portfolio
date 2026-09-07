@@ -25,6 +25,12 @@
   line-height: 1.6;
 }
 
+.skills-cta {
+  display: flex;
+  justify-content: center;
+  margin-block-start: 2.5rem;
+}
+
 .skills-grid {
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));

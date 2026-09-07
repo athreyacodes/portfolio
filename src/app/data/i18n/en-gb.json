@@ -131,8 +131,9 @@
     }
   },
   "exp": {
-    "title": "My Work and Experience",
+    "title": "My Experience",
     "subTitle": "Building Angular products for global teams since 2015.",
+    "projectsAction": "Explore my work and projects",
     "atCompany": "at {company}",
     "future": {
       "label": "Future",

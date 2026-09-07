@@ -4,3 +4,5 @@ export const CV_FILENAME = 'Athreya_MR_CV.pdf';
 
 export const SEO_REPORT_URL = '/files/seo-report-lighthouse.pdf';
 export const SEO_REPORT_FILENAME = 'Athreya_portfolio_SEO_report.pdf';
+
+export const APPS_URL = 'https://apps.athreya.codes/';

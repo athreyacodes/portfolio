@@ -64,4 +64,17 @@
       </article>
     </li>
   </ol>
+
+  <div class="experience-cta">
+    <a
+      class="btn-primary"
+      [href]="appsUrl"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      <app-icon name="openInNew" [size]="1.25" />
+      <span>{{ text.exp.projectsAction }}</span>
+      <span class="visually-hidden">({{ text.a11y.openInNewTab }})</span>
+    </a>
+  </div>
 </div>
