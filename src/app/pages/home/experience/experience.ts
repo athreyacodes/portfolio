@@ -10,7 +10,7 @@ import {
 import { isPlatformBrowser } from '@angular/common';
 
 import { I18nService, interpolate } from '../../../core/i18n';
-import { APPS_URL } from '../../../core/links';
+import { APPS_URL, CV_FILENAME, CV_URL } from '../../../core/links';
 import { ThemeMode, ThemeService } from '../../../core/theme';
 import { CardDeck } from '../../../shared/card-deck/card-deck';
 import { Icon } from '../../../shared/icon/icon';
@@ -59,6 +59,8 @@ export class Experience {
 
   protected readonly copy = this.i18n.copy;
   protected readonly appsUrl = APPS_URL;
+  protected readonly cvUrl = CV_URL;
+  protected readonly cvFilename = CV_FILENAME;
   protected readonly roleIndex = signal(0);
   protected readonly flipping = signal(false);
   protected readonly deckIndex = signal(0);

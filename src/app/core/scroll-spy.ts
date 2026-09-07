@@ -7,7 +7,8 @@ export const SECTION_IDS: readonly SectionId[] = ['home', 'skills', 'craft', 'ex
 
 const HEADING_IDS: Partial<Record<SectionId, string>> = {
   skills: 'skills-heading',
-  craft: 'craft-heading'
+  craft: 'craft-heading',
+  experience: 'experience-heading'
 };
 
 /**

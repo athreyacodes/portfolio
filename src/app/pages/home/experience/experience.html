@@ -76,5 +76,19 @@
       <span>{{ text.exp.projectsAction }}</span>
       <span class="visually-hidden">({{ text.a11y.openInNewTab }})</span>
     </a>
+    <a
+      class="btn-accent"
+      [href]="text.contactInfo.linkedin"
+      target="_blank"
+      rel="me noopener noreferrer"
+    >
+      <app-icon name="linkedin" [size]="1.25" />
+      <span>{{ text.exp.linkedinAction }}</span>
+      <span class="visually-hidden">({{ text.a11y.openInNewTab }})</span>
+    </a>
+    <a class="btn-accent" [href]="cvUrl" [attr.download]="cvFilename">
+      <app-icon name="description" [size]="1.25" />
+      <span>{{ text.banner.downloadCv }}</span>
+    </a>
   </div>
 </div>
