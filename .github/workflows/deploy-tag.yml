@@ -33,8 +33,8 @@ jobs:
         uses: FirebaseExtended/action-hosting-deploy@v0
         with:
           repoToken: ${{ secrets.GITHUB_TOKEN }}
-          firebaseServiceAccount: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_PORTFOLIO_F2684 }}
-          projectId: portfolio-f2684
+          firebaseServiceAccount: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_PORTFOLIO_ATHREYA_CODES }}
+          projectId: portfolio-athreya-codes
           channelId: live
 
       - name: Notify IndexNow

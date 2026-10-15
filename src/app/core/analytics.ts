@@ -2,7 +2,7 @@ import { DOCUMENT, Injectable, PLATFORM_ID, inject } from '@angular/core';
 import { isPlatformBrowser } from '@angular/common';
 
 /**
- * GA4 measurement ID (`G-XXXXXXXXXX`) for the `portfolio-f2684` project.
+ * GA4 measurement ID (`G-XXXXXXXXXX`) for the `portfolio-athreya-codes` project.
  * Empty string keeps analytics off and ships no tag code at all.
  */
 export const GA_MEASUREMENT_ID = '';

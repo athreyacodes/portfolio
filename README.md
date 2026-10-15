@@ -1,6 +1,6 @@
 # Athreya M R
 
-Personal site of **Athreya M R**, a Front-end Architect in Bangalore. Live at [athreya.codes](https://athreya.codes).
+Personal site of **Athreya M R**, a Front-end Architect in Bangalore. Live at [athreya.codes](https://athreya.codes). Firebase Hosting project: `portfolio-athreya-codes`.
 
 I have been building Angular products since 2015. Today I work at [Mimecast](https://www.mimecast.com/) as a Senior Software Engineer on a next-gen email security platform — Angular, micro frontends, and an Nx monorepo. Before that I was a Product Engineer at [Enate](https://www.enate.io/), leading a front-end team on a micro-frontend product, and a Software Engineer at [Mphasis](https://www.mphasis.com/) building Angular apps for FedEx.
 
