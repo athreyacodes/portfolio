@@ -113,8 +113,8 @@
     inset-block-start: auto;
     inset-block-end: 0;
     align-items: flex-end;
-    min-block-size: calc(6.5rem + env(safe-area-inset-bottom, 0px));
-    padding-block: 2.25rem max(1.15rem, env(safe-area-inset-bottom));
+    min-block-size: calc(4.5rem + env(safe-area-inset-bottom, 0px));
+    padding-block: 1.5rem max(1.15rem, env(safe-area-inset-bottom));
     padding-inline: max(1.15rem, env(safe-area-inset-left)) max(1.15rem, env(safe-area-inset-right));
   }
 
@@ -124,6 +124,7 @@
     border-radius: var(--radius-md);
   }
 
+  /* Section nav icons are desktop-only; mobile keeps the menu FAB. */
   .nav-crumbs {
     display: none;
   }
