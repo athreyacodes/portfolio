@@ -1,0 +1,12 @@
+{
+  "name": "portfolio",
+  "install": ". .cursor/use-node.sh && npm ci",
+  "terminals": [
+    {
+      "name": "dev-server",
+      "command": ". .cursor/use-node.sh && npx ng serve --host 0.0.0.0 --port 4200",
+      "description": "Angular dev server for portfolio on http://localhost:4200"
+    }
+  ],
+  "ports": [{ "name": "web", "port": 4200 }]
+}
