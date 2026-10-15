@@ -42,3 +42,7 @@ A lightweight utility-first CSS library with theming. This portfolio uses it for
 
 - Repo: [github.com/athreyacodes/layers-ui](https://github.com/athreyacodes/layers-ui)
 - Hosted: 
+
+## Next
+
+Open work for this repo: [docs/next.md](docs/next.md).
