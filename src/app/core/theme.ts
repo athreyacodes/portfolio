@@ -28,7 +28,11 @@ export class ThemeService {
       return;
     }
 
-    this.apply(this.initialTheme());
+    const mode = this.initialTheme();
+    this.apply(mode);
+    if (this.readCookie() ?? this.readStoredTheme()) {
+      this.persist(mode);
+    }
   }
 
   private initialTheme(): ThemeMode {
@@ -36,7 +40,7 @@ export class ThemeService {
       return 'light';
     }
 
-    const stored = this.readStoredTheme();
+    const stored = this.readCookie() ?? this.readStoredTheme();
     return stored ?? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
   }
 
@@ -97,5 +101,16 @@ export class ThemeService {
     } catch {
       /* storage unavailable (private mode) — preference is simply not remembered */
     }
+
+    const hostname = this.document.location.hostname;
+    const domain =
+      hostname === 'athreya.codes' || hostname.endsWith('.athreya.codes') ? '; Domain=.athreya.codes' : '';
+    const secure = this.document.location.protocol === 'https:' ? '; Secure' : '';
+    this.document.cookie = `${STORAGE_KEY}=${mode}; Path=/; Max-Age=31536000; SameSite=Lax${domain}${secure}`;
+  }
+
+  private readCookie(): ThemeMode | null {
+    const match = this.document.cookie.match(/(?:^|; )portfolio\.theme=(light|dark)(?:;|$)/);
+    return match?.[1] === 'light' || match?.[1] === 'dark' ? match[1] : null;
   }
 }

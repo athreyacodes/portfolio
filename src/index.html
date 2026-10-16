@@ -57,7 +57,8 @@
   <script>
     (function () {
       try {
-        var stored = localStorage.getItem('portfolio.theme');
+        var match = document.cookie.match(/(?:^|; )portfolio\.theme=(light|dark)(?:;|$)/);
+        var stored = match ? match[1] : localStorage.getItem('portfolio.theme');
         var dark = stored ? stored === 'dark' : window.matchMedia('(prefers-color-scheme: dark)').matches;
         document.documentElement.classList.toggle('theme-dark', dark);
         document.documentElement.style.colorScheme = dark ? 'dark' : 'light';
